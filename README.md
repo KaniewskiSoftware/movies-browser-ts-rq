@@ -17,6 +17,7 @@ This site allows you to browse the most popular movies and actors from the publi
 ## API Source
 
 [![TMDB](tmdblogo.png)](https://www.themoviedb.org/)
+
 ## Technologies
 
 - React
