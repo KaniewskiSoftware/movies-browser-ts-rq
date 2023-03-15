@@ -29,8 +29,8 @@ const common = {
 export const theme = {
   ...common,
   colors: {
-    primaryText: colorNames.woodSmoke,
     site: {
+      primaryText: colorNames.woodSmoke,
       background: colorNames.whisper,
     },
     header: {
