@@ -10,9 +10,9 @@ This site allows you to browse the most popular movies and actors from the publi
 
 [MoviesBrowserTS-RQ](https://kaniewskisoftware.github.io/movies-browser-ts-rq/)
 
-## Preview
+<!-- ## Preview
 
-!["Preview of the page"](animation.gif)
+!["Preview of the page"](animation.gif) -->
 
 ## API Source
 
