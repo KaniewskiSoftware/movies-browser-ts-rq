@@ -26,7 +26,7 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 14px;
   line-height: 21px;
   font-weight: 600;
-  padding: 8px 24px;
+  padding: 13px 24px;
 
   &.active {
     border: 1px solid ${({ theme }) => theme.colors.header.primary};
