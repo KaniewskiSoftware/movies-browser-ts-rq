@@ -2,18 +2,12 @@ import styled from "styled-components";
 
 export const InputWrapper = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
   height: 48px;
   width: 432px;
   border: 1px solid ${({ theme }) => theme.colors.header.inputBorder};
   border-radius: 33px;
-  margin: 23px;
   background-color: ${({ theme }) => theme.colors.header.primary};
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    margin: 10px;
-  }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 288px;

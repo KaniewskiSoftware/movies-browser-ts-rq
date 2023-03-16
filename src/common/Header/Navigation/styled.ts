@@ -3,16 +3,15 @@ import styled from "styled-components";
 
 export const Nav = styled.nav`
   display: flex;
-  flex-direction: row;
-  align-items: center;
 `;
 
 export const List = styled.ul`
   display: flex;
+  margin: 0;
+  padding: 0;
   justify-content: center;
   gap: 10px;
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    padding: 0px;
     gap: 6px;
   }
 `;
