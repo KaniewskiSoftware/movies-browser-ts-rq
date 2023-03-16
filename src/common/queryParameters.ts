@@ -1,15 +1,17 @@
 import { useLocation, useSearchParams } from "react-router-dom";
 
-interface ReplaceQueryParameterProps {
+type UseQueryParameterFunction = (key: string) => string | null;
+
+type ReplaceQueryParameterProps = {
   key: string;
   value: string | null;
-}
+};
 
-interface UseReplaceQueryParameterFunction {
-  (): (props: ReplaceQueryParameterProps) => void; //returns function, the returned function gets props with type ReplaceQuery... and returns void.
-}
+type UseReplaceQueryParameterFunction = () => (
+  props: ReplaceQueryParameterProps
+) => void; //returns function, the returned function gets props with the ReplaceQuery... type and returns void.
 
-export const useQueryParameter = (key: string): string | null => {
+export const useQueryParameter: UseQueryParameterFunction = (key) => {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   return searchParams.get(key);
