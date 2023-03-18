@@ -6,7 +6,7 @@ interface KnownForMovie {
   original_title?: string;
   genre_ids?: number[];
   id?: number;
-  media_type: "movie";
+  media_type: "movies";
   original_language?: string;
   title?: string;
   backdrop_path?: string | null;
