@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Tiles = styled.div`
+export const MovieTiles = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 24px;
