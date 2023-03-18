@@ -32,5 +32,5 @@ export const useGenres = () => {
     ? convertGenresArrayToObject(query.data.genres)
     : {};
 
-  return genresObject;
+  return { ...query, data: { ...query.data, genres: genresObject } };
 };
