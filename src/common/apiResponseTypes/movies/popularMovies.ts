@@ -1,4 +1,4 @@
-interface MovieListResult {
+export interface MovieListResult {
   poster_path?: string | null;
   adult?: boolean;
   overview?: string;

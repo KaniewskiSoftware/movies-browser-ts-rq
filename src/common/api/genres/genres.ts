@@ -4,7 +4,7 @@ import { apiLink } from "../parameters/apiLink";
 import { apiKey } from "../parameters/apiKey";
 import { Genre, GenresResponse } from "../../apiResponseTypes/genres/genres";
 
-type GenresObject = {
+export type GenresObject = {
   [id: number]: string;
 };
 
