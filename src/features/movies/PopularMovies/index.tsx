@@ -4,7 +4,6 @@ import { MovieTiles } from "../../../common/Movies/Essentials";
 
 const PopularMoviesPage = () => {
   const { data, isLoading, error } = useGenres();
-  console.log(data);
 
   return <h1>Hi</h1>;
 };
