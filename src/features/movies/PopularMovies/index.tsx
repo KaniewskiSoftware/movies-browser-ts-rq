@@ -2,11 +2,18 @@ import { useGenres } from "../../../common/api/genres/genres";
 import { usePopularMovies } from "../../../common/api/movies/popularMovies";
 import MovieTile from "../../../common/Movies";
 import { MovieTiles } from "../../../common/Movies/Essentials";
+import {
+  searchQueryParamName,
+  useQueryParameter,
+} from "../../../common/queryParameters";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
+import Title from "../../../common/Title";
+import { Wrapper } from "../../../common/Wrapper";
 
 const PopularMoviesPage = () => {
   const page = 1;
+  const query = useQueryParameter(searchQueryParamName);
   const {
     data: genres, // it's usage is simplified by conversion to object inside the hook.
     // error: genresError,
@@ -35,23 +42,33 @@ const PopularMoviesPage = () => {
 
   if (popularMoviesData.results && genres) {
     const { results: movies } = popularMoviesData;
+    const { total_results: totalResults } = popularMoviesData;
 
     return (
-      <MovieTiles>
-        {movies.map((movie) => (
-          <MovieTile
-            key={movie.id}
-            id={movie.id}
-            path={movie.poster_path}
-            title={movie.title}
-            release={movie.release_date}
-            genre_ids={movie.genre_ids}
-            genres={genres}
-            vote={movie.vote_average}
-            vote_amount={movie.vote_count}
-          />
-        ))}
-      </MovieTiles>
+      <Wrapper>
+        <Title
+          title={
+            !query
+              ? "Popular movies"
+              : `Search results for "${query}" (${totalResults})`
+          }
+        />
+        <MovieTiles>
+          {movies.map((movie) => (
+            <MovieTile
+              key={movie.id}
+              id={movie.id}
+              path={movie.poster_path}
+              title={movie.title}
+              release={movie.release_date}
+              genre_ids={movie.genre_ids}
+              genres={genres}
+              vote={movie.vote_average}
+              vote_amount={movie.vote_count}
+            />
+          ))}
+        </MovieTiles>
+      </Wrapper>
     );
   }
 
