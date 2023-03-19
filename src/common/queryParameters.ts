@@ -2,14 +2,14 @@ import { useLocation, useSearchParams } from "react-router-dom";
 
 type UseQueryParameterFunction = (key: string) => number | string | null; // Returns number while used with Pagination
 
-type ReplaceQueryParameterProps = {
+interface ReplaceQueryParameterProps {
   key: string;
   value: string | null;
-};
+}
 
 type UseReplaceQueryParameterFunction = () => (
   props: ReplaceQueryParameterProps
-) => void; //returns function, the returned function gets props with the ReplaceQuery... type and returns void.
+) => void; //returns function, the returned function gets props with the ReplaceQueryParameterProps type and returns void.
 
 export const useQueryParameter: UseQueryParameterFunction = (key) => {
   const location = useLocation();
