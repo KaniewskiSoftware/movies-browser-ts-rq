@@ -6,7 +6,7 @@ import { apiLanguage } from "../parameters/apiLanguage";
 import { PopularMoviesResponse } from "../../apiResponseTypes/movies/popularMovies";
 
 const fetchPopularMovies = async (
-  page: string
+  page: number
 ): Promise<PopularMoviesResponse> => {
   const response = await axios.get(
     `${apiLink}/movie/popular${apiKey}&page=${page}${apiLanguage}`
@@ -14,7 +14,7 @@ const fetchPopularMovies = async (
   return response.data;
 };
 
-export const usePopularMovies = (page: string) => {
+export const usePopularMovies = (page: number) => {
   return useQuery(["popularMovies", page], () => fetchPopularMovies(page), {
     enabled: !!page,
   });
