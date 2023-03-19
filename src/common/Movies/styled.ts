@@ -24,7 +24,7 @@ export const Tile = styled.article`
   padding: 16px;
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.colors.tile.background};
-  color: ${({ theme }) => theme.colors.primaryText};
+  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: row;
@@ -69,7 +69,7 @@ export const Content = styled.div`
   flex-direction: column;
   height: 100%;
   gap: 8px;
-  color: ${({ theme }) => theme.colors.primaryText};
+  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 100%;

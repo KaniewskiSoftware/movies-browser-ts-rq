@@ -22,7 +22,7 @@ const BiggerText = styled.div`
   font-size: 36px;
   line-height: 120%;
   text-align: center;
-  color: ${({ theme }) => theme.colors.primaryText};
+  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 14px;
@@ -35,7 +35,7 @@ const Text = styled.div`
   font-size: 22px;
   line-height: 130%;
   text-align: center;
-  color: ${({ theme }) => theme.colors.primaryText};
+  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 10px;

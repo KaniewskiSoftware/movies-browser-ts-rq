@@ -45,7 +45,7 @@ export const FullName = styled.p`
   font-weight: 500;
   font-size: 22px;
   line-height: 1.3;
-  color: ${({ theme }) => theme.colors.primaryText};
+  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 14px;

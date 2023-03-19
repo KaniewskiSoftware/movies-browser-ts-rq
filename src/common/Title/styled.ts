@@ -11,7 +11,7 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
   line-height: 120%;
   margin-top: ${({ $credits }) => ($credits ? "64px" : "56px")};
   margin-bottom: 24px;
-  color: ${({ theme }) => theme.colors.primaryText};
+  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 28px;
