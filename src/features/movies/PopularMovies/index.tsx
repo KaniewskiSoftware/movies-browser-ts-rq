@@ -15,7 +15,7 @@ const PopularMoviesPage = () => {
   const page = 1;
   const query = useQueryParameter(searchQueryParamName);
   const {
-    data: genres, // it's usage is simplified by conversion to object inside the hook.
+    data: genresData,
     // error: genresError,
     isLoading: genresLoading,
     isError: genresIsError,
@@ -36,12 +36,13 @@ const PopularMoviesPage = () => {
     return <Loader />;
   }
 
-  if (isError || !genres || !popularMoviesData) {
+  if (isError || !genresData || !popularMoviesData) {
     return <ErrorPage />;
   }
 
-  if (popularMoviesData.results && genres) {
+  if (popularMoviesData.results && genresData.genres) {
     const { results: movies } = popularMoviesData;
+    const { genres: genres} = genresData;
     const { total_results: totalResults } = popularMoviesData;
 
     return (
