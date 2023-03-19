@@ -6,7 +6,7 @@ import { apiLanguage } from "../parameters/apiLanguage";
 import { PopularPeopleResponse } from "../../apiResponseTypes/people/popularPeople";
 
 const fetchPopularPeople = async (
-  page: string
+  page: number
 ): Promise<PopularPeopleResponse> => {
   const response = await axios.get(
     `${apiLink}/person/popular${apiKey}&page=${page}${apiLanguage}`
@@ -14,7 +14,7 @@ const fetchPopularPeople = async (
   return response.data;
 };
 
-export const usePopularPeople = (page: string) => {
+export const usePopularPeople = (page: number) => {
   return useQuery(["popularPeople", page], () => fetchPopularPeople(page), {
     enabled: !!page,
   });
