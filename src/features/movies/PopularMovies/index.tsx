@@ -42,8 +42,6 @@ const PopularMoviesPage = () => {
 
   if (popularMoviesData.results && genresData.genres) {
     const { results: movies } = popularMoviesData;
-    const { genres: genres} = genresData;
-    const { total_results: totalResults } = popularMoviesData;
 
     return (
       <Wrapper>
@@ -51,7 +49,7 @@ const PopularMoviesPage = () => {
           title={
             !query
               ? "Popular movies"
-              : `Search results for "${query}" (${totalResults})`
+              : `Search results for "${query}" (${popularMoviesData.total_results})`
           }
         />
         <MovieTiles>
@@ -63,7 +61,7 @@ const PopularMoviesPage = () => {
               title={movie.title}
               release={movie.release_date}
               genre_ids={movie.genre_ids}
-              genres={genres}
+              genres={genresData.genres}
               vote={movie.vote_average}
               vote_amount={movie.vote_count}
             />
