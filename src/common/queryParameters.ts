@@ -31,3 +31,4 @@ export const useReplaceQueryParameter: UseReplaceQueryParameterFunction =
   };
 
 export const searchQueryParamName = "search";
+export const pageQueryParamName = "page";
