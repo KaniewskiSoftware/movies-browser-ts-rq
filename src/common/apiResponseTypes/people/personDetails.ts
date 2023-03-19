@@ -13,4 +13,4 @@ export interface PersonDetailsResponse {
   adult?: boolean;
   imdb_id?: string;
   homepage?: string | null;
-};
+}

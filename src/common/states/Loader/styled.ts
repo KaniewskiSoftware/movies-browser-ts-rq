@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 import { ReactComponent as spinner } from "./icon-spinner.svg";
 
 interface SpinnerBoxProps {
@@ -14,11 +14,11 @@ const SpinnerBox = styled.div<SpinnerBoxProps>`
   display: grid;
   justify-content: center;
   align-items: center;
-  margin-top: ${({ $hasTitle }) => $hasTitle ? "96px" : "219px"};
+  margin-top: ${({ $hasTitle }) => ($hasTitle ? "96px" : "219px")};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    margin-top: ${({ $hasTitle }) => $hasTitle ? "24px" : "66px"};
-  };
+    margin-top: ${({ $hasTitle }) => ($hasTitle ? "24px" : "66px")};
+  } ;
 `;
 
 const rotation = keyframes` 
@@ -34,7 +34,7 @@ const Spinner = styled(spinner)`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 24px;
-  };
+  } ;
 `;
 
 export { Spinner, SpinnerBox, Wrapper };

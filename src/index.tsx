@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./core/App";
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-        <ReactQueryDevtools/>
+      <ReactQueryDevtools />
       <App />
     </QueryClientProvider>
   </React.StrictMode>

@@ -12,7 +12,7 @@ interface Color {
 }
 
 interface Colors {
-  readonly [index: string]: Color ;
+  readonly [index: string]: Color;
 }
 
 declare module "styled-components" {

@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
   gap: 80px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    gap: 30px
+    gap: 30px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {

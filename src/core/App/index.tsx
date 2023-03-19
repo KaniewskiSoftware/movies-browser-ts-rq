@@ -15,12 +15,11 @@ function App() {
       <HashRouter>
         <Header />
         <Routes>
-        <Route path={toMovies} element={<PopularMoviesPage />} />
-        <Route path={"*"} element={<Navigate replace to={toMovies} />} />
+          <Route path={toMovies} element={<PopularMoviesPage />} />
+          <Route path={"*"} element={<Navigate replace to={toMovies} />} />
         </Routes>
       </HashRouter>
     </ThemeProvider>
-    
   );
 }
 

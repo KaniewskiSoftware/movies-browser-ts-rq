@@ -14,7 +14,7 @@ const PlaneBox = styled.div`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     margin-top: 6px;
-  };
+  } ;
 `;
 
 const Plane = styled(paperPlane)`
@@ -24,7 +24,7 @@ const Plane = styled(paperPlane)`
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 176px;
     height: 134px;
-  };
+  } ;
 `;
 
 export { Wrapper, PlaneBox, Plane };
