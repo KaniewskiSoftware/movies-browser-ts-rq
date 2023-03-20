@@ -1,13 +1,11 @@
 import { useReplaceQueryParameter } from "./queryParameters";
 
-type UsePaginationType = (props: { page: number; lastPageNumber: number }) => {
-  firstPage: () => void;
-  nextPage: () => void;
-  prevPage: () => void;
-  lastPage: () => void;
-};
+interface UsePaginationProps {
+  page: number;
+  lastPageNumber: number;
+}
 
-export const usePagination: UsePaginationType = ({ page, lastPageNumber }) => {
+export const usePagination = ({ page, lastPageNumber }: UsePaginationProps) => {
   const replaceQueryParameter = useReplaceQueryParameter();
   const setPage = (page: number) => {
     replaceQueryParameter({
@@ -31,3 +29,5 @@ export const usePagination: UsePaginationType = ({ page, lastPageNumber }) => {
 
   return { firstPage, nextPage, prevPage, lastPage };
 };
+
+export type UsePaginationType = ReturnType<typeof usePagination>
