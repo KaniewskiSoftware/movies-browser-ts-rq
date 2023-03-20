@@ -1,13 +1,10 @@
 import {
-  useQueryParameter,
   useReplaceQueryParameter,
 } from "../queryParameters";
 import Button from "./Button";
 import { Counter, Span, Wrapper } from "./styled";
 
-const Footer = ({ totalPages }: { totalPages: number }) => {
-  const queryparam = useQueryParameter("page");
-  const page = queryparam ? +queryparam : 1;
+const Footer = ({ totalPages, page }: { totalPages: number; page: number }) => {
   const lastPageNumber = totalPages > 500 ? 500 : totalPages; // api doesn't return data from pages over 500
 
   const replaceQueryParameter = useReplaceQueryParameter();
