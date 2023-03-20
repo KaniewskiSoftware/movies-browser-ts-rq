@@ -1,6 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./core/App";
 import reportWebVitals from "./reportWebVitals";
@@ -10,7 +9,8 @@ const minuteInMiliSeconds = 1000 * 60;
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: minuteInMiliSeconds * 10
+      staleTime: minuteInMiliSeconds * 10,
+      refetchOnReconnect: true,
     }
   }
 });
