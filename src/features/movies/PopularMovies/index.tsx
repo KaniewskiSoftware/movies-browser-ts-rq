@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGenres } from "../../../common/api/genres/genres";
 import { usePopularMovies } from "../../../common/api/movies/popularMovies";
+import { useMoviesByQuery } from "../../../common/api/search/moviesByQuery";
 import Footer from "../../../common/Footer";
 import {
   pageQueryParamName,
@@ -9,6 +10,7 @@ import {
 } from "../../../common/hooks/queryParameters";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
+import NoResults from "../../../common/states/NoResults";
 import PopularMoviesPageContent from "./Content";
 
 const PopularMoviesPage = () => {
@@ -32,6 +34,12 @@ const PopularMoviesPage = () => {
     isError: popularMoviesIsError,
   } = usePopularMovies(page);
 
+  // const {
+  //   data: moviesByQueryData,
+  //   isLoading: moviesByQueryLoading,
+  //   isError: moviesByQueryError,
+  // } = useMoviesByQuery(query, page);
+
   const isLoading = popularMoviesLoading || genresLoading;
   const isError = popularMoviesIsError || genresIsError;
 
@@ -43,7 +51,9 @@ const PopularMoviesPage = () => {
     return <ErrorPage />;
   }
 
-  return (
+  return popularMoviesData.total_results ? (
+    <NoResults />
+  ) : (
     <>
       <PopularMoviesPageContent
         genres={genresData.genres}
