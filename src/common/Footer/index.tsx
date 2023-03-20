@@ -1,4 +1,3 @@
-import { useReplaceQueryParameter } from "../hooks/queryParameters";
 import { usePagination } from "../hooks/usePagination";
 import Button from "./Button";
 import { Counter, Span, Wrapper } from "./styled";
@@ -10,10 +9,10 @@ interface FooterProps {
 
 const Footer = ({ totalPages, page }: FooterProps) => {
   const lastPageNumber = totalPages > 500 ? 500 : totalPages; // api doesn't return data from pages over 500
-  const { firstPage, nextPage, prevPage, lastPage } = usePagination(
+  const { firstPage, nextPage, prevPage, lastPage } = usePagination({
     page,
-    lastPageNumber
-  );
+    lastPageNumber,
+  });
 
   return (
     <Wrapper>
