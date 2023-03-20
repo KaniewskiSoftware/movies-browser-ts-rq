@@ -12,7 +12,7 @@ interface PersonProps {
   path?: string;
   name?: string;
   role?: string;
-  id: string;
+  id: number;
 }
 
 const Person = ({ path, name, role, id }: PersonProps) => (
