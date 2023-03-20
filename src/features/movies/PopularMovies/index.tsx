@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useGenres } from "../../../common/api/genres/genres";
 import { usePopularMovies } from "../../../common/api/movies/popularMovies";
 import Footer from "../../../common/Footer";
@@ -16,12 +17,12 @@ import { Wrapper } from "../../../common/Wrapper";
 const PopularMoviesPage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
   const query = useQueryParameter(searchQueryParamName);
-  let page: number;
+  const [page, setPage] = useState(1);
 
   if (pageParam) {
-    page = +pageParam;
+    setPage(+pageParam);
   } else {
-    page = 1;
+    setPage(1);
   }
 
   const {
@@ -79,6 +80,7 @@ const PopularMoviesPage = () => {
         totalPages={
           popularMoviesData.total_pages ? popularMoviesData.total_pages : 1
         }
+        page={page}
       />
     </>
   );
