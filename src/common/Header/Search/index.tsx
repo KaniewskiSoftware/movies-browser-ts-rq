@@ -2,7 +2,7 @@ import {
   searchQueryParamName,
   useQueryParameter,
   useReplaceQueryParameter,
-} from "../../queryParameters";
+} from "../../hooks/queryParameters";
 import svg from "./Search.svg";
 import { Input, InputWrapper, Loupe } from "./styled";
 import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
