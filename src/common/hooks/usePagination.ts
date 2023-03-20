@@ -1,16 +1,13 @@
 import { useReplaceQueryParameter } from "./queryParameters";
 
-type UsePaginationType = (
-  page: number,
-  lastPageNumber: number
-) => {
+type UsePaginationType = (props: { page: number; lastPageNumber: number }) => {
   firstPage: () => void;
   nextPage: () => void;
   prevPage: () => void;
   lastPage: () => void;
 };
 
-export const usePagination: UsePaginationType = (page, lastPageNumber) => {
+export const usePagination: UsePaginationType = ({ page, lastPageNumber }) => {
   const replaceQueryParameter = useReplaceQueryParameter();
   const setPage = (page: number) => {
     replaceQueryParameter({
