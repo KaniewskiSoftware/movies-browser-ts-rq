@@ -1,6 +1,6 @@
 import { Plane, PlaneBox, Wrapper } from "./styled";
 import Title from "../../Title";
-import { searchQueryParamName, useQueryParameter } from "../../queryParameters";
+import { searchQueryParamName, useQueryParameter } from "../../hooks/queryParameters";
 const NoResults = () => {
   const query = useQueryParameter(searchQueryParamName);
 
