@@ -30,4 +30,4 @@ export const usePagination = ({ page, lastPageNumber }: UsePaginationProps) => {
   return { firstPage, nextPage, prevPage, lastPage };
 };
 
-export type UsePaginationType = ReturnType<typeof usePagination>
+export type UsePaginationType = ReturnType<typeof usePagination>;
