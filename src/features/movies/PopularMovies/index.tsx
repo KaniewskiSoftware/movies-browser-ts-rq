@@ -1,29 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGenres } from "../../../common/api/genres/genres";
 import { usePopularMovies } from "../../../common/api/movies/popularMovies";
 import Footer from "../../../common/Footer";
-import MovieTile from "../../../common/Movies";
-import { MovieTiles } from "../../../common/Movies/Essentials";
 import {
   pageQueryParamName,
   searchQueryParamName,
   useQueryParameter,
-} from "../../../common/queryParameters";
+} from "../../../common/hooks/queryParameters";
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
-import Title from "../../../common/Title";
-import { Wrapper } from "../../../common/Wrapper";
+import PopularMoviesPageContent from "./Content";
 
 const PopularMoviesPage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
   const query = useQueryParameter(searchQueryParamName);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState<number>(pageParam ? +pageParam : 1);
 
-  if (pageParam) {
-    setPage(+pageParam);
-  } else {
-    setPage(1);
-  }
+  useEffect(() => {
+    setPage(pageParam ? +pageParam : 1);
+  }, [pageParam]);
 
   const {
     data: genresData,
@@ -48,40 +43,15 @@ const PopularMoviesPage = () => {
     return <ErrorPage />;
   }
 
-  const { results: movies } = popularMoviesData;
-
   return (
     <>
-      <Wrapper>
-        <Title
-          title={
-            !query
-              ? "Popular movies"
-              : `Search results for "${query}" (${popularMoviesData.total_results})`
-          }
-        />
-        <MovieTiles>
-          {movies.map((movie) => (
-            <MovieTile
-              key={movie.id}
-              id={movie.id}
-              path={movie.poster_path}
-              title={movie.title}
-              release={movie.release_date}
-              genre_ids={movie.genre_ids}
-              genres={genresData.genres}
-              vote={movie.vote_average}
-              vote_amount={movie.vote_count}
-            />
-          ))}
-        </MovieTiles>
-      </Wrapper>
-      <Footer
-        totalPages={
-          popularMoviesData.total_pages ? popularMoviesData.total_pages : 1
-        }
-        page={page}
+      <PopularMoviesPageContent
+        genres={genresData.genres}
+        movies={popularMoviesData.results}
+        query={query}
+        totalResults={popularMoviesData.total_results!}
       />
+      <Footer totalPages={popularMoviesData.total_pages ?? 1} page={page} />
     </>
   );
 };
