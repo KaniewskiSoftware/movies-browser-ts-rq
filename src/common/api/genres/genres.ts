@@ -25,7 +25,7 @@ const convertGenresArrayToObject = (genres: Genre[]): GenresObject =>
   }, {});
 
 export const useGenres = () => {
-  const query = useQuery(["genres"], fetchGenres, { staleTime: Infinity }); // staleTime set to Infinity since the genres are always the same, no need to refetch them.
+  const query = useQuery(["genres"], fetchGenres, { refetchOnMount: false }); // staleTime set to Infinity since the genres are always the same, no need to refetch them.
 
   const genresObject = query.data?.genres
     ? convertGenresArrayToObject(query.data.genres)

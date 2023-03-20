@@ -10,9 +10,9 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: minuteInMiliSeconds * 10,
-      refetchOnReconnect: true,
-    }
-  }
+      refetchOnWindowFocus: false,
+    },
+  },
 });
 
 const root = ReactDOM.createRoot(
