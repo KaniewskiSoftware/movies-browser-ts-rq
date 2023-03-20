@@ -5,7 +5,15 @@ import ReactDOM from "react-dom/client";
 import App from "./core/App";
 import reportWebVitals from "./reportWebVitals";
 
-const queryClient = new QueryClient();
+const minuteInMiliSeconds = 1000 * 60;
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: minuteInMiliSeconds * 10
+    }
+  }
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
