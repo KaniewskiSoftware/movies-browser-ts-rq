@@ -51,7 +51,7 @@ const PopularMoviesPage = () => {
     return <ErrorPage />;
   }
 
-  return popularMoviesData.total_results ? (
+  return !popularMoviesData.total_results ? (
     <NoResults />
   ) : (
     <>
