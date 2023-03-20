@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { apiLink } from "../parameters/apiLink";
-import { apiKey } from "../parameters/apiKey";
-import { apiLanguage } from "../parameters/apiLanguage";
 import { PopularPeopleResponse } from "../../apiResponseTypes/people/popularPeople";
+import { apiKey, apiLanguage, apiLink } from "../parameters/config";
 
 const fetchPopularPeople = async (
   page: number

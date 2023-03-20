@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { apiLink } from "../parameters/apiLink";
-import { apiKey } from "../parameters/apiKey";
-import { apiLanguage } from "../parameters/apiLanguage";
 import { PopularMoviesResponse } from "../../apiResponseTypes/movies/popularMovies";
+import { apiKey, apiLanguage, apiLink } from "../parameters/config";
 
 const fetchPopularMovies = async (
   page: number
@@ -17,5 +15,6 @@ const fetchPopularMovies = async (
 export const usePopularMovies = (page: number) => {
   return useQuery(["popularMovies", page], () => fetchPopularMovies(page), {
     enabled: !!page,
+    keepPreviousData: true,
   });
 };

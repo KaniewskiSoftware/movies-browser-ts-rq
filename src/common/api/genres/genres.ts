@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { apiLink } from "../parameters/apiLink";
-import { apiKey } from "../parameters/apiKey";
 import { Genre, GenresResponse } from "../../apiResponseTypes/genres/genres";
+import { apiKey, apiLink } from "../parameters/config";
 
 export type GenresObject = {
   [id: number]: string;
