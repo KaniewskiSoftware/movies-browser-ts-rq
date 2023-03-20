@@ -35,7 +35,7 @@ interface KnownForTV {
 
 type KnownFor = KnownForMovie | KnownForTV;
 
-interface PeopleListResult {
+export interface PeopleListResult {
   profile_path?: string;
   adult?: boolean;
   id?: number;
