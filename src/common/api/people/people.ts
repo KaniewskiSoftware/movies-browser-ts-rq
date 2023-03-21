@@ -13,7 +13,9 @@ const fetchPeopleByQuery = async (
 };
 
 const fetchPopularPeople = async (page: number): Promise<PeopleResponse> => {
-  const response = await axiosInstance.get("/person/popular", { params: page });
+  const response = await axiosInstance.get("/person/popular", {
+    params: { page },
+  });
   return response.data;
 };
 

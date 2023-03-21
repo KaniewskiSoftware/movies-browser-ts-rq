@@ -14,7 +14,7 @@ const fetchMoviesByQuery = async (
 
 const fetchPopularMovies = async (page: number): Promise<MoviesResponse> => {
   const response = await axiosInstance.get("/movie/popular", {
-    params: page,
+    params: { page },
   });
   return response.data;
 };
