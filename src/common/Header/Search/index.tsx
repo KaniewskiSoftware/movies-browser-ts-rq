@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
 import {
   searchQueryParamName,
-  useReplaceQueryParameter,
 } from "../../hooks/queryParameters";
 import { debounce } from "../../debounce";
 import { toMovie, toMovies, toPeople, toPerson } from "../../routes";
@@ -11,20 +10,12 @@ import { Input, InputWrapper, Loupe } from "./styled";
 
 const Search = () => {
   const location = useLocation();
-  const replaceQueryParameter = useReplaceQueryParameter();
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     if (!location.search) setInputValue("");
   }, [location.search]);
-
-  const setPage = (page: string): void => {
-    replaceQueryParameter({
-      key: "page",
-      value: page,
-    });
-  };
 
   const debouncedNavigate = useRef(
     debounce((value: string, currentPath: string) => {
@@ -41,12 +32,6 @@ const Search = () => {
           search: createSearchParams({
             [searchQueryParamName]: value,
           }).toString(),
-        });
-      } else {
-        setPage("1");
-        replaceQueryParameter({
-          key: searchQueryParamName,
-          value: value.trim() !== "" ? value : "",
         });
       }
     }, 500)
