@@ -1,12 +1,9 @@
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { MovieDetailsResponse } from "../../apiResponseTypes/movies/movieDetails";
-import { apiKey, apiLanguage, apiLink } from "../parameters/config";
+import { axiosInstance } from "../axiosInstance";
 
 const fetchMovieDetails = async (id: string): Promise<MovieDetailsResponse> => {
-  const response = await axios.get(
-    `${apiLink}/movie/${id}${apiKey}${apiLanguage}`
-  );
+  const response = await axiosInstance.get(`/movie/${id}`);
   return response.data;
 };
 

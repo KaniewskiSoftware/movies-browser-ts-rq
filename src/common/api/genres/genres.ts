@@ -1,14 +1,13 @@
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Genre, GenresResponse } from "../../apiResponseTypes/genres/genres";
-import { apiKey, apiLink } from "../parameters/config";
+import { axiosInstance } from "../axiosInstance";
 
 export type GenresObject = {
   [id: number]: string;
 };
 
 const fetchGenres = async (): Promise<GenresResponse> => {
-  const response = await axios.get(`${apiLink}/genre/movie/list${apiKey}`);
+  const response = await axiosInstance.get("/genre/movie/list");
   return response.data;
 };
 

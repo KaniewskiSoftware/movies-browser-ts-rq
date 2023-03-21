@@ -1,22 +1,21 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { MoviesResponse } from "../../apiResponseTypes/movies/movies";
-import { apiKey, apiLanguage, apiLink } from "../parameters/config";
+import { axiosInstance } from "../axiosInstance";
 
 const fetchMoviesByQuery = async (
   query: string,
   page: number
 ): Promise<MoviesResponse> => {
-  const response = await axios.get(
-    `${apiLink}/search/movie${apiKey}${apiLanguage}&query=${query}&page=${page}`
-  );
+  const response = await axiosInstance.get("/search/movie", {
+    params: { query, page },
+  });
   return response.data;
 };
 
 const fetchPopularMovies = async (page: number): Promise<MoviesResponse> => {
-  const response = await axios.get(
-    `${apiLink}/movie/popular${apiKey}&page=${page}${apiLanguage}`
-  );
+  const response = await axiosInstance.get("/movie/popular", {
+    params: page,
+  });
   return response.data;
 };
 

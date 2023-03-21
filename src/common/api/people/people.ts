@@ -1,22 +1,19 @@
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { PeopleResponse } from "../../apiResponseTypes/people/popularPeople";
-import { apiKey, apiLanguage, apiLink } from "../parameters/config";
+import { axiosInstance } from "../axiosInstance";
 
 const fetchPeopleByQuery = async (
   query: string,
   page: number
 ): Promise<PeopleResponse> => {
-  const response = await axios.get(
-    `${apiLink}/search/person${apiKey}${apiLanguage}&query=${query}&page=${page}`
-  );
+  const response = await axiosInstance.get("/search/person", {
+    params: { query, page },
+  });
   return response.data;
 };
 
 const fetchPopularPeople = async (page: number): Promise<PeopleResponse> => {
-  const response = await axios.get(
-    `${apiLink}/person/popular${apiKey}&page=${page}${apiLanguage}`
-  );
+  const response = await axiosInstance.get("/person/popular", { params: page });
   return response.data;
 };
 

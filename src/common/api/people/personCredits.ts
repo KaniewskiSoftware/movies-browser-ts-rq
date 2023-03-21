@@ -1,13 +1,12 @@
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { PersonCreditsResponse } from "../../apiResponseTypes/people/personCredits";
-import { apiKey, apiLanguage, apiLink } from "../parameters/config";
+import { axiosInstance } from "../axiosInstance";
 
 const fetchPersonCredits = async (
   id: string
 ): Promise<PersonCreditsResponse> => {
-  const response = await axios.get(
-    `${apiLink}/person/${id}/movie_credits${apiKey}${apiLanguage}`
+  const response = await axiosInstance.get(
+    `/person/${id}/movie_credits`
   );
   return response.data;
 };
