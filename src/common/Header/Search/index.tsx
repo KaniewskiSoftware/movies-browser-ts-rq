@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
 import {
   searchQueryParamName,
@@ -58,15 +58,18 @@ const Search = () => {
     debouncedNavigate.current(value, location.pathname);
   };
 
+  const placeholderText = useMemo(() => {
+    return location.pathname.includes("people")
+      ? "Search for people..."
+      : "Search for movies...";
+  }, [location.pathname]);
+
   return (
     <InputWrapper>
       <Loupe src={svg} alt="Loupe" />
       <Input
-        placeholder={
-          location.pathname.includes("people")
-            ? "Search for people..."
-            : "Search for movies..."
-        }
+        aria-label="Search for movies or people"
+        placeholder={placeholderText}
         value={inputValue}
         onChange={onInputChange}
       />
