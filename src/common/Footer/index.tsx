@@ -9,32 +9,33 @@ interface FooterProps {
 
 const Footer = ({ totalPages, page }: FooterProps) => {
   const lastPageNumber = totalPages > 500 ? 500 : totalPages; // api doesn't return data from pages over 500
-  const { firstPage, nextPage, prevPage, lastPage } = usePagination({
-    page,
-    lastPageNumber,
-  });
+  const { goToFirstPage, goToNextPage, goToPreviousPage, goToLastPage } =
+    usePagination({
+      page,
+      lastPageNumber,
+    });
 
   return (
     <Wrapper>
       <Button
         disabled={page === 1}
-        onClick={firstPage}
+        onClick={goToFirstPage}
         title="First"
         mobile={true}
       />
-      <Button disabled={page === 1} onClick={prevPage} title="Previous" />
+      <Button disabled={page === 1} onClick={goToPreviousPage} title="Previous" />
       <Counter>
         Page <Span>{page}</Span> of <Span> {lastPageNumber}</Span>
       </Counter>
       <Button
         disabled={page === lastPageNumber}
-        onClick={nextPage}
+        onClick={goToNextPage}
         rotated
         title="Next"
       />
       <Button
         disabled={page === lastPageNumber}
-        onClick={lastPage}
+        onClick={goToLastPage}
         rotated
         title="Last"
         mobile={true}

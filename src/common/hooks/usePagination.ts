@@ -1,11 +1,12 @@
+// Custom hook to handle pagination logic.
 import { useReplaceQueryParameter } from "./queryParameters";
 
-interface UsePaginationProps {
+interface PaginationOptions {
   page: number;
   lastPageNumber: number;
 }
 
-export const usePagination = ({ page, lastPageNumber }: UsePaginationProps) => {
+export const usePagination = ({ page, lastPageNumber }: PaginationOptions) => {
   const replaceQueryParameter = useReplaceQueryParameter();
   const setPage = (page: number) => {
     replaceQueryParameter({
@@ -14,20 +15,20 @@ export const usePagination = ({ page, lastPageNumber }: UsePaginationProps) => {
     });
   };
 
-  const firstPage = () => {
+  const goToFirstPage = () => {
     setPage(1);
   };
-  const nextPage = () => {
+  const goToNextPage = () => {
     if (page < lastPageNumber) setPage(page + 1);
   };
-  const prevPage = () => {
+  const goToPreviousPage = () => {
     if (page !== 1) setPage(page - 1);
   };
-  const lastPage = () => {
+  const goToLastPage = () => {
     setPage(lastPageNumber);
   };
 
-  return { firstPage, nextPage, prevPage, lastPage };
+  return { goToFirstPage, goToNextPage, goToPreviousPage, goToLastPage };
 };
 
 export type UsePaginationType = ReturnType<typeof usePagination>;
