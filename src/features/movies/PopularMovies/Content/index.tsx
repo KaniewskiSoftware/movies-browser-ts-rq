@@ -1,5 +1,5 @@
 import { GenresObject } from "../../../../common/api/genres/genres";
-import { MovieListResult } from "../../../../common/apiResponseTypes/movies/popularMovies";
+import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
 import MovieTile from "../../../../common/Movies";
 import { MovieTiles } from "../../../../common/Movies/Essentials";
 import Title from "../../../../common/Title";

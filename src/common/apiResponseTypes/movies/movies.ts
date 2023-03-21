@@ -15,7 +15,7 @@ export interface MovieListResult {
   vote_average?: number;
 }
 
-export interface PopularMoviesResponse {
+export interface MoviesResponse {
   page?: number;
   results?: MovieListResult[];
   total_results?: number;

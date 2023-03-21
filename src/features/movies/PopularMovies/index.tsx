@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGenres } from "../../../common/api/genres/genres";
-import { usePopularMovies } from "../../../common/api/movies/popularMovies";
-import { useMoviesByQuery } from "../../../common/api/search/moviesByQuery";
+import { useMovies } from "../../../common/api/movies/movies";
 import Footer from "../../../common/Footer";
 import {
   pageQueryParamName,
@@ -29,39 +28,33 @@ const PopularMoviesPage = () => {
   } = useGenres();
 
   const {
-    data: popularMoviesData,
-    isLoading: popularMoviesLoading,
-    isError: popularMoviesIsError,
-  } = usePopularMovies(page);
+    data: moviesData,
+    isLoading: moviesLoading,
+    isError: moviesIsError,
+  } = useMovies(query, page);
 
-  // const {
-  //   data: moviesByQueryData,
-  //   isLoading: moviesByQueryLoading,
-  //   isError: moviesByQueryError,
-  // } = useMoviesByQuery(query, page);
-
-  const isLoading = popularMoviesLoading || genresLoading;
-  const isError = popularMoviesIsError || genresIsError;
+  const isLoading = moviesLoading || genresLoading;
+  const isError = moviesIsError || genresIsError;
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (isError || !genresData.genres || !popularMoviesData?.results) {
+  if (isError || !genresData.genres || !moviesData?.results) {
     return <ErrorPage />;
   }
 
-  return !popularMoviesData.total_results ? (
+  return !moviesData.total_results ? (
     <NoResults />
   ) : (
     <>
       <PopularMoviesPageContent
         genres={genresData.genres}
-        movies={popularMoviesData.results}
+        movies={moviesData.results}
         query={query}
-        totalResults={popularMoviesData.total_results!}
+        totalResults={moviesData.total_results!}
       />
-      <Footer totalPages={popularMoviesData.total_pages ?? 1} page={page} />
+      <Footer totalPages={moviesData.total_pages ?? 1} page={page} />
     </>
   );
 };
