@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { usePeople } from "../../../common/api/people/people";
-import Footer from "../../../common/Footer";
+import Footer from "../../../common/components/Footer";
 import {
   pageQueryParamName,
   searchQueryParamName,
@@ -9,9 +9,9 @@ import {
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import NoResults from "../../../common/states/NoResults";
-import PopularPeoplePageContent from "./Content";
+import PeoplePageContent from "./Content";
 
-const PopularPeoplePage = () => {
+const PeoplePage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
   const query = useQueryParameter(searchQueryParamName);
   const [page, setPage] = useState<number>(pageParam ? +pageParam : 1);
@@ -41,7 +41,7 @@ const PopularPeoplePage = () => {
     <NoResults />
   ) : (
     <>
-      <PopularPeoplePageContent
+      <PeoplePageContent
         people={peopleData.results}
         query={query}
         totalResults={peopleData.total_results!}
@@ -51,4 +51,4 @@ const PopularPeoplePage = () => {
   );
 };
 
-export default PopularPeoplePage;
+export default PeoplePage;

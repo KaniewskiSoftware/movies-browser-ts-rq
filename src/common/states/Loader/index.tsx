@@ -1,5 +1,5 @@
 import { searchQueryParamName, useQueryParameter } from "../../hooks/queryParameters";
-import Title from "../../Title";
+import Title from "../../components/Title";
 import { Spinner, SpinnerBox, Wrapper } from "./styled";
 
 const Loader = () => {

@@ -1,11 +1,11 @@
 import { GenresObject } from "../../../../common/api/genres/genres";
 import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
-import MovieTile from "../../../../common/Movies";
-import { MovieTiles } from "../../../../common/Movies/Essentials";
-import Title from "../../../../common/Title";
-import { Wrapper } from "../../../../common/Wrapper";
+import MovieTile from "../../../../common/components/Movies";
+import { MovieTiles } from "../../../../common/components/Movies/Essentials";
+import Title from "../../../../common/components/Title";
+import { Wrapper } from "../../../../common/components/Wrapper";
 
-interface PopularMoviesPageContentProps {
+interface MoviesPageContent {
   genres: GenresObject;
   movies: MovieListResult[];
   query: string | number | null;
@@ -17,7 +17,7 @@ const PopularMoviesPageContent = ({
   movies,
   query,
   totalResults,
-}: PopularMoviesPageContentProps) => (
+}: MoviesPageContent) => (
   <Wrapper>
     <Title
       title={

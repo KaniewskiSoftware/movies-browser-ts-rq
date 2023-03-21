@@ -1,4 +1,4 @@
-import { GenresObject } from "../api/genres/genres";
+import { GenresObject } from "../../api/genres/genres";
 import { Tag, Tags } from "../Tags";
 import {
   Content,

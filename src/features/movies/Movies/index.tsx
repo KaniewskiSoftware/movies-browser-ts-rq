@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGenres } from "../../../common/api/genres/genres";
 import { useMovies } from "../../../common/api/movies/movies";
-import Footer from "../../../common/Footer";
+import Footer from "../../../common/components/Footer";
 import {
   pageQueryParamName,
   searchQueryParamName,
@@ -12,7 +12,7 @@ import Loader from "../../../common/states/Loader";
 import NoResults from "../../../common/states/NoResults";
 import PopularMoviesPageContent from "./Content";
 
-const PopularMoviesPage = () => {
+const MoviesPage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
   const query = useQueryParameter(searchQueryParamName);
   const [page, setPage] = useState<number>(pageParam ? +pageParam : 1);
@@ -59,4 +59,4 @@ const PopularMoviesPage = () => {
   );
 };
 
-export default PopularMoviesPage;
+export default MoviesPage;

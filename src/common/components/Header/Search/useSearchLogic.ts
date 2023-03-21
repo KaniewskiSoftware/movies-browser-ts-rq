@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
-import { searchQueryParamName } from "../../hooks/queryParameters";
-import { debounce } from "../../debounce";
-import { toMovie, toMovies, toPeople, toPerson } from "../../routes";
+import { searchQueryParamName } from "../../../hooks/queryParameters";
+import { debounce } from "../../../utils/debounce";
+import { toMovie, toMovies, toPeople, toPerson } from "../../../utils/routes";
 
 const useSearchLogic = () => {
     const location = useLocation();

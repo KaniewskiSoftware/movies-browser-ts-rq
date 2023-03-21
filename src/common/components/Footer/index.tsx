@@ -1,4 +1,4 @@
-import { usePagination } from "../hooks/usePagination";
+import { usePagination } from "../../hooks/usePagination";
 import Button from "./Button";
 import { Counter, Span, Wrapper } from "./styled";
 

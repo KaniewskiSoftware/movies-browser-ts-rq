@@ -3,10 +3,10 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "../theme";
 import { GlobalStyle } from "./GlobalStyle";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
-import Header from "../../common/Header";
-import { toMovies, toPeople } from "../../common/routes";
-import PopularMoviesPage from "../../features/movies/PopularMovies";
-import PopularPeoplePage from "../../features/people/PopularPeople";
+import Header from "../../common/components/Header";
+import { toMovies, toPeople } from "../../common/utils/routes";
+import MoviesPage from "../../features/movies/Movies";
+import PeoplePage from "../../features/people/People";
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
       <HashRouter>
         <Header />
         <Routes>
-          <Route path={toMovies} element={<PopularMoviesPage />} />
-          <Route path={toPeople} element={<PopularPeoplePage />} />
+          <Route path={toMovies} element={<MoviesPage />} />
+          <Route path={toPeople} element={<PeoplePage />} />
           <Route path={"*"} element={<Navigate replace to={toMovies} />} />
         </Routes>
       </HashRouter>

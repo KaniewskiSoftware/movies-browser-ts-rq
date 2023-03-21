@@ -1,11 +1,11 @@
 import { PeopleListResult } from "../../../../common/apiResponseTypes/people/popularPeople";
-import Person from "../../../../common/People";
+import Person from "../../../../common/components/People";
 import {
   PeopleContainer,
   PeopleTiles,
-} from "../../../../common/People/Essentials";
-import Title from "../../../../common/Title";
-import { Wrapper } from "../../../../common/Wrapper";
+} from "../../../../common/components/People/Essentials";
+import Title from "../../../../common/components/Title";
+import { Wrapper } from "../../../../common/components/Wrapper";
 
 interface PopularMoviesPageContentProps {
   people: PeopleListResult[];
@@ -13,7 +13,7 @@ interface PopularMoviesPageContentProps {
   totalResults: number;
 }
 
-const PopularPeoplePageContent = ({
+const PeoplePageContent = ({
   people,
   query,
   totalResults,
@@ -41,4 +41,4 @@ const PopularPeoplePageContent = ({
   </Wrapper>
 );
 
-export default PopularPeoplePageContent;
+export default PeoplePageContent;
