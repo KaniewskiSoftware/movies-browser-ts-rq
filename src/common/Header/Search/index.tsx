@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
 import {
   searchQueryParamName,
@@ -15,8 +15,11 @@ const Search = () => {
   const query = useQueryParameter(searchQueryParamName);
   const replaceQueryParameter = useReplaceQueryParameter();
   const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState(query ?? "");
 
-  const [inputValue, setInputValue] = useState(query || "");
+  useEffect(() => {
+    if (!location.search) setInputValue("");
+  }, [location.search]);
 
   const setPage = (page: string): void => {
     replaceQueryParameter({
