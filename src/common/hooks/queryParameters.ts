@@ -25,8 +25,3 @@ export const useReplaceQueryParameter = () => {
 
 export const searchQueryParamName = "search";
 export const pageQueryParamName = "page";
-
-export type UseQueryParameterType = ReturnType<typeof useQueryParameter>;
-export type UseReplaceQueryParameter = ReturnType<
-  typeof useReplaceQueryParameter
->;
