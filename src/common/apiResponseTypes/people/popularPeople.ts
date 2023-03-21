@@ -44,7 +44,7 @@ export interface PeopleListResult {
   popularity?: number;
 }
 
-export interface PopularPeopleResponse {
+export interface PeopleResponse {
   page?: number;
   results?: PeopleListResult[];
   total_results?: number;

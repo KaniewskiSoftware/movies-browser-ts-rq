@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { usePopularPeople } from "../../../common/api/people/popularPeople";
+import { usePeople } from "../../../common/api/people/people";
 import Footer from "../../../common/Footer";
 import {
   pageQueryParamName,
@@ -21,32 +21,32 @@ const PopularPeoplePage = () => {
   }, [pageParam]);
 
   const {
-    data: popularPeopleData,
-    isLoading: popularPeopleLoading,
-    isError: popularPeopleIsError,
-  } = usePopularPeople(page);
+    data: peopleData,
+    isLoading: peopleLoading,
+    isError: peopleIsError,
+  } = usePeople(query, page);
 
-  const isLoading = popularPeopleLoading;
-  const isError = popularPeopleIsError;
+  const isLoading = peopleLoading;
+  const isError = peopleIsError;
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (isError || !popularPeopleData?.results) {
+  if (isError || !peopleData?.results) {
     return <ErrorPage />;
   }
 
-  return !popularPeopleData.total_results ? (
+  return !peopleData.total_results ? (
     <NoResults />
   ) : (
     <>
       <PopularPeoplePageContent
-        people={popularPeopleData.results}
+        people={peopleData.results}
         query={query}
-        totalResults={popularPeopleData.total_results!}
+        totalResults={peopleData.total_results!}
       />
-      <Footer totalPages={popularPeopleData.total_pages ?? 1} page={page} />
+      <Footer totalPages={peopleData.total_pages ?? 1} page={page} />
     </>
   );
 };
