@@ -23,7 +23,7 @@ const PopularPeoplePageContent = ({
       <Title
         title={
           !query
-            ? "Popular movies"
+            ? "Popular people"
             : `Search results for "${query}" (${totalResults})`
         }
       />
