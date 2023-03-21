@@ -1,12 +1,14 @@
+import { useRef, useState } from "react";
+import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
 import {
   searchQueryParamName,
   useQueryParameter,
   useReplaceQueryParameter,
 } from "../../hooks/queryParameters";
+import { debounce } from "../../debounce";
+import { toMovie, toMovies, toPeople, toPerson } from "../../routes";
 import svg from "./Search.svg";
 import { Input, InputWrapper, Loupe } from "./styled";
-import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
-import { toMovie, toMovies, toPeople, toPerson } from "../../routes";
 
 const Search = () => {
   const location = useLocation();
@@ -14,6 +16,8 @@ const Search = () => {
   const replaceQueryParameter = useReplaceQueryParameter();
   const navigate = useNavigate();
 
+  const [inputValue, setInputValue] = useState(query || "");
+ 
   const setPage = (page: string): void => {
     replaceQueryParameter({
       key: "page",
@@ -21,29 +25,37 @@ const Search = () => {
     });
   };
 
-  const onInputChange = ({ target }: { target: HTMLInputElement }) => {
-    if (location.pathname.split("/")[1] === toMovie.split("/")[1]) {
-      navigate({
-        pathname: toMovies,
-        search: createSearchParams({
-          [searchQueryParamName]: target.value,
-        }).toString(),
-      });
-    } else if (location.pathname.split("/")[1] === toPerson.split("/")[1]) {
-      navigate({
-        pathname: toPeople,
-        search: createSearchParams({
-          [searchQueryParamName]: target.value,
-        }).toString(),
-      });
-    } else {
-      setPage("1");
-      replaceQueryParameter({
-        key: searchQueryParamName,
-        value: target.value.trim() !== "" ? target.value : "",
-      });
-    }
-  };
+  const debouncedNavigate = useRef(
+    debounce((value: string) => {
+      if (location.pathname.split("/")[1] === toMovie.split("/")[1]) {
+        navigate({
+          pathname: toMovies,
+          search: createSearchParams({
+            [searchQueryParamName]: value,
+          }).toString(),
+        });
+      } else if (location.pathname.split("/")[1] === toPerson.split("/")[1]) {
+        navigate({
+          pathname: toPeople,
+          search: createSearchParams({
+            [searchQueryParamName]: value,
+          }).toString(),
+        });
+      } else {
+        setPage("1");
+        replaceQueryParameter({
+          key: searchQueryParamName,
+          value: value.trim() !== "" ? value : "",
+        });
+      }
+    }, 500)
+  );
+
+    const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = event.target;
+      setInputValue(value);
+      debouncedNavigate.current(value);
+    };
 
   return (
     <InputWrapper>
@@ -54,7 +66,7 @@ const Search = () => {
             ? "Search for people..."
             : "Search for movies..."
         }
-        value={query || ""}
+        value={inputValue}
         onChange={onInputChange}
       />
     </InputWrapper>
