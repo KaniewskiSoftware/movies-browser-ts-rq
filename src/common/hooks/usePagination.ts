@@ -1,5 +1,5 @@
 // Custom hook to handle pagination logic.
-import { useReplaceQueryParameter } from "./queryParameters";
+import { useSetPage } from "./useSetPage";
 
 interface PaginationOptions {
   page: number;
@@ -7,14 +7,7 @@ interface PaginationOptions {
 }
 
 export const usePagination = ({ page, lastPageNumber }: PaginationOptions) => {
-  const replaceQueryParameter = useReplaceQueryParameter();
-  const setPage = (page: number) => {
-    replaceQueryParameter({
-      key: "page",
-      value: `${page}`,
-    });
-  };
-
+  const setPage = useSetPage();
   const goToFirstPage = () => {
     setPage(1);
   };
