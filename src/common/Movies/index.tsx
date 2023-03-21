@@ -63,10 +63,8 @@ const MovieTile = ({
                 <Tag key={genre_id}>{genres[genre_id]}</Tag>
               ))}
             </Tags>
-          ) : (
-            ""
-          )}
-          {vote && vote > 0 && (
+          ) : null}
+          {!!vote && vote > 0 && (
             <Rating>
               <Star />
               <Rate>{vote.toFixed(2)}</Rate>
