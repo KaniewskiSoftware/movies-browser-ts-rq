@@ -17,7 +17,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState(query || "");
- 
+
   const setPage = (page: string): void => {
     replaceQueryParameter({
       key: "page",
@@ -26,15 +26,15 @@ const Search = () => {
   };
 
   const debouncedNavigate = useRef(
-    debounce((value: string) => {
-      if (location.pathname.split("/")[1] === toMovie.split("/")[1]) {
+    debounce((value: string, currentPath: string) => {
+      if (currentPath.split("/")[1] === toMovie.split("/")[1]) {
         navigate({
           pathname: toMovies,
           search: createSearchParams({
             [searchQueryParamName]: value,
           }).toString(),
         });
-      } else if (location.pathname.split("/")[1] === toPerson.split("/")[1]) {
+      } else if (currentPath.split("/")[1] === toPerson.split("/")[1]) {
         navigate({
           pathname: toPeople,
           search: createSearchParams({
@@ -51,11 +51,11 @@ const Search = () => {
     }, 500)
   );
 
-    const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const { value } = event.target;
-      setInputValue(value);
-      debouncedNavigate.current(value);
-    };
+  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setInputValue(value);
+    debouncedNavigate.current(value, location.pathname);
+  };
 
   return (
     <InputWrapper>
