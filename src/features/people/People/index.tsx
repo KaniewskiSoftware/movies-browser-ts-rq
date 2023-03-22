@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { usePeople } from "../../../common/api/people/people";
-import Footer from "../../../common/components/Footer";
 import Page from "../../../common/components/Page";
 import {
   pageQueryParamName,
   searchQueryParamName,
   useQueryParameter,
 } from "../../../common/hooks/queryParameters";
-import ErrorPage from "../../../common/states/ErrorPage";
-import Loader from "../../../common/states/Loader";
-import NoResults from "../../../common/states/NoResults";
 import PeoplePageContent from "./Content";
 
 const PeoplePage = () => {
