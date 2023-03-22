@@ -5,19 +5,19 @@ import { MovieTiles } from "../../../../common/components/Movies/Essentials";
 import Title from "../../../../common/components/Title";
 import { Wrapper } from "../../../../common/components/Wrapper";
 
-interface MoviesPageContent {
+interface MoviesPageContentProps {
   genres: GenresObject;
   movies: MovieListResult[];
   query: string | number | null;
   totalResults: number;
 }
 
-const PopularMoviesPageContent = ({
+const MoviesPageContent = ({
   genres,
   movies,
   query,
   totalResults,
-}: MoviesPageContent) => (
+}: MoviesPageContentProps) => (
   <Wrapper>
     <Title
       title={
@@ -44,4 +44,4 @@ const PopularMoviesPageContent = ({
   </Wrapper>
 );
 
-export default PopularMoviesPageContent;
+export default MoviesPageContent;

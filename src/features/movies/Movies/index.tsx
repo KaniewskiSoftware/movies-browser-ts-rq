@@ -10,7 +10,7 @@ import {
 import ErrorPage from "../../../common/states/ErrorPage";
 import Loader from "../../../common/states/Loader";
 import NoResults from "../../../common/states/NoResults";
-import PopularMoviesPageContent from "./Content";
+import MoviesPageContent from "./Content";
 
 const MoviesPage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
@@ -48,7 +48,7 @@ const MoviesPage = () => {
     <NoResults />
   ) : (
     <>
-      <PopularMoviesPageContent
+      <MoviesPageContent
         genres={genresData.genres}
         movies={moviesData.results}
         query={query}
