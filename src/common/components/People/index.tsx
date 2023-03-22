@@ -15,7 +15,7 @@ interface PersonProps {
   id: number;
 }
 
-const Person = ({ path, name, role, id }: PersonProps) => (
+const PersonTile = ({ path, name, role, id }: PersonProps) => (
   <PersonLink key={name} to={`/people/${id}`}>
     <Tile>
       <PortraitBackground>
@@ -36,4 +36,4 @@ const Person = ({ path, name, role, id }: PersonProps) => (
   </PersonLink>
 );
 
-export default Person;
+export default PersonTile;

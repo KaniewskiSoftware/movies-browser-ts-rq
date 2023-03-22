@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { usePeople } from "../../../common/api/people/people";
 import Footer from "../../../common/components/Footer";
+import Page from "../../../common/components/Page";
 import {
   pageQueryParamName,
   searchQueryParamName,
@@ -29,26 +30,20 @@ const PeoplePage = () => {
   const isLoading = peopleLoading;
   const isError = peopleIsError;
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (isError || !peopleData?.results) {
-    return <ErrorPage />;
-  }
-
-  return !peopleData.total_results ? (
-    <NoResults />
-  ) : (
-    <>
+  return (
+    <Page
+      isLoading={isLoading}
+      isError={isError}
+      hasResults={!!(peopleData && peopleData.total_results)}
+      totalPages={peopleData?.total_pages ?? 1}
+      page={page}
+    >
       <PeoplePageContent
-        people={peopleData.results}
+        people={peopleData?.results ?? []}
         query={query}
-        totalResults={peopleData.total_results!}
+        totalResults={peopleData?.total_results ?? 0}
       />
-      <Footer totalPages={peopleData.total_pages ?? 1} page={page} />
-    </>
+    </Page>
   );
 };
-
 export default PeoplePage;

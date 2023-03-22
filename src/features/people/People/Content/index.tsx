@@ -1,11 +1,7 @@
 import { PeopleListResult } from "../../../../common/apiResponseTypes/people/popularPeople";
-import Person from "../../../../common/components/People";
-import {
-  PeopleContainer,
-  PeopleTiles,
-} from "../../../../common/components/People/Essentials";
-import Title from "../../../../common/components/Title";
-import { Wrapper } from "../../../../common/components/Wrapper";
+import PageContent from "../../../../common/components/Page/PageContent";
+import PersonTile from "../../../../common/components/People";
+import { PeopleTiles } from "../../../../common/components/People/Essentials";
 
 interface PopularMoviesPageContentProps {
   people: PeopleListResult[];
@@ -18,27 +14,24 @@ const PeoplePageContent = ({
   query,
   totalResults,
 }: PopularMoviesPageContentProps) => (
-  <Wrapper>
-    <PeopleContainer>
-      <Title
-        title={
-          !query
-            ? "Popular people"
-            : `Search results for "${query}" (${totalResults})`
-        }
-      />
-      <PeopleTiles>
-        {people.map((person, index) => (
-          <Person
-            key={person.id}
-            path={person.profile_path}
-            name={person.name}
-            id={person.id ?? index}
-          />
-        ))}
-      </PeopleTiles>
-    </PeopleContainer>
-  </Wrapper>
+  <PageContent
+    title={
+      !query
+        ? "Popular people"
+        : `Search results for "${query}" (${totalResults})`
+    }
+  >
+    <PeopleTiles>
+      {people.map((person, index) => (
+        <PersonTile
+          key={person.id}
+          path={person.profile_path}
+          name={person.name}
+          id={person.id ?? index}
+        />
+      ))}
+    </PeopleTiles>
+  </PageContent>
 );
 
 export default PeoplePageContent;

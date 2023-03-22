@@ -2,8 +2,7 @@ import { GenresObject } from "../../../../common/api/genres/genres";
 import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
 import MovieTile from "../../../../common/components/Movies";
 import { MovieTiles } from "../../../../common/components/Movies/Essentials";
-import Title from "../../../../common/components/Title";
-import { Wrapper } from "../../../../common/components/Wrapper";
+import PageContent from "../../../../common/components/Page/PageContent";
 
 interface MoviesPageContentProps {
   genres: GenresObject;
@@ -18,14 +17,13 @@ const MoviesPageContent = ({
   query,
   totalResults,
 }: MoviesPageContentProps) => (
-  <Wrapper>
-    <Title
-      title={
-        !query
-          ? "Popular movies"
-          : `Search results for "${query}" (${totalResults})`
-      }
-    />
+  <PageContent
+    title={
+      !query
+        ? "Popular movies"
+        : `Search results for "${query}" (${totalResults})`
+    }
+  >
     <MovieTiles>
       {movies.map((movie) => (
         <MovieTile
@@ -41,7 +39,7 @@ const MoviesPageContent = ({
         />
       ))}
     </MovieTiles>
-  </Wrapper>
+  </PageContent>
 );
 
 export default MoviesPageContent;

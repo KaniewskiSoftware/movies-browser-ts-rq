@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import { useGenres } from "../../../common/api/genres/genres";
 import { useMovies } from "../../../common/api/movies/movies";
-import Footer from "../../../common/components/Footer";
+import Page from "../../../common/components/Page";
 import {
   pageQueryParamName,
   searchQueryParamName,
   useQueryParameter,
 } from "../../../common/hooks/queryParameters";
-import ErrorPage from "../../../common/states/ErrorPage";
-import Loader from "../../../common/states/Loader";
-import NoResults from "../../../common/states/NoResults";
 import MoviesPageContent from "./Content";
 
 const MoviesPage = () => {
@@ -36,26 +33,21 @@ const MoviesPage = () => {
   const isLoading = moviesLoading || genresLoading;
   const isError = moviesIsError || genresIsError;
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
-  if (isError || !genresData.genres || !moviesData?.results) {
-    return <ErrorPage />;
-  }
-
-  return !moviesData.total_results ? (
-    <NoResults />
-  ) : (
-    <>
+  return (
+    <Page
+      isLoading={isLoading}
+      isError={isError}
+      hasResults={!!(moviesData && moviesData.total_results)}
+      totalPages={moviesData?.total_pages ?? 1}
+      page={page}
+    >
       <MoviesPageContent
-        genres={genresData.genres}
-        movies={moviesData.results}
+        genres={genresData?.genres ?? []}
+        movies={moviesData?.results ?? []}
         query={query}
-        totalResults={moviesData.total_results!}
+        totalResults={moviesData?.total_results ?? 0}
       />
-      <Footer totalPages={moviesData.total_pages ?? 1} page={page} />
-    </>
+    </Page>
   );
 };
 
