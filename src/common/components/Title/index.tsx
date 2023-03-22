@@ -1,13 +1,19 @@
 import { StyledTitle } from "./styled";
 
+export type TitleType = "default" | "personCredits" | "movieCredits";
+
 interface TitleProps {
-  title:string;
-  credits?: boolean;
-  tag?: string;
+  title: string;
+  styleType?: TitleType;
 }
 
-const Title = ({ title, credits, tag}: TitleProps) => (
-  <StyledTitle as={tag ? "h2" : "h1"} $credits={credits}>{title}</StyledTitle>
+const Title = ({ title, styleType = "default" }: TitleProps) => (
+  <StyledTitle
+    as={styleType === "default" ? "h1" : "h2"}
+    $styleType={styleType}
+  >
+    {title}
+  </StyledTitle>
 );
 
 export default Title;

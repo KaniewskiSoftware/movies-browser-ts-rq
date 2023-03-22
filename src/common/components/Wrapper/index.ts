@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
 
+export type ContainerType = "default" | "credits";
+
 interface WrapperProps {
-  $containerType?: "default" | "people";
+  $containerType?: ContainerType;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
@@ -10,7 +12,7 @@ export const Wrapper = styled.div<WrapperProps>`
   margin: 0 auto;
 
   ${({ $containerType }) =>
-    $containerType === "people" &&
+    $containerType === "credits" &&
     css`
       display: flex;
       flex-direction: column;

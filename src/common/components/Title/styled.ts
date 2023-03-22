@@ -1,15 +1,15 @@
 import styled, { css } from "styled-components";
 
 interface StyledTitleProps {
-  $credits?: boolean;
+  $styleType?: "default" | "personCredits" | "movieCredits";
 }
 
 export const StyledTitle = styled.h1<StyledTitleProps>`
   margin: 0;
   font-weight: 600;
   font-size: 36px;
-  line-height: 120%;
-  margin-top: ${({ $credits }) => ($credits ? "64px" : "56px")};
+  line-height: 1.2;
+  margin-top: 56px;
   margin-bottom: 24px;
   color: ${({ theme }) => theme.colors.site.primaryText};
 
@@ -25,13 +25,31 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
     margin-bottom: 12px;
   }
 
-  ${({ $credits }) =>
-    $credits &&
+  ${({ $styleType }) =>
+    $styleType === "personCredits" &&
     css`
+      margin-top: 64px;
+
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 20px;
         margin-top: 24px;
         margin-bottom: 16px;
+      }
+    `}
+
+  ${({ $styleType }) =>
+    $styleType === "movieCredits" &&
+    css`
+      margin-bottom: 32px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+        font-size: 26px;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 20px;
+        margin-bottom: 12px;
       }
     `}
 `;
