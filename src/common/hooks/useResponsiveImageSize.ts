@@ -1,30 +1,55 @@
 import { useEffect, useState } from "react";
 
-type PosterSize = {
-  size: "w92" | "w154" | "w185" | "w342" | "w500" | "w780" | "original"; // Possible poster sizes from the API.
+export type PosterSize = "w154" | "w342" | "w500" | "original";
+export type ProfileSize = "w45" | "w185" | "h632" | "original";
+type ImageType = "poster" | "profile";
+
+type ImageSize<T extends ImageType> = {
+  size: T extends "poster" ? PosterSize : ProfileSize;
   width: number;
 };
 
-const posterBreakpoints: PosterSize[] = [
+const posterBreakpoints: ImageSize<"poster">[] = [
   { size: "w154", width: 467 },
   { size: "w342", width: 767 },
   { size: "w500", width: Infinity },
 ];
 
-const getPosterSize = (width: number): PosterSize => {
-  return posterBreakpoints.find((breakpoint) => width <= breakpoint.width)!;
+const profileBreakpoints: ImageSize<"profile">[] = [
+  { size: "w185", width: 600 },
+  { size: "h632", width: Infinity },
+];
+
+const getPosterImageSize = (width: number): ImageSize<"poster"> => {
+  return posterBreakpoints.find(
+    (breakpoint: ImageSize<"poster">) => width <= breakpoint.width
+  )!;
 };
 
-export const useResponsiveImageSize = () => {
-  const [posterSize, setPosterSize] = useState<PosterSize>(
-    getPosterSize(window.innerWidth)
+const getProfileImageSize = (width: number): ImageSize<"profile"> => {
+  return profileBreakpoints.find(
+    (breakpoint: ImageSize<"profile">) => width <= breakpoint.width
+  )!;
+};
+
+export const useResponsiveImageSize = (
+  type: ImageType
+): typeof type extends "poster" ? PosterSize : ProfileSize => {
+  const [imageSize, setImageSize] = useState<ImageSize<typeof type>>(
+    type === "poster"
+      ? getPosterImageSize(window.innerWidth)
+      : getProfileImageSize(window.innerWidth)
   );
 
   useEffect(() => {
     const handleResize = () => {
-      const newSize = getPosterSize(window.innerWidth);
-      if (!posterSize || newSize !== posterSize) {
-        setPosterSize(newSize);
+      const newSize =
+        type === "poster"
+          ? getPosterImageSize(window.innerWidth)
+          : getProfileImageSize(window.innerWidth);
+
+      if (!imageSize || newSize !== imageSize) {
+        setImageSize(newSize);
       }
     };
 
@@ -34,7 +59,9 @@ export const useResponsiveImageSize = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [posterSize]);
+  }, [imageSize, type]);
 
-  return posterSize.size;
+  return imageSize.size as typeof type extends "poster"
+    ? PosterSize
+    : ProfileSize;
 };

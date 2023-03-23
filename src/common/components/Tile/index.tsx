@@ -45,7 +45,7 @@ const Tile = ({
   vote,
   votesAmount,
 }: TileProps) => (
-  <Wrapper key={id} linkTo={linkTo}>
+  <Wrapper linkTo={linkTo}>
     <TileContainer $horizontalOnMobile={horizontalOnMobile}>
       <Image
         $imageURL={imageURL || imagePlaceholder}

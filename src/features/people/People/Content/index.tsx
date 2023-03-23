@@ -1,7 +1,10 @@
 import { PeopleListResult } from "../../../../common/apiResponseTypes/people/popularPeople";
 import PageContent from "../../../../common/components/Page/PageContent";
-import PersonTile from "../../../../common/components/People";
-import { PeopleTiles } from "../../../../common/components/People/Essentials";
+import Tile from "../../../../common/components/Tile";
+import { TilesGrid } from "../../../../common/components/TilesGrid";
+import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
+import { buildImageURL } from "../../../../common/utils/buildImageURL";
+import { toPeople } from "../../../../common/utils/routes";
 
 interface PopularMoviesPageContentProps {
   people: PeopleListResult[];
@@ -13,25 +16,33 @@ const PeoplePageContent = ({
   people,
   query,
   totalResults,
-}: PopularMoviesPageContentProps) => (
-  <PageContent
-    title={
-      !query
-        ? "Popular people"
-        : `Search results for "${query}" (${totalResults})`
-    }
-  >
-    <PeopleTiles>
-      {people.map((person, index) => (
-        <PersonTile
-          key={person.id}
-          path={person.profile_path}
-          name={person.name}
-          id={person.id ?? index}
-        />
-      ))}
-    </PeopleTiles>
-  </PageContent>
-);
-
+}: PopularMoviesPageContentProps) => {
+  const size = useResponsiveImageSize("profile");
+  return (
+    <PageContent
+      title={
+        !query
+          ? "Popular people"
+          : `Search results for "${query}" (${totalResults})`
+      }
+    >
+      <TilesGrid $moreItems>
+        {people.map((person) => (
+          <Tile
+            key={person.id}
+            id={person.id}
+            linkTo={`${toPeople}${person.id}`}
+            imageURL={buildImageURL(
+              size,
+              person.profile_path,
+              "profile"
+            )}
+            title={person.name}
+            smallTitle
+          />
+        ))}
+      </TilesGrid>
+    </PageContent>
+  );
+};
 export default PeoplePageContent;
