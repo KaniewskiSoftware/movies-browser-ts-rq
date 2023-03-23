@@ -1,8 +1,8 @@
 import { GenresObject } from "../../../../common/api/genres/genres";
 import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
-import { MovieTiles } from "../../../../common/components/Movies/Essentials";
 import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
+import { TilesGrid } from "../../../../common/components/TilesGrid";
 
 interface MoviesPageContentProps {
   genres: GenresObject;
@@ -24,7 +24,7 @@ const MoviesPageContent = ({
         : `Search results for "${query}" (${totalResults})`
     }
   >
-    <MovieTiles>
+    <TilesGrid>
       {movies.map((movie) => (
         <Tile
           key={movie.id}
@@ -39,7 +39,7 @@ const MoviesPageContent = ({
           votesAmount={movie.vote_count}
         />
       ))}
-    </MovieTiles>
+    </TilesGrid>
   </PageContent>
 );
 
