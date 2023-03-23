@@ -4,7 +4,7 @@ import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { useResponsivePosterSize } from "../../../../common/hooks/useResponsivePosterSize";
-import { buildPosterURL } from "../../../../common/utils/imageUtils";
+import { buildPosterURL } from "../../../../common/utils/buildPosterURL";
 import { toMovies } from "../../../../common/utils/routes";
 import defaultMovie from "../../../../common/images/defaultMovie.svg";
 
