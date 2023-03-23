@@ -1,4 +1,4 @@
-# Movies Browser using TypeScript and ReactQuery
+# [Movies Browser using TypeScript and ReactQuery](https://kaniewskisoftware.github.io/movies-browser-ts-rq/)
 
 This project is an alternative version of my group project, [MoviesBrowser](https://kaniewskisoftware.github.io/movie-browser/). The primary goal is to refactor the entire project using TypeScript to create a more professional codebase. Instead of using Redux to manage the state of the app, I will utilize ReactQuery. Additionally, I will strive to make the code as generic as possible by creating simpler, reusable components. I have also developed custom hooks and utilities to achieve various functionalities, such as handling different image sizes based on screen width and managing screen resizing.
 
@@ -24,14 +24,9 @@ Upcoming tasks and goals include:
 
 By accomplishing these goals, the project will continue to evolve and provide a robust, maintainable, and user-friendly experience.
 
-
 ## Movies Browser
 
 This site allows you to browse the most popular movies and actors from the public tmdb API. You can also get to know each of the above better on the details pages. There is a search engine in the upper right corner. It searches for movies or actors depending on which subpage you are currently on. Layout was designed in Figma by professionalist.
-
-## Demo
-
-[MoviesBrowserTS-RQ](https://kaniewskisoftware.github.io/movies-browser-ts-rq/)
 
 <!-- ## Preview
 
