@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 type PosterSize = {
-  size: "w92" | "w154" | "w185" | "w342" | "w500" | "w780" | "original",
+  size: "w92" | "w154" | "w185" | "w342" | "w500" | "w780" | "original"; // Possible sizes from the API.
   width: number;
 };
 
@@ -16,7 +16,9 @@ const getPosterSize = (width: number): PosterSize => {
 };
 
 export const useResponsivePosterSize = () => {
-  const [posterSize, setPosterSize] = useState<PosterSize>(getPosterSize(window.innerWidth));
+  const [posterSize, setPosterSize] = useState<PosterSize>(
+    getPosterSize(window.innerWidth)
+  );
 
   useEffect(() => {
     const handleResize = () => {
