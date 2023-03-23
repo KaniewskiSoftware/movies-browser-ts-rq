@@ -29,6 +29,8 @@ const MoviesPageContent = ({
         <Tile
           key={movie.id}
           id={movie.id}
+          linkTo={`/movies/${movie.id}`}
+          horizontalOnMobile
           imageURL={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           title={movie.title}
           releaseDate={movie.release_date}
