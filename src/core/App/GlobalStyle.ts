@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         min-height: 100vh;
         margin: 0;
+        color: ${({ theme }) => theme.colors.site.primaryText};
         background-color: ${({ theme }) => theme.colors.site.background};
         font-family: 'Poppins', sans-serif;
     }

@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ReactComponent as star } from "./star.svg";
-import notfound from "../../images/camera.svg";
+import { ReactComponent as star } from "../../images/star.svg";
+import defaultMovie from "../../images/defaultMovie.svg";
 
 export const MovieLink = styled(Link)`
   display: flex;
   height: 100%;
   text-decoration: none;
-
   transition: transform 1s;
 
   &:hover {
@@ -23,13 +22,12 @@ export const Tile = styled.article`
   gap: 16px;
   padding: 16px;
   box-shadow: ${({ theme }) => theme.boxShadow};
-  background-color: ${({ theme }) => theme.colors.tile.background};
   color: ${({ theme }) => theme.colors.site.primaryText};
+  background-color: ${({ theme }) => theme.colors.tile.background};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     flex-direction: row;
     align-items: center;
-    width: 100%;
   }
 `;
 
@@ -38,13 +36,10 @@ export const ImageBackground = styled.div`
   justify-content: center;
   width: 100%;
   border-radius: 5px;
-  flex-basis: 434px;
-  background-image: url(${notfound});
+  background-image: url(${defaultMovie});
   background-size: 35%;
   background-repeat: no-repeat;
   background-position: center;
-
-  color: ${({ theme }) => theme.colors.tile.background};
   background-color: ${({ theme }) => theme.colors.tile.imageBackground};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -68,11 +63,11 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
   gap: 8px;
-  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 100%;
+    
   }
 `;
 
