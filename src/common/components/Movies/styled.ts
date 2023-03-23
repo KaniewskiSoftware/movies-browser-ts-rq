@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ReactComponent as star } from "../../images/star.svg";
+import { ReactComponent as Star } from "../../images/star.svg";
 import defaultMovie from "../../images/defaultMovie.svg";
 
 export const MovieLink = styled(Link)`
@@ -119,7 +119,7 @@ export const Rating = styled.div`
   }
 `;
 
-export const Star = styled(star)`
+export const StyledStar = styled(Star)`
   width: 24px;
   height: auto;
 

@@ -1,16 +1,16 @@
 import styled, { keyframes } from "styled-components";
-import { ReactComponent as spinner } from "./icon-spinner.svg";
+import { ReactComponent as Spinner } from "./icon-spinner.svg";
 
 interface SpinnerBoxProps {
   $hasTitle?: boolean;
 }
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1368px;
 `;
 
-const SpinnerBox = styled.div<SpinnerBoxProps>`
+export const SpinnerBox = styled.div<SpinnerBoxProps>`
   display: grid;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@ const rotation = keyframes`
   }
 `;
 
-const Spinner = styled(spinner)`
+export const StyledSpinner = styled(Spinner)`
   width: 91px;
   height: auto;
   animation: ${rotation} 1.5s linear infinite;
@@ -36,5 +36,3 @@ const Spinner = styled(spinner)`
     width: 24px;
   } ;
 `;
-
-export { Spinner, SpinnerBox, Wrapper };

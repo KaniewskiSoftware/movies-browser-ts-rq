@@ -1,6 +1,6 @@
 import { searchQueryParamName, useQueryParameter } from "../../hooks/queryParameters";
 import Title from "../../components/Title";
-import { Spinner, SpinnerBox, Wrapper } from "./styled";
+import { StyledSpinner, SpinnerBox, Wrapper } from "./styled";
 
 const Loader = () => {
   const query = useQueryParameter(searchQueryParamName);
@@ -9,7 +9,7 @@ const Loader = () => {
     <Wrapper>
       <Title title={!query ? "" : `Search results for "${query}"`} />
       <SpinnerBox $hasTitle={!!query}>
-        <Spinner />
+        <StyledSpinner />
       </SpinnerBox>
     </Wrapper>
   );

@@ -8,7 +8,7 @@ import {
   MovieLink,
   Rate,
   Rating,
-  Star,
+  StyledStar,
   Tile,
   Title,
 } from "./styled";
@@ -66,7 +66,7 @@ const MovieTile = ({
           ) : null}
           {!!vote && vote > 0 && (
             <Rating>
-              <Star />
+              <StyledStar />
               <Rate>{vote.toFixed(2)}</Rate>
               {vote_amount && <GreyText>{`${vote_amount} votes`}</GreyText>}
             </Rating>

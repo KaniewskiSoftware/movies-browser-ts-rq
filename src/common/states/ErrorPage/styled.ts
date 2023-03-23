@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { ReactComponent as sign } from "./Danger.svg";
+import { ReactComponent as Danger } from "./danger.svg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   margin-top: 180px;
 `;
 
-const Sign = styled(sign)`
+const Sign = styled(Danger)`
   width: 120px;
   height: 120px;
 `;

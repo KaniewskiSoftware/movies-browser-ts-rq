@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import defaultMovie from "../../images/defaultMovie.svg";
-import { ReactComponent as star } from "../../images/star.svg";
+import { ReactComponent as Star } from "../../images/star.svg";
 
 interface TileContainerProps {
-  $horizontal?: boolean;
   $horizontalOnMobile?: boolean;
 }
 
@@ -35,13 +34,6 @@ export const TileContainer = styled.article<TileContainerProps>`
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     padding: 8px;
   }
-
-  ${({ $horizontal }) =>
-    $horizontal &&
-    css`
-      flex-direction: row;
-      align-items: center;
-    `}
 
   ${({ $horizontalOnMobile }) =>
     $horizontalOnMobile &&
@@ -153,7 +145,7 @@ export const Rating = styled.div`
   }
 `;
 
-export const Star = styled(star)`
+export const StyledStar = styled(Star)`
   width: 24px;
   height: auto;
 

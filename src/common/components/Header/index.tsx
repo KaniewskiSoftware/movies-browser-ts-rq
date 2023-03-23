@@ -1,5 +1,5 @@
 import { LogoImg, LogoLink, LogoText, StyledHeader, Wrapper } from "./styled";
-import png from "./Video.svg";
+import png from "./video.svg";
 import Navigation from "./Navigation";
 import Search from "./Search";
 

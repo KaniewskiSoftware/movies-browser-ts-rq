@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { ReactComponent as paperPlane } from "./Picture.svg";
+import { ReactComponent as Plane } from "./picture.svg";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 1368px;
 `;
 
-const PlaneBox = styled.div`
+export const PlaneBox = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@ const PlaneBox = styled.div`
   } ;
 `;
 
-const Plane = styled(paperPlane)`
+export const StyledPlane = styled(Plane)`
   width: 668px;
   height: 508px;
 
@@ -26,5 +26,3 @@ const Plane = styled(paperPlane)`
     height: 134px;
   } ;
 `;
-
-export { Wrapper, PlaneBox, Plane };
