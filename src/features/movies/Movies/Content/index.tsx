@@ -3,8 +3,8 @@ import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movi
 import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
-import { useResponsivePosterSize } from "../../../../common/hooks/useResponsivePosterSize";
-import { buildPosterURL } from "../../../../common/utils/buildPosterURL";
+import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
+import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toMovies } from "../../../../common/utils/routes";
 import defaultMovie from "../../../../common/images/defaultMovie.svg";
 
@@ -21,7 +21,7 @@ const MoviesPageContent = ({
   query,
   totalResults,
 }: MoviesPageContentProps) => {
-  const posterSize = useResponsivePosterSize();
+  const posterSize = useResponsiveImageSize();
   return (
     <PageContent
       title={
@@ -33,11 +33,10 @@ const MoviesPageContent = ({
       <TilesGrid>
         {movies.map((movie) => (
           <Tile
-            key={movie.id}
             id={movie.id}
             linkTo={`${toMovies}${movie.id}`}
             horizontalOnMobile
-            imageURL={buildPosterURL(posterSize, movie.poster_path)}
+            imageURL={buildImageURL(posterSize, movie.poster_path)}
             imagePlaceholder={defaultMovie}
             title={movie.title}
             releaseDate={movie.release_date}
