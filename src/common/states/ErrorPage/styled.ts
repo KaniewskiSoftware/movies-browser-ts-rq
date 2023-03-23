@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Danger } from "./danger.svg";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,12 +12,12 @@ const Wrapper = styled.div`
   margin-top: 180px;
 `;
 
-const Sign = styled(Danger)`
+export const Sign = styled(Danger)`
   width: 120px;
   height: 120px;
 `;
 
-const BiggerText = styled.div`
+export const BiggerText = styled.div`
   font-weight: 600;
   font-size: 36px;
   line-height: 120%;
@@ -30,7 +30,7 @@ const BiggerText = styled.div`
   } ;
 `;
 
-const Text = styled.div`
+export const Text = styled.div`
   font-weight: 500;
   font-size: 22px;
   line-height: 130%;
@@ -43,7 +43,7 @@ const Text = styled.div`
   } ;
 `;
 
-const Button = styled(Link)`
+export const Button = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -67,7 +67,7 @@ const Button = styled(Link)`
   }
 `;
 
-const ButtonText = styled.span`
+export const ButtonText = styled.span`
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
@@ -75,5 +75,3 @@ const ButtonText = styled.span`
   line-height: 19px;
   color: ${({ theme }) => theme.colors.states.buttonText};
 `;
-
-export { Wrapper, Sign, BiggerText, Text, Button, ButtonText };
