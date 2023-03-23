@@ -44,20 +44,25 @@ This site allows you to browse the most popular movies and actors from the publi
 ## Technologies
 
 - React
-- TypeScript
-- ReactQuery
-- NPM
-- React app
-- React Hooks
-- React Router
-- API (fetch)
-- Error Handling
 - JavaScript: ES6+
-- Responsive Web Design
-- Figma
-- Trello
+- TypeScript
 - CSS Grid
 - CSS Flexbox
+- Responsive Web Design
+- React Router
+- API (fetch)
+- ReactQuery
+- NPM
+- React Hooks
+- Custom Hooks
+- Error Handling
+- Figma
+- Trello
+- React app
+- Conditional Types
+- Utility Functions
+- Debouncing
+- Markdown (for the README documentation)
 
 ## Available Scripts
 
