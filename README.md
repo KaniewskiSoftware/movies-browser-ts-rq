@@ -10,6 +10,8 @@ The project now boasts a well-structured and organized codebase, thanks to the r
 - Manage the state of the app using ReactQuery instead of Redux
 - Make the code as generic as possible by creating simpler, reusable components
 - Create custom hooks and utilities for various purposes
+- Enhance search functionality with debouncing for improved performance and user experience
+
 
 ## Next Steps
 
@@ -21,6 +23,9 @@ Upcoming tasks and goals include:
 3. Write comprehensive Jest tests for the codebase to ensure its reliability and maintainability
 4. Add detailed documentation for components, hooks, and utilities to make it easier for others to understand and contribute to the project
 5. Develop a generic DetailsPage that leverages the existing Tile component used for both People and Movies pages, with appropriate conditional variables for seamless integration
+6. Better organize and improve the styling of the project for a more polished look and feel
+7. Continuously identify and fix bugs to ensure a smooth and reliable user experience
+
 
 By accomplishing these goals, the project will continue to evolve and provide a robust, maintainable, and user-friendly experience.
 
