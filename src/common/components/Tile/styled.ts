@@ -17,7 +17,17 @@ interface TitleProps {
 interface ImageProps {
   $imageURL?: string;
   $noImage?: boolean;
+  $horizontalOnMobile?: boolean;
 }
+
+export const TileLink = styled(Link)`
+  text-decoration: none;
+  transition: transform 1s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+`;
 
 export const TileContainer = styled.article<TileContainerProps>`
   display: flex;
@@ -40,29 +50,32 @@ export const TileContainer = styled.article<TileContainerProps>`
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         flex-direction: row;
-        align-items: center;
       }
     `}
-`;
-
-export const TileLink = styled(Link)`
-  display: flex;
-  height: 100%;
-  text-decoration: none;
-  transition: transform 1s;
-
-  &:hover {
-    transform: scale(1.05);
-  }
 `;
 
 export const Image = styled.div<ImageProps>`
   padding-top: calc(100% * 632 / 431);
   width: 100%;
   border-radius: 5px;
-  background-image: url(${({ $imageURL }) => $imageURL});
+  background-image: url(${({ $imageURL }) => $imageURL });
   background-size: cover;
   background-position: center;
+
+  ${({ $horizontalOnMobile }) =>
+    $horizontalOnMobile &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        padding: unset;
+        height: 300px;
+        max-width: 198px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        height: 169px;
+        max-width: 114px;
+      }
+    `}
 
   ${({ $noImage }) =>
     $noImage &&
