@@ -15,7 +15,9 @@ import Wrapper from "./Wrapper";
 interface TileProps {
   id?: number;
   linkTo?: string;
-  imageURL?: string;
+  horizontalOnMobile?: boolean;
+  imageURL?: string | null;
+  imagePlaceholder?: string;
   title?: string;
   smallTitle?: boolean;
   releaseDate?: string;
@@ -30,7 +32,9 @@ interface TileProps {
 const Tile = ({
   id,
   linkTo,
+  horizontalOnMobile,
   imageURL,
+  imagePlaceholder,
   title,
   smallTitle,
   releaseDate,
@@ -42,8 +46,12 @@ const Tile = ({
   votesAmount,
 }: TileProps) => (
   <Wrapper key={id} linkTo={linkTo}>
-    <TileContainer>
-      <Image $imageURL={imageURL} $noImage={!imageURL} />
+    <TileContainer $horizontalOnMobile={horizontalOnMobile}>
+      <Image
+        $imageURL={imageURL || imagePlaceholder}
+        $noImage={!imageURL}
+        $horizontalOnMobile={horizontalOnMobile}
+      />
       <Content>
         {title && <Title $smallTitle={smallTitle}>{title}</Title>}
         {releaseDate && role ? (
@@ -77,5 +85,4 @@ const Tile = ({
     </TileContainer>
   </Wrapper>
 );
-
 export default Tile;

@@ -58,7 +58,7 @@ export const Image = styled.div<ImageProps>`
   padding-top: calc(100% * 632 / 431);
   width: 100%;
   border-radius: 5px;
-  background-image: url(${({ $imageURL }) => $imageURL });
+  background-image: url(${({ $imageURL }) => $imageURL});
   background-size: cover;
   background-position: center;
 

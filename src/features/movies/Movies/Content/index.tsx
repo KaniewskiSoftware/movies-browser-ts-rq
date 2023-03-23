@@ -3,6 +3,10 @@ import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movi
 import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
+import { useResponsivePosterSize } from "../../../../common/hooks/useResponsivePosterSize";
+import { buildPosterURL } from "../../../../common/utils/imageUtils";
+import { toMovies } from "../../../../common/utils/routes";
+import defaultMovie from "../../../../common/images/defaultMovie.svg";
 
 interface MoviesPageContentProps {
   genres: GenresObject;
@@ -16,33 +20,37 @@ const MoviesPageContent = ({
   movies,
   query,
   totalResults,
-}: MoviesPageContentProps) => (
-  <PageContent
-    title={
-      !query
-        ? "Popular movies"
-        : `Search results for "${query}" (${totalResults})`
-    }
-  >
-    <TilesGrid>
-      {movies.map((movie) => (
-        <Tile
-          key={movie.id}
-          id={movie.id}
-          linkTo={`/movies/${movie.id}`}
-          horizontalOnMobile
-          imageURL={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-          title={movie.title}
-          releaseDate={movie.release_date}
-          smallText
-          genreIds={movie.genre_ids}
-          genres={genres}
-          vote={movie.vote_average}
-          votesAmount={movie.vote_count}
-        />
-      ))}
-    </TilesGrid>
-  </PageContent>
-);
+}: MoviesPageContentProps) => {
+  const posterSize = useResponsivePosterSize();
+  return (
+    <PageContent
+      title={
+        !query
+          ? "Popular movies"
+          : `Search results for "${query}" (${totalResults})`
+      }
+    >
+      <TilesGrid>
+        {movies.map((movie) => (
+          <Tile
+            key={movie.id}
+            id={movie.id}
+            linkTo={`${toMovies}${movie.id}`}
+            horizontalOnMobile
+            imageURL={buildPosterURL(posterSize, movie.poster_path)}
+            imagePlaceholder={defaultMovie}
+            title={movie.title}
+            releaseDate={movie.release_date}
+            smallText
+            genreIds={movie.genre_ids}
+            genres={genres}
+            vote={movie.vote_average}
+            votesAmount={movie.vote_count}
+          />
+        ))}
+      </TilesGrid>
+    </PageContent>
+  );
+};
 
 export default MoviesPageContent;
