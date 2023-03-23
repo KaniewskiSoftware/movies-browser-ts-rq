@@ -50,7 +50,7 @@ This site allows you to browse the most popular movies and actors from the publi
 - CSS Flexbox
 - Responsive Web Design
 - React Router
-- API (fetch)
+- API (fetch, Axios, AxiosInstance)
 - ReactQuery
 - NPM
 - React Hooks
