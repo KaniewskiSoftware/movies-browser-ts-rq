@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import defaultMovie from "../../images/defaultMovie.svg";
 import { ReactComponent as Star } from "../../images/star.svg";
 
 interface TileContainerProps {
@@ -8,15 +7,16 @@ interface TileContainerProps {
 }
 
 interface GreyTextProps {
-  $small?: boolean;
+  $smallText?: boolean;
 }
 
 interface TitleProps {
-  $small?: boolean;
+  $smallTitle?: boolean;
 }
 
-interface ImageBackgroundProps {
+interface ImageProps {
   $imageURL?: string;
+  $noImage?: boolean;
 }
 
 export const TileContainer = styled.article<TileContainerProps>`
@@ -56,23 +56,21 @@ export const TileLink = styled(Link)`
   }
 `;
 
-export const ImageBackground = styled.div<ImageBackgroundProps>`
-  display: flex;
-  justify-content: center;
+export const Image = styled.div<ImageProps>`
+  padding-top: calc(100% * 632 / 431);
   width: 100%;
   border-radius: 5px;
-  background-image: ${({ $imageURL }) =>
-    $imageURL ? `url(${$imageURL})` : `url(${defaultMovie})`};
-  background-size: 35%;
-  background-repeat: no-repeat;
+  background-image: url(${({ $imageURL }) => $imageURL});
+  background-size: cover;
   background-position: center;
-  background-color: ${({ theme }) => theme.colors.tile.imageBackground};
-`;
 
-export const Image = styled.img`
-  width: 100%;
-  border-radius: 5px;
-  aspect-ratio: 2/3;
+  ${({ $noImage }) =>
+    $noImage &&
+    css`
+      background-color: ${({ theme }) => theme.colors.tile.imageBackground};
+      background-size: 35%;
+      background-repeat: no-repeat;
+    `}
 `;
 
 export const Content = styled.div`
@@ -97,8 +95,8 @@ export const Title = styled.p<TitleProps>`
     font-size: 16px;
   }
 
-  ${({ $small }) =>
-    $small &&
+  ${({ $smallTitle }) =>
+    $smallTitle &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 14px;
@@ -121,8 +119,8 @@ export const GreyText = styled.p<GreyTextProps>`
     font-size: 13px;
   }
 
-  ${({ $small }) =>
-    $small &&
+  ${({ $smallText }) =>
+    $smallText &&
     css`
       font-size: 16px;
     `}

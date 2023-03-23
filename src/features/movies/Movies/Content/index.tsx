@@ -1,8 +1,8 @@
 import { GenresObject } from "../../../../common/api/genres/genres";
 import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
-import MovieTile from "../../../../common/components/Movies";
 import { MovieTiles } from "../../../../common/components/Movies/Essentials";
 import PageContent from "../../../../common/components/Page/PageContent";
+import Tile from "../../../../common/components/Tile";
 
 interface MoviesPageContentProps {
   genres: GenresObject;
@@ -26,16 +26,17 @@ const MoviesPageContent = ({
   >
     <MovieTiles>
       {movies.map((movie) => (
-        <MovieTile
+        <Tile
           key={movie.id}
           id={movie.id}
-          path={movie.poster_path}
+          imageURL={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
           title={movie.title}
-          release={movie.release_date}
-          genre_ids={movie.genre_ids}
+          releaseDate={movie.release_date}
+          smallText
+          genreIds={movie.genre_ids}
           genres={genres}
           vote={movie.vote_average}
-          vote_amount={movie.vote_count}
+          votesAmount={movie.vote_count}
         />
       ))}
     </MovieTiles>
