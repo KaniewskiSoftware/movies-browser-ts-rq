@@ -1,4 +1,4 @@
-import { Plane, PlaneBox, Wrapper } from "./styled";
+import { StyledPlane, PlaneBox, Wrapper } from "./styled";
 import Title from "../../components/Title";
 import { searchQueryParamName, useQueryParameter } from "../../hooks/queryParameters";
 const NoResults = () => {
@@ -8,7 +8,7 @@ const NoResults = () => {
     <Wrapper>
       <Title title={`Sorry, there are no results for "${query}"`} />
       <PlaneBox>
-        <Plane />
+        <StyledPlane />
       </PlaneBox>
     </Wrapper>
   );
