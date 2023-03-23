@@ -1,6 +1,29 @@
 # Movies Browser using TypeScript and ReactQuery
 
-It is alternative version of my group project - [MoviesBrowser](https://kaniewskisoftware.github.io/movie-browser/). The goal is to refactor the whole project using TypeScript to make the code more professional. This time I'll manage the state of the app using ReactQuery instead of a Redux. I'll also try to make the code as generic as possbile by making simpler, reuseable components.
+This project is an alternative version of my group project, [MoviesBrowser](https://kaniewskisoftware.github.io/movie-browser/). The primary goal is to refactor the entire project using TypeScript to create a more professional codebase. Instead of using Redux to manage the state of the app, I will utilize ReactQuery. Additionally, I will strive to make the code as generic as possible by creating simpler, reusable components. I have also developed custom hooks and utilities to achieve various functionalities, such as handling different image sizes based on screen width and managing screen resizing.
+
+The project now boasts a well-structured and organized codebase, thanks to the reusable and generic components that have been constantly improved upon. With a strong foundation in place, future enhancements and features can be easily integrated.
+
+## Main Goals
+
+- Refactor the whole project using TypeScript to make the code more professional
+- Manage the state of the app using ReactQuery instead of Redux
+- Make the code as generic as possible by creating simpler, reusable components
+- Create custom hooks and utilities for various purposes
+
+## Next Steps
+
+Upcoming tasks and goals include:
+
+1. Break down the Tile component
+   - Create a subcomponent to handle role and release date logic
+2. Improve the Tags component to be more generic
+3. Write comprehensive Jest tests for the codebase to ensure its reliability and maintainability
+4. Add detailed documentation for components, hooks, and utilities to make it easier for others to understand and contribute to the project
+5. Develop a generic DetailsPage that leverages the existing Tile component used for both People and Movies pages, with appropriate conditional variables for seamless integration
+
+By accomplishing these goals, the project will continue to evolve and provide a robust, maintainable, and user-friendly experience.
+
 
 ## Movies Browser
 
