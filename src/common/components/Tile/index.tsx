@@ -38,27 +38,29 @@ const Tile = ({
   genres,
   vote,
   votesAmount,
-}: TileProps) => (
-  <Wrapper linkTo={linkTo}>
-    <TileContainer $horizontalOnMobile={horizontalOnMobile}>
-      <Image
-        $imageURL={imageURL ?? imagePlaceholder}
-        $noImage={!imageURL}
-        $horizontalOnMobile={horizontalOnMobile}
-      />
-      <Content $textCentered={contentTextCentered}>
-        {title && <Title $smallTitle={smallTitle}>{title}</Title>}
-        <RoleAndRelease
-          role={role}
-          releaseDate={releaseDate}
-          smallText={smallText}
+}: TileProps) => {
+  const tags = genreIds && genres && getTagsFromGenres(genreIds, genres);
+  
+  return (
+    <Wrapper linkTo={linkTo}>
+      <TileContainer $horizontalOnMobile={horizontalOnMobile}>
+        <Image
+          $imageURL={imageURL ?? imagePlaceholder}
+          $noImage={!imageURL}
+          $horizontalOnMobile={horizontalOnMobile}
         />
-        {genreIds && genres && (
-          <Tags tags={getTagsFromGenres(genreIds, genres)} />
-        )}
-        <Rating vote={vote} votesAmount={votesAmount} smallText={smallText} />
-      </Content>
-    </TileContainer>
-  </Wrapper>
-);
+        <Content $textCentered={contentTextCentered}>
+          {title && <Title $smallTitle={smallTitle}>{title}</Title>}
+          <RoleAndRelease
+            role={role}
+            releaseDate={releaseDate}
+            smallText={smallText}
+          />
+          {tags && <Tags tags={tags} />}
+          <Rating vote={vote} votesAmount={votesAmount} smallText={smallText} />
+        </Content>
+      </TileContainer>
+    </Wrapper>
+  );
+};
 export default Tile;
