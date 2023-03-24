@@ -6,76 +6,59 @@ import {
   ProfileSize,
 } from "../types/imageTypes";
 
+type ImageSizeMap = {
+  poster: PosterSize;
+  profile: ProfileSize;
+  backdrop: BackdropSize;
+};
+
 type ImageSize<T extends ImageType> = {
-  size: T extends "poster"
-    ? PosterSize
-    : T extends "profile"
-    ? ProfileSize
-    : BackdropSize;
+  size: ImageSizeMap[T];
   width: number;
 };
 
-const posterBreakpoints: ImageSize<"poster">[] = [
-  { size: "w154", width: 467 },
-  { size: "w342", width: 767 },
-  { size: "w500", width: Infinity },
-];
-
-const profileBreakpoints: ImageSize<"profile">[] = [
-  { size: "w185", width: 600 },
-  { size: "h632", width: Infinity },
-];
-
-const backdropBreakpoints: ImageSize<"backdrop">[] = [
-  { size: "w780", width: 767 },
-  { size: "w1280", width: 1224 },
-  { size: "original", width: Infinity },
-];
-
-const getPosterImageSize = (width: number): ImageSize<"poster"> => {
-  return posterBreakpoints.find(
-    (breakpoint: ImageSize<"poster">) => width <= breakpoint.width
-  )!;
+const breakpoints: {
+  [key in ImageType]: ImageSize<key>[];
+} = {
+  poster: [
+    { size: "w154", width: 467 },
+    { size: "w342", width: 767 },
+    { size: "w500", width: Infinity },
+  ],
+  profile: [
+    { size: "w185", width: 600 },
+    { size: "h632", width: Infinity },
+  ],
+  backdrop: [
+    { size: "w780", width: 767 },
+    { size: "w1280", width: 1224 },
+    { size: "original", width: Infinity },
+  ],
 };
 
-const getProfileImageSize = (width: number): ImageSize<"profile"> => {
-  return profileBreakpoints.find(
-    (breakpoint: ImageSize<"profile">) => width <= breakpoint.width
-  )!;
-};
-
-const getBackdropImageSize = (width: number): ImageSize<"backdrop"> => {
-  return backdropBreakpoints.find(
-    (breakpoint: ImageSize<"backdrop">) => width <= breakpoint.width
-  )!;
+const getImageSize = (
+  type: ImageType,
+  width: number
+): ImageSizeMap[ImageType] => {
+  return (breakpoints[type] as ImageSize<typeof type>[]).find(
+    (breakpoint: ImageSize<typeof type>) => width <= breakpoint.width
+  )!.size;
 };
 
 export const useResponsiveImageSize = (
   type: ImageType
-): typeof type extends "poster"
-  ? PosterSize
-  : typeof type extends "profile"
-  ? ProfileSize
-  : BackdropSize => {
-  const [imageSize, setImageSize] = useState<ImageSize<typeof type>>(
-    type === "poster"
-      ? getPosterImageSize(window.innerWidth)
-      : type === "profile"
-      ? getProfileImageSize(window.innerWidth)
-      : getBackdropImageSize(window.innerWidth)
-  );
+): ImageSizeMap[ImageType] => {
+  const [imageSize, setImageSize] = useState<ImageSize<ImageType>>({
+    size: getImageSize(type, window.innerWidth),
+    width: window.innerWidth,
+  });
 
   useEffect(() => {
     const handleResize = () => {
-      const newSize =
-        type === "poster"
-          ? getPosterImageSize(window.innerWidth)
-          : type === "profile"
-          ? getProfileImageSize(window.innerWidth)
-          : getBackdropImageSize(window.innerWidth);
+      const newSize = getImageSize(type, window.innerWidth);
 
-      if (!imageSize || newSize !== imageSize) {
-        setImageSize(newSize);
+      if (!imageSize || newSize !== imageSize.size) {
+        setImageSize({ size: newSize, width: window.innerWidth });
       }
     };
 
@@ -87,9 +70,5 @@ export const useResponsiveImageSize = (
     };
   }, [imageSize, type]);
 
-  return imageSize.size as typeof type extends "poster"
-    ? PosterSize
-    : typeof type extends "profile"
-    ? ProfileSize
-    : BackdropSize;
+  return imageSize.size;
 };
