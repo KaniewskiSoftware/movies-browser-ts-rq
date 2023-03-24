@@ -34,7 +34,6 @@ const MoviesPageContent = ({
         {movies.map((movie) => (
           <Tile
             key={movie.id}
-            id={movie.id}
             linkTo={`${toMovies}${movie.id}`}
             horizontalOnMobile
             imageURL={buildImageURL(size, movie.poster_path, "poster")}

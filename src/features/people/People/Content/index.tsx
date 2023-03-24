@@ -30,7 +30,6 @@ const PeoplePageContent = ({
         {people.map((person) => (
           <Tile
             key={person.id}
-            id={person.id}
             linkTo={`${toPeople}${person.id}`}
             imageURL={buildImageURL(
               size,

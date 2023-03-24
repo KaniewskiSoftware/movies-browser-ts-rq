@@ -1,8 +1,9 @@
 import { GenresObject } from "../../api/genres/genres";
 import { Tag, Tags } from "../Tags";
+import { GreyText } from "./GreyText";
+import RoleAndRelease from "./RoleAndRelease";
 import {
   Content,
-  GreyText,
   Image,
   Rate,
   Rating,
@@ -13,7 +14,6 @@ import {
 import Wrapper from "./Wrapper";
 
 interface TileProps {
-  id?: number;
   linkTo?: string;
   horizontalOnMobile?: boolean;
   imageURL?: string | null;
@@ -30,7 +30,6 @@ interface TileProps {
 }
 
 const Tile = ({
-  id,
   linkTo,
   horizontalOnMobile,
   imageURL,
@@ -54,15 +53,11 @@ const Tile = ({
       />
       <Content>
         {title && <Title $smallTitle={smallTitle}>{title}</Title>}
-        {releaseDate && role ? (
-          <GreyText $smallText={smallText}>
-            {role} ({releaseDate.slice(0, 4)})
-          </GreyText>
-        ) : releaseDate ? (
-          <GreyText $smallText={smallText}>{releaseDate.slice(0, 4)}</GreyText>
-        ) : role ? (
-          <GreyText $smallText={smallText}>{role}</GreyText>
-        ) : null}
+        <RoleAndRelease
+          role={role}
+          releaseDate={releaseDate}
+          smallText={smallText}
+        />
         {genreIds && genres ? (
           <Tags>
             {genreIds.map((genreId) => (
