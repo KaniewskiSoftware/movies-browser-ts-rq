@@ -1,5 +1,6 @@
 import { GenresObject } from "../../api/genres/genres";
-import { Tag, Tags } from "../Tags";
+import { getTagsFromGenres } from "../../utils/getTagsFromGenres";
+import Tags from "../Tags";
 import { GreyText } from "./GreyText";
 import RoleAndRelease from "./RoleAndRelease";
 import {
@@ -60,13 +61,9 @@ const Tile = ({
           releaseDate={releaseDate}
           smallText={smallText}
         />
-        {genreIds && genres ? (
-          <Tags>
-            {genreIds.map((genreId) => (
-              <Tag key={genreId}>{genres[genreId]}</Tag>
-            ))}
-          </Tags>
-        ) : null}
+        {genreIds && genres && (
+          <Tags tags={getTagsFromGenres(genreIds, genres)} />
+        )}
         {!!vote && vote > 0 && (
           <Rating>
             <StyledStar />

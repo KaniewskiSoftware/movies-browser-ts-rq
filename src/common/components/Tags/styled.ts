@@ -4,9 +4,12 @@ type TagsProps = {
   $details?: boolean;
 };
 
-export const Tags = styled.div<TagsProps>`
+export const List = styled.ul<TagsProps>`
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   gap: 8px;
 
   ${({ $details }) =>
@@ -20,7 +23,7 @@ export const Tags = styled.div<TagsProps>`
     `}
 `;
 
-export const Tag = styled.div`
+export const Tag = styled.li`
   padding: 8px 16px;
   font-size: 14px;
   border-radius: 5px;
