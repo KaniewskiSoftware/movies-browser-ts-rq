@@ -30,7 +30,7 @@ const useSearchLogic = () => {
             }).toString(),
           });
         }
-      }, 500)
+      }, 1000)
     );
   
     const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
