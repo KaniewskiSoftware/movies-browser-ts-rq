@@ -5,21 +5,43 @@ interface RatingProps {
   vote?: number;
   votesAmount?: number;
   smallText?: boolean;
+  backdrop?: boolean;
 }
 
-const Rating: React.FC<RatingProps> = ({ vote, votesAmount, smallText }) => {
+const Rating = ({ vote, votesAmount, smallText, backdrop }: RatingProps) => {
   if (!vote || vote <= 0) {
     return null;
   }
 
   return (
-    <Container>
-      <StyledStar />
-      <Rate>{vote.toFixed(2)}</Rate>
+    <>
+      {" "}
+      <Container $large={backdrop}>
+        <StyledStar $large={backdrop} />
+        <Rate $large={!!backdrop}>{vote.toFixed(2)}</Rate>
+        <SecondaryText $hidden={!backdrop} $backdrop $bottomSelfAlignment>
+          / 10
+        </SecondaryText>
+        {votesAmount && (
+          <SecondaryText
+            $displayOnMobile={backdrop}
+            $smallText={smallText}
+            $backdrop={backdrop}
+          >
+            {votesAmount} votes
+          </SecondaryText>
+        )}
+      </Container>
       {votesAmount && (
-        <SecondaryText $smallText={smallText}>{`${votesAmount} votes`}</SecondaryText>
+        <SecondaryText
+          $hidden={!backdrop}
+          $displayOnDesktop={backdrop}
+          $backdrop
+        >
+          {votesAmount} votes
+        </SecondaryText>
       )}
-    </Container>
+    </>
   );
 };
 

@@ -3,13 +3,11 @@ import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movi
 import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
-import {
-  PosterSize,
-  useResponsiveImageSize,
-} from "../../../../common/hooks/useResponsiveImageSize";
+import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toMovies } from "../../../../common/utils/routes";
 import defaultMovie from "../../../../common/images/defaultMovie.svg";
+import { PosterSize } from "../../../../common/types/imageTypes";
 
 interface MoviesPageContentProps {
   genres: GenresObject;

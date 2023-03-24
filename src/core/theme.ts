@@ -15,6 +15,7 @@ const colorNames = {
 
 const common = {
   breakpoints: {
+    smalest: "324px",
     tiny: "467px",
     small: "524px",
     mobile: "767px",

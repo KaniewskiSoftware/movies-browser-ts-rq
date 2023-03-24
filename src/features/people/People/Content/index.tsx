@@ -3,6 +3,7 @@ import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
+import { ProfileSize } from "../../../../common/types/imageTypes";
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toPeople } from "../../../../common/utils/routes";
 
@@ -17,7 +18,7 @@ const Content = ({
   query,
   totalResults,
 }: PopularMoviesPageContentProps) => {
-  const size = useResponsiveImageSize("profile");
+  const size = useResponsiveImageSize("profile") as ProfileSize;
   return (
     <PageContent
       title={
@@ -31,11 +32,7 @@ const Content = ({
           <Tile
             key={person.id}
             linkTo={`${toPeople}/${person.id}`}
-            imageURL={buildImageURL(
-              size,
-              person.profile_path,
-              "profile"
-            )}
+            imageURL={buildImageURL(size, person.profile_path, "profile")}
             contentTextCentered
             title={person.name}
             smallTitle
