@@ -18,6 +18,7 @@ interface TileProps {
   horizontalOnMobile?: boolean;
   imageURL?: string | null;
   imagePlaceholder?: string;
+  contentTextCentered?: boolean;
   title?: string;
   smallTitle?: boolean;
   releaseDate?: string;
@@ -34,6 +35,7 @@ const Tile = ({
   horizontalOnMobile,
   imageURL,
   imagePlaceholder,
+  contentTextCentered,
   title,
   smallTitle,
   releaseDate,
@@ -51,7 +53,7 @@ const Tile = ({
         $noImage={!imageURL}
         $horizontalOnMobile={horizontalOnMobile}
       />
-      <Content>
+      <Content $textCentered={contentTextCentered}>
         {title && <Title $smallTitle={smallTitle}>{title}</Title>}
         <RoleAndRelease
           role={role}

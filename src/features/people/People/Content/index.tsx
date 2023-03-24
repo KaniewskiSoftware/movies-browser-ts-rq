@@ -36,6 +36,7 @@ const PeoplePageContent = ({
               person.profile_path,
               "profile"
             )}
+            contentTextCentered
             title={person.name}
             smallTitle
           />

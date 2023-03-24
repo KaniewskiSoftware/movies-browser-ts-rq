@@ -16,6 +16,10 @@ interface ImageProps {
   $horizontalOnMobile?: boolean;
 }
 
+interface ContentProps {
+  $textCentered?: boolean;
+}
+
 export const TileLink = styled(Link)`
   text-decoration: none;
   transition: transform 1s;
@@ -82,12 +86,18 @@ export const Image = styled.div<ImageProps>`
     `}
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<ContentProps>`
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   gap: 8px;
+
+  ${({ $textCentered }) =>
+    $textCentered &&
+    css`
+      text-align: center;
+    `}
 `;
 
 export const Title = styled.p<TitleProps>`
