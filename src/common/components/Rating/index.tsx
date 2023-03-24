@@ -1,4 +1,4 @@
-import { GreyText } from "../GreyText";
+import { SecondaryText } from "../SecondaryText";
 import { Rate, Container, StyledStar } from "./styled";
 
 interface RatingProps {
@@ -17,7 +17,7 @@ const Rating: React.FC<RatingProps> = ({ vote, votesAmount, smallText }) => {
       <StyledStar />
       <Rate>{vote.toFixed(2)}</Rate>
       {votesAmount && (
-        <GreyText $smallText={smallText}>{`${votesAmount} votes`}</GreyText>
+        <SecondaryText $smallText={smallText}>{`${votesAmount} votes`}</SecondaryText>
       )}
     </Container>
   );

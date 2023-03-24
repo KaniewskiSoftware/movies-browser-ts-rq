@@ -1,10 +1,10 @@
 import styled, { css } from "styled-components";
 
-interface GreyTextProps {
+interface SecondaryTextProps {
   $smallText?: boolean;
 }
 
-export const GreyText = styled.p<GreyTextProps>`
+export const SecondaryText = styled.p<SecondaryTextProps>`
   margin: 0;
   font-weight: 400;
   font-size: 18px;

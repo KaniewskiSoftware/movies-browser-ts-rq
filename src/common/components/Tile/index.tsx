@@ -1,7 +1,7 @@
 import { GenresObject } from "../../api/genres/genres";
 import { getTagsFromGenres } from "../../utils/getTagsFromGenres";
 import Tags from "./Tags";
-import Rating from "./Rating";
+import Rating from "../Rating";
 import RoleAndRelease from "./RoleAndRelease";
 import { Content, Image, TileContainer, Title } from "./styled";
 import Wrapper from "./Wrapper";
