@@ -1,17 +1,9 @@
 import { GenresObject } from "../../api/genres/genres";
 import { getTagsFromGenres } from "../../utils/getTagsFromGenres";
 import Tags from "../Tags";
-import { GreyText } from "./GreyText";
+import Rating from "./Rating";
 import RoleAndRelease from "./RoleAndRelease";
-import {
-  Content,
-  Image,
-  Rate,
-  Rating,
-  StyledStar,
-  TileContainer,
-  Title,
-} from "./styled";
+import { Content, Image, TileContainer, Title } from "./styled";
 import Wrapper from "./Wrapper";
 
 interface TileProps {
@@ -50,7 +42,7 @@ const Tile = ({
   <Wrapper linkTo={linkTo}>
     <TileContainer $horizontalOnMobile={horizontalOnMobile}>
       <Image
-        $imageURL={imageURL || imagePlaceholder}
+        $imageURL={imageURL ?? imagePlaceholder}
         $noImage={!imageURL}
         $horizontalOnMobile={horizontalOnMobile}
       />
@@ -64,17 +56,7 @@ const Tile = ({
         {genreIds && genres && (
           <Tags tags={getTagsFromGenres(genreIds, genres)} />
         )}
-        {!!vote && vote > 0 && (
-          <Rating>
-            <StyledStar />
-            <Rate>{vote.toFixed(2)}</Rate>
-            {votesAmount && (
-              <GreyText
-                $smallText={smallText}
-              >{`${votesAmount} votes`}</GreyText>
-            )}
-          </Rating>
-        )}
+        <Rating vote={vote} votesAmount={votesAmount} smallText={smallText} />
       </Content>
     </TileContainer>
   </Wrapper>

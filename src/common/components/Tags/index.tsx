@@ -5,13 +5,17 @@ interface TagsProps {
 }
 
 const Tags = ({ tags }: TagsProps) => {
-  return (
-    <List>
-      {tags.map((tag, index) => (
-        <Tag key={index}>{tag}</Tag>
-      ))}
-    </List>
-  );
+  if (!!tags) {
+    return (
+      <List>
+        {tags.map((tag, index) => (
+          <Tag key={index}>{tag}</Tag>
+        ))}
+      </List>
+    );
+  }
+
+  return null;
 };
 
 export default Tags;
