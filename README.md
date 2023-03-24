@@ -29,9 +29,16 @@ Upcoming tasks and goals include:
 
 By accomplishing these goals, the project will continue to evolve and provide a robust, maintainable, and user-friendly experience.
 
-## Movies Browser
+## Key Features
 
-This site allows you to browse the most popular movies and actors from the public tmdb API. You can also get to know each of the above better on the details pages. There is a search engine in the upper right corner. It searches for movies or actors depending on which subpage you are currently on. Layout was designed in Figma by professionalist.
+- Browse popular movies and actors using data from the public TMDB API
+- Access detailed information for popular videos and people, including photos, names, ratings, and countries of origin
+- Explore full cast and crew lists on movie details pages
+- View an actor's filmography, including roles played and crew contributions, on their details page
+- Utilize the search engine to find movies or people within the entire TMDB database, based on the current subpage
+- Navigate efficiently between subpages for a seamless browsing experience
+- Return to the main page featuring popular movies by clicking the logo in the upper left corner
+- Experience a well-designed and user-friendly layout, created by professionals using Figma
 
 <!-- ## Preview
 
