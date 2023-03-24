@@ -6,7 +6,7 @@ import {
   searchQueryParamName,
   useQueryParameter,
 } from "../../../common/hooks/queryParameters";
-import PeoplePageContent from "./Content";
+import Content from "./Content";
 
 const PeoplePage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
@@ -34,7 +34,7 @@ const PeoplePage = () => {
       totalPages={peopleData?.total_pages ?? 1}
       page={page}
     >
-      <PeoplePageContent
+      <Content
         people={peopleData?.results ?? []}
         query={query}
         totalResults={peopleData?.total_results ?? 0}

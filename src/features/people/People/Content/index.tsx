@@ -12,7 +12,7 @@ interface PopularMoviesPageContentProps {
   totalResults: number;
 }
 
-const PeoplePageContent = ({
+const Content = ({
   people,
   query,
   totalResults,
@@ -45,4 +45,4 @@ const PeoplePageContent = ({
     </PageContent>
   );
 };
-export default PeoplePageContent;
+export default Content;

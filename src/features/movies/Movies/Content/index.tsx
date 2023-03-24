@@ -15,7 +15,7 @@ interface MoviesPageContentProps {
   totalResults: number;
 }
 
-const MoviesPageContent = ({
+const Content = ({
   genres,
   movies,
   query,
@@ -52,4 +52,4 @@ const MoviesPageContent = ({
   );
 };
 
-export default MoviesPageContent;
+export default Content;

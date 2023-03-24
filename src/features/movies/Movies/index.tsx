@@ -7,7 +7,7 @@ import {
   searchQueryParamName,
   useQueryParameter,
 } from "../../../common/hooks/queryParameters";
-import MoviesPageContent from "./Content";
+import Content from "./Content";
 
 const MoviesPage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
@@ -41,7 +41,7 @@ const MoviesPage = () => {
       totalPages={moviesData?.total_pages ?? 1}
       page={page}
     >
-      <MoviesPageContent
+      <Content
         genres={genresData?.genres ?? []}
         movies={moviesData?.results ?? []}
         query={query}
