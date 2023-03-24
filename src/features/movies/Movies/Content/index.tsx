@@ -3,7 +3,10 @@ import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movi
 import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
-import { PosterSize, useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
+import {
+  PosterSize,
+  useResponsiveImageSize,
+} from "../../../../common/hooks/useResponsiveImageSize";
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toMovies } from "../../../../common/utils/routes";
 import defaultMovie from "../../../../common/images/defaultMovie.svg";
@@ -34,7 +37,7 @@ const Content = ({
         {movies.map((movie) => (
           <Tile
             key={movie.id}
-            linkTo={`${toMovies}${movie.id}`}
+            linkTo={`${toMovies}/${movie.id}`}
             horizontalOnMobile
             imageURL={buildImageURL(size, movie.poster_path, "poster")}
             imagePlaceholder={defaultMovie}

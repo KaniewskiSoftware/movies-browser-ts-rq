@@ -30,7 +30,7 @@ const Content = ({
         {people.map((person) => (
           <Tile
             key={person.id}
-            linkTo={`${toPeople}${person.id}`}
+            linkTo={`${toPeople}/${person.id}`}
             imageURL={buildImageURL(
               size,
               person.profile_path,
