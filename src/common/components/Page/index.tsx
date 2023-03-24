@@ -1,4 +1,3 @@
-import React from "react";
 import ErrorPage from "../../states/ErrorPage";
 import Loader from "../../states/Loader";
 import NoResults from "../../states/NoResults";
@@ -8,8 +7,9 @@ interface PageProps {
   isLoading: boolean;
   isError: boolean;
   hasResults: boolean;
-  totalPages: number;
-  page: number;
+  detailsPage?: boolean;
+  totalPages?: number;
+  page?: number;
   children: React.ReactNode;
 }
 
@@ -17,8 +17,8 @@ const Page = ({
   isLoading,
   isError,
   hasResults,
-  totalPages,
-  page,
+  totalPages = undefined,
+  page = undefined,
   children,
 }: PageProps) => {
   if (isLoading) {
@@ -36,7 +36,10 @@ const Page = ({
   return (
     <>
       {children}
-      <Footer totalPages={totalPages} page={page} />
+      {totalPages !== undefined && page !== undefined && (
+        <Footer totalPages={totalPages} page={page} />
+      )}
+
     </>
   );
 };

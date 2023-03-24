@@ -1,22 +1,16 @@
 import React from "react";
-import Title, { TitleType } from "../../Title";
+import Title from "../../Title";
 import { ContainerType, Wrapper } from "../../Wrapper";
 
 interface PageContentProps {
   containerType?: ContainerType;
-  title: string;
-  titleType?: TitleType;
+  title?: string;
   children: React.ReactNode;
 }
 
-const PageContent = ({
-  containerType,
-  title,
-  titleType,
-  children,
-}: PageContentProps) => (
+const PageContent = ({ containerType, title, children }: PageContentProps) => (
   <Wrapper $containerType={containerType}>
-    <Title title={title} styleType={titleType} />
+    {title && <Title title={title} />}
     {children}
   </Wrapper>
 );
