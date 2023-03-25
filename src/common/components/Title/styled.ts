@@ -4,6 +4,12 @@ interface StyledTitleProps {
   $styleType?: "default" | "personCredits" | "movieCredits";
 }
 
+/**
+ * The StyledTitle component is a styled text element used for displaying
+ * titles. It adjusts its styles based on the `$styleType` prop.
+ *
+ * @param $styleType - (Optional) A string to define the title style, one of: "default", "personCredits", "movieCredits".
+ */
 export const StyledTitle = styled.h1<StyledTitleProps>`
   margin: 0;
   font-weight: 600;

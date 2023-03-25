@@ -5,6 +5,12 @@ interface RatingProps {
   $large?: boolean;
 }
 
+/**
+ * The Container component is a styled div that serves as a container for
+ * the Rating component elements, providing proper alignment and spacing.
+ *
+ * @param $large - (Optional) A boolean to apply the large version styles.
+ */
 export const Container = styled.div<RatingProps>`
   display: flex;
   align-items: center;
@@ -34,6 +40,11 @@ export const Container = styled.div<RatingProps>`
     `}
 `;
 
+/**
+ * The StyledStar component is a styled SVG component that displays a star icon.
+ *
+ * @param $large - (Optional) A boolean to apply the large version styles.
+ */
 export const StyledStar = styled(Star)<RatingProps>`
   width: 24px;
   height: auto;
@@ -53,6 +64,12 @@ export const StyledStar = styled(Star)<RatingProps>`
   }
 `;
 
+/**
+ * The Rate component is a styled paragraph component that displays the rating
+ * value in a specific font size and weight.
+ *
+ * @param $large - (Optional) A boolean to apply the large version styles.
+ */
 export const Rate = styled.p<RatingProps>`
   margin: 0;
   font-weight: 600;

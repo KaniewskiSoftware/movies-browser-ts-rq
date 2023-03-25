@@ -8,6 +8,21 @@ interface RatingProps {
   backdrop?: boolean;
 }
 
+/**
+ * The Rating component displays a rating value, represented by a star icon
+ * followed by the rating number and an optional votes amount.
+ *
+ * @param vote - The rating value.
+ * @param votesAmount - (Optional) The number of votes used to calculate the rating value.
+ * @param smallText - (Optional) A boolean to set the font size of the votes amount to small.
+ * @param backdrop - (Optional) A boolean to apply backdrop-related styles.
+ */
+interface RatingProps {
+  vote?: number;
+  votesAmount?: number;
+  smallText?: boolean;
+  backdrop?: boolean;
+}
 const Rating = ({ vote, votesAmount, smallText, backdrop }: RatingProps) => {
   if (!vote || vote <= 0) {
     return null;

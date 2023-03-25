@@ -6,6 +6,12 @@ interface WrapperProps {
   $containerType?: ContainerType;
 }
 
+/**
+ * The Wrapper component is a styled container element used for wrapping
+ * content and adjusting its layout based on the `$containerType` prop.
+ *
+ * @param $containerType - (Optional) A string to define the container type, one of: "default", "credits", "error". Default value: "default".
+ */
 export const Wrapper = styled.div<WrapperProps>`
   max-width: 1400px;
   padding: 0 16px;

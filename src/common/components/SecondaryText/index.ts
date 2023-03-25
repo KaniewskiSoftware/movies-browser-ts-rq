@@ -9,6 +9,23 @@ interface SecondaryTextProps {
   $hidden?: boolean;
 }
 
+/**
+ * The SecondaryText component is a versatile styled paragraph component that
+ * can be customized using various optional properties. It is designed to be
+ * used in different parts of the application where secondary text is required.
+ *
+ * @param $smallText - (Optional) A boolean that sets the font size to 16px if true.
+ * @param $backdrop - (Optional) A boolean that sets the font size to 16px, line-height to 1.2,
+ *                    and changes the color according to the theme when true. It is used
+ *                    throughout the Backdrop component.
+ * @param $bottomSelfAlignment - (Optional) A boolean that sets the component's alignment to the
+ *                               bottom (flex-end) on desktop and resets it on mobile devices.
+ * @param $displayOnDesktop - (Optional) A boolean that hides the component on desktop devices
+ *                            (below the 'large' breakpoint) when true.
+ * @param $displayOnMobile - (Optional) A boolean that hides the component on mobile devices
+ *                           (above the 'large' breakpoint) when true.
+ * @param $hidden - (Optional) A boolean that hides the component when true.
+ */
 export const SecondaryText = styled.p<SecondaryTextProps>`
   margin: 0;
   font-weight: 400;
