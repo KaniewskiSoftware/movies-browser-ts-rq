@@ -1,9 +1,23 @@
 import styled, { css } from "styled-components";
 
 type TagsProps = {
-  $details?: boolean;
+  $largeGap?: boolean;
 };
 
+/**
+ * List is a styled unordered list (ul) component used for displaying the tags horizontally
+ * with a specified gap between them. It also supports wrapping to multiple lines if necessary.
+ * The component uses the TagsProps interface to determine the gap size between the tags.
+ *
+ * @example
+ * <List>
+ *   {tags.map((tag, index) => (
+ *     <Tag key={index}>{tag}</Tag>
+ *   ))}
+ * </List>
+ *
+ * @param $largeGap - (Optional) A boolean that determines if the list should have a larger gap between tags. Default value: false.
+ */
 export const List = styled.ul<TagsProps>`
   display: flex;
   flex-wrap: wrap;
@@ -12,8 +26,8 @@ export const List = styled.ul<TagsProps>`
   margin: 0;
   gap: 8px;
 
-  ${({ $details }) =>
-    $details &&
+  ${({ $largeGap }) =>
+    $largeGap &&
     css`
       gap: 16px;
 
@@ -23,6 +37,14 @@ export const List = styled.ul<TagsProps>`
     `}
 `;
 
+/**
+ * Tag is a styled list item (li) component used for representing an individual tag. It has a specific
+ * background color, font size, and padding, which are applied to give it a distinct appearance.
+ * The component is responsive and adjusts its styles for various screen sizes.
+ *
+ * @example
+ * <Tag>Comedy</Tag>
+ */
 export const Tag = styled.li`
   padding: 8px 16px;
   font-size: 14px;
