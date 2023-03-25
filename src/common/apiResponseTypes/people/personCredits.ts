@@ -17,6 +17,13 @@ interface Cast {
   poster_path?: string | null;
 }
 
+/**
+ * Possible response types provided by the external API documentation.
+ *
+ * These interfaces represent the structure of response data objects returned by the API.
+ * The properties within the interfaces are self-explanatory and follow
+ * the naming conventions used by the external API documentation.
+ */
 interface Crew {
   id?: number;
   department?: string;

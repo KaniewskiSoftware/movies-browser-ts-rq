@@ -6,6 +6,12 @@ interface PaginationOptions {
   lastPageNumber: number;
 }
 
+/**
+ * A custom React Hook that provides pagination functionalities.
+ *
+ * @param {PaginationOptions} options - An object containing the current page number and the last page number.
+ * @returns An object containing functions to navigate between pages (goToFirstPage, goToNextPage, goToPreviousPage, goToLastPage).
+ */
 export const usePagination = ({ page, lastPageNumber }: PaginationOptions) => {
   const setPage = useSetPage();
   const goToFirstPage = () => {

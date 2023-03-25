@@ -1,30 +1,15 @@
-import {
-  BackdropSize,
-  ImageType,
-  PosterSize,
-  ProfileSize,
-} from "./externalImagesProperties";
+import { ImageSizeMap, ImageType } from "./externalImagesProperties";
 
+/**
+ * Constructs a complete image URL from the given image size, image path, and image type.
+ *
+ * @param {ImageSizeMap[ImageType]} size - The size of the image as a string (e.g., "w92", "w185", etc.).
+ * @param {string | null | undefined} imagePath - The path of the image from the external source (e.g., "/path/to/image.jpg").
+ * @param {ImageType} type - The type of the image (e.g., "poster", "profile", "backdrop").
+ * @returns {string | null} The complete image URL if the imagePath is provided, otherwise null.
+ */
 export function buildImageURL(
-  size: PosterSize,
-  imagePath: string | null | undefined,
-  type: "poster"
-): string | null;
-
-export function buildImageURL(
-  size: ProfileSize,
-  imagePath: string | null | undefined,
-  type: "profile"
-): string | null;
-
-export function buildImageURL(
-  size: BackdropSize,
-  imagePath: string | null | undefined,
-  type: "backdrop"
-): string | null;
-
-export function buildImageURL(
-  size: string,
+  size: ImageSizeMap[ImageType],
   imagePath: string | null | undefined,
   type: ImageType
 ): string | null {
