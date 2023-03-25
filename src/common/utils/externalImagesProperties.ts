@@ -22,7 +22,10 @@ export type ProfileSize = "w45" | "w185" | "h632" | "original";
 /** Available backdrop sizes for images from TMDb API. */
 export type BackdropSize = "w300" | "w780" | "w1280" | "original";
 
-/** Image types supported by TMDb API. */
+/** 
+ * Image types supported by TMDb API that are used in the movies-browser.
+ * For more checkout the link provided at the top of this file.
+ */
 export type ImageType = "poster" | "profile" | "backdrop";
 
 /**
