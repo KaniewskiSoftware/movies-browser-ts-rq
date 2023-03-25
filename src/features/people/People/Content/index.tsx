@@ -3,7 +3,7 @@ import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
-import { ProfileSize } from "../../../../common/types/imageTypes";
+import { ProfileSize } from "../../../../common/utils/externalImagesProperties";
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toPeople } from "../../../../common/utils/routes";
 

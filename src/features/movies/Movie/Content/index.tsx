@@ -2,7 +2,7 @@ import { MovieDetailsResponse } from "../../../../common/apiResponseTypes/movies
 import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
-import { BackdropSize } from "../../../../common/types/imageTypes";
+import { BackdropSize } from "../../../../common/utils/externalImagesProperties";
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import Backdrop from "./Backdrop";
 

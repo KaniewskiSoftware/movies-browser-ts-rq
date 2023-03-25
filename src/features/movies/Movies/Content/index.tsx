@@ -7,7 +7,7 @@ import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveIm
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toMovies } from "../../../../common/utils/routes";
 import defaultMovie from "../../../../common/images/defaultMovie.svg";
-import { PosterSize } from "../../../../common/types/imageTypes";
+import { PosterSize } from "../../../../common/utils/externalImagesProperties";
 
 interface MoviesPageContentProps {
   genres: GenresObject;

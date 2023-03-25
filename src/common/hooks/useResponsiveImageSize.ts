@@ -1,40 +1,10 @@
 import { useEffect, useState } from "react";
 import {
-  BackdropSize,
+  breakpoints,
+  ImageSize,
+  ImageSizeMap,
   ImageType,
-  PosterSize,
-  ProfileSize,
-} from "../types/imageTypes";
-
-type ImageSizeMap = {
-  poster: PosterSize;
-  profile: ProfileSize;
-  backdrop: BackdropSize;
-};
-
-type ImageSize<T extends ImageType> = {
-  size: ImageSizeMap[T];
-  width: number;
-};
-
-const breakpoints: {
-  [key in ImageType]: ImageSize<key>[];
-} = {
-  poster: [
-    { size: "w154", width: 467 },
-    { size: "w342", width: 767 },
-    { size: "w500", width: Infinity },
-  ],
-  profile: [
-    { size: "w185", width: 600 },
-    { size: "h632", width: Infinity },
-  ],
-  backdrop: [
-    { size: "w780", width: 767 },
-    { size: "w1280", width: 1224 },
-    { size: "original", width: Infinity },
-  ],
-};
+} from "../utils/externalImagesProperties";
 
 const getImageSize = (
   type: ImageType,

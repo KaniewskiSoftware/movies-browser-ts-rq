@@ -3,7 +3,7 @@ import {
   ImageType,
   PosterSize,
   ProfileSize,
-} from "../types/imageTypes";
+} from "./externalImagesProperties";
 
 export function buildImageURL(
   size: PosterSize,
