@@ -24,7 +24,6 @@ const Content = ({ movie }: ContentProps) => {
    */
   const backdropSize = useResponsiveImageSize("backdrop") as BackdropSize;
   const posterSize = useResponsiveImageSize("poster") as PosterSize;
-  console.log(movie);
   return (
     <>
       <Backdrop
