@@ -1,4 +1,3 @@
-import { GenresObject } from "../../../../common/api/genres/genres";
 import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
@@ -9,6 +8,7 @@ import defaultMovie from "../../../../common/images/defaultMovie.svg";
 import { PosterSize } from "../../../../common/utils/externalImagesProperties";
 import { Wrapper } from "../../../../common/components/Wrapper";
 import Title from "../../../../common/components/Title";
+import { GenresObject } from "../../../../common/utils/convertGenresArrayToObject";
 
 interface MoviesPageContentProps {
   genres: GenresObject;
@@ -30,7 +30,7 @@ const Content = ({
   /**
    * Determines the appropriate poster size for the current screen resolution using
    * the useResponsiveImageSize custom hook and casts the result to PosterSize.
-   * 
+   *
    * The type casting is necessary because TypeScript sometimes has difficulty
    * recognizing that the hook always returns the correct size type for all possible
    * image type keys, even though the hook ensures the proper type is returned.
