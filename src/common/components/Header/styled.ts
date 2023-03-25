@@ -79,7 +79,6 @@ export const LogoImg = styled.img`
   height: 40px;
 `;
 
-
 /**
  * LogoText is a styled p component that sets the text styles for the logo, such as color, font size,
  * line-height, letter-spacing, and font-weight. It also removes default margins and paddings.
