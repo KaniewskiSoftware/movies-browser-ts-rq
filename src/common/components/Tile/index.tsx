@@ -1,10 +1,13 @@
-import { GenresObject } from "../../api/genres/genres";
 import { getTagsFromGenres } from "../../utils/getTagsFromGenres";
 import Tags from "./Tags";
 import Rating from "../Rating";
 import RoleAndRelease from "./RoleAndRelease";
 import { Content, Image, TileContainer, Title } from "./styled";
 import Wrapper from "./Wrapper";
+import { Genre } from "../../apiResponseTypes/genres/genres";
+import {
+  GenresObject,
+} from "../../utils/convertGenresArrayToObject";
 
 interface TileProps {
   linkTo?: string;
@@ -19,6 +22,7 @@ interface TileProps {
   role?: string;
   genreIds?: number[];
   genres?: GenresObject;
+  genresDetailed?: Genre[];
   vote?: number;
   votesAmount?: number;
 }
@@ -55,17 +59,23 @@ const Tile = ({
   role,
   genreIds,
   genres,
+  genresDetailed,
   vote,
   votesAmount,
 }: TileProps) => {
   /**
-   * The 'tags' constant is created by checking if both 'genreIds' and 'genres' are truthy values.
-   * If they are, the 'getTagsFromGenres' function is called with the 'genreIds' and 'genres' as arguments.
-   * This function maps the provided genre IDs to their corresponding genre names using the provided GenresObject.
-   * The resulting array of genre names is then assigned to the 'tags' constant.
-   * If either 'genreIds' or 'genres' is falsy, the 'tags' constant will be assigned a falsy value (null or undefined).
+   * The 'getTagsFromGenres' function is used to generate an array of genre name strings or an empty array.
+   * If 'genresDetailed' is provided, the function maps the 'name' property of each genre
+   * in the array and returns a flattened array of genre names.
+   * If the 'name' property is undefined, it is excluded from the resulting array.
+   *
+   * If 'genresDetailed' is not provided, the function checks if both 'genreIds' and 'genres' are truthy values.
+   * If they are, the function maps the provided genre IDs to their corresponding genre names using the provided GenresObject.
+   * The resulting array of genre names is then returned.
+   *
+   * If all conditions fail, null is returned so it matches the display logic of the Tags component.
    */
-  const tags = genreIds && genres && getTagsFromGenres(genreIds, genres);
+  const tags = getTagsFromGenres(genreIds, genres, genresDetailed);
 
   return (
     <Wrapper linkTo={linkTo}>
