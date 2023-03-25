@@ -1,4 +1,4 @@
-import { GenresObject } from "../api/genres/genres";
+import { GenresObject } from "./convertGenresArrayToObject";
 
 /**
  * Converts an array of genre IDs into an array of genre names by utilizing a GenresObject.

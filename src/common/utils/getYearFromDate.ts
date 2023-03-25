@@ -5,6 +5,5 @@
  * @returns A string representing the release year (YYYY).
  */
 export const getYearFromReleaseDate = (releaseDate: string): string => {
-    return releaseDate.slice(0, 4);
-  };
-  
+  return releaseDate.slice(0, 4);
+};

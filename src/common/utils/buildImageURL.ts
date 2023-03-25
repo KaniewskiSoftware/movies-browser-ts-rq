@@ -8,12 +8,12 @@ import { ImageSizeMap, ImageType } from "./externalImagesProperties";
  * @param {ImageType} type - The type of the image (e.g., "poster", "profile", "backdrop").
  * @returns {string | null} The complete image URL if the imagePath is provided, otherwise null.
  */
-export function buildImageURL(
+export const buildImageURL = (
   size: ImageSizeMap[ImageType],
   imagePath: string | null | undefined,
   type: ImageType
-): string | null {
+): string | null => {
   if (!imagePath) return null;
 
   return `https://image.tmdb.org/t/p/${size}${imagePath}`;
-}
+};
