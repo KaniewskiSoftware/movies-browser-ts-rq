@@ -1,10 +1,17 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+/**
+ * The Nav is a styled component that provides the style for the Navigation component.
+ */
 export const Nav = styled.nav`
   display: flex;
 `;
 
+
+/**
+ * The List is a styled component that provides the style for the unordered list of menu items in the Navigation component.
+ */
 export const List = styled.ul`
   display: flex;
   margin: 0;
@@ -16,17 +23,24 @@ export const List = styled.ul`
   }
 `;
 
+
+/**
+ * The Item is a styled component that provides the style for the individual list items in the Navigation component.
+ */
 export const Item = styled.li`
   list-style: none;
 `;
 
+/**
+ * The StyledNavLink is a styled component that provides the style for the NavLink component used in the Navigation component.
+ */
 export const StyledNavLink = styled(NavLink)`
+  padding: 13px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.header.primary};
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 600;
-  padding: 13px 24px;
 
   &.active {
     border: 1px solid ${({ theme }) => theme.colors.header.primary};
@@ -34,8 +48,8 @@ export const StyledNavLink = styled(NavLink)`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 8px 16px;
     font-size: 12px;
     line-height: 18px;
-    padding: 8px 16px;
   }
 `;

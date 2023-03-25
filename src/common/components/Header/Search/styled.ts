@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+/**
+ * Provides the style for the input field's container in the Search component.
+ */
 export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -15,6 +18,9 @@ export const InputWrapper = styled.div`
   }
 `;
 
+/**
+ * Provides the style for the search icon (loupe) in the Search component.
+ */
 export const Loupe = styled.img`
   height: 18px;
   width: 18px;
@@ -29,6 +35,9 @@ export const Loupe = styled.img`
   }
 `;
 
+/**
+ * Provides the style for the search input field in the Search component.
+ */
 export const Input = styled.input`
   border: none;
   outline: none;

@@ -1,9 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { createSearchParams, useLocation, useNavigate } from "react-router-dom";
-import { searchQueryParamName } from "../../../hooks/queryParameters";
-import { debounce } from "../../../utils/debounce";
-import { toMovie, toMovies, toPeople, toPerson } from "../../../utils/routes";
+import { searchQueryParamName } from "./queryParameters";
+import { debounce } from "../utils/debounce";
+import { toMovie, toMovies, toPeople, toPerson } from "../utils/routes";
 
+/**
+ * The useSearchLogic custom hook provides logic for handling user input, navigation, and state management
+ * for the search field. It manages the input value state, updates the input value based on the current
+ * location's search query parameters, and uses a debounced navigate function to perform the search with
+ * a delay to reduce the number of unnecessary API calls.
+ * 
+ * When the user types in the input field, the debounced navigate function will be called after the specified
+ * delay (1000ms). This ensures that the search is performed only once during the delay period, even if the
+ * user continues to type.
+ *
+ * The hook returns an object containing the input value, a function to set the input value, and a function
+ * to handle input changes.
+ */
 const useSearchLogic = () => {
     const location = useLocation();
     const navigate = useNavigate();
