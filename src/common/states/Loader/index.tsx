@@ -1,7 +1,12 @@
 import { searchQueryParamName, useQueryParameter } from "../../hooks/queryParameters";
 import Title from "../../components/Title";
-import { StyledSpinner, SpinnerBox, Wrapper } from "./styled";
+import { StyledSpinner, SpinnerBox } from "./styled";
+import { Wrapper } from "../../components/Wrapper";
 
+/**
+ * The Loader component displays a spinning icon to indicate that content is being loaded.
+ * It also shows a title if a search query is present.
+ */
 const Loader = () => {
   const query = useQueryParameter(searchQueryParamName);
 

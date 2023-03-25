@@ -1,6 +1,12 @@
-import { StyledPlane, PlaneBox, Wrapper } from "./styled";
+import { StyledPlane, PlaneBox } from "./styled";
 import Title from "../../components/Title";
 import { searchQueryParamName, useQueryParameter } from "../../hooks/queryParameters";
+import { Wrapper } from "../../components/Wrapper";
+
+/**
+ * The NoResults component displays a message and an image when no search results are found.
+ * It shows a title containing the search query and an SVG image of a plane.
+ */
 const NoResults = () => {
   const query = useQueryParameter(searchQueryParamName);
 

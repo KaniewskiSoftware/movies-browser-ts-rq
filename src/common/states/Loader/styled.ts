@@ -5,11 +5,6 @@ interface SpinnerBoxProps {
   $hasTitle?: boolean;
 }
 
-export const Wrapper = styled.div`
-  margin: 0 auto;
-  max-width: 1368px;
-`;
-
 export const SpinnerBox = styled.div<SpinnerBoxProps>`
   display: grid;
   justify-content: center;
@@ -27,6 +22,10 @@ const rotation = keyframes`
   }
 `;
 
+/**
+ * A styled SVG icon (Spinner) that represents a loading state.
+ * The icon is animated to rotate continuously.
+ */
 export const StyledSpinner = styled(Spinner)`
   width: 91px;
   height: auto;

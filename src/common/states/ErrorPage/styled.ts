@@ -1,62 +1,88 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as Danger } from "./danger.svg";
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  gap: 24px;
-  margin: 0 auto;
-  margin-top: 180px;
-`;
+interface TextProps {
+  $big?: boolean;
+  $callToAction?: boolean;
+}
 
+/**
+ * A styled SVG icon (Danger) that represents the error state.
+ */
 export const Sign = styled(Danger)`
   width: 120px;
-  height: 120px;
-`;
-
-export const BiggerText = styled.div`
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 120%;
-  text-align: center;
-  color: ${({ theme }) => theme.colors.site.primaryText};
+  height: auto;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 14px;
-    font-weight: 500;
-  } ;
+    width: 80px;
+  }
 `;
 
-export const Text = styled.div`
+/**
+ * Props:
+ * @param $big: A boolean that indicates if the text should be styled as the main error message.
+ * @param $callToAction: A boolean that indicates if the text should be styled as button text.
+ */
+export const Text = styled.span<TextProps>`
   font-weight: 500;
   font-size: 22px;
-  line-height: 130%;
+  line-height: 1.3;
   text-align: center;
   color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 10px;
     font-weight: 400;
-  } ;
+  }
+
+  ${({ $big }) =>
+    $big &&
+    css`
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.2;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 14px;
+        font-weight: 500;
+      }
+    `}
+
+  ${({ $callToAction }) =>
+    $callToAction &&
+    css`
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 19px;
+      color: ${({ theme }) => theme.colors.states.buttonText};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      }
+    `}
 `;
 
+/**
+ * A styled Link component that serves as a call-to-action button to navigate back
+ * to the home page.
+ */
 export const Button = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   padding: 16px 24px;
-  gap: 10px;
   width: 181px;
   height: 51px;
-  background: ${({ theme }) => theme.colors.states.buttonBackground};
+  gap: 10px;
   border-radius: 5px;
   border: none;
+  background: ${({ theme }) => theme.colors.states.buttonBackground};
+  text-decoration: none;
   transition: background-color 1s;
   cursor: pointer;
-  text-decoration: none;
 
   &:hover {
     background: ${({ theme }) => theme.colors.states.buttonHover};
@@ -65,13 +91,4 @@ export const Button = styled(Link)`
   &:active {
     background: ${({ theme }) => theme.colors.states.buttonActive};
   }
-`;
-
-export const ButtonText = styled.span`
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 19px;
-  color: ${({ theme }) => theme.colors.states.buttonText};
 `;
