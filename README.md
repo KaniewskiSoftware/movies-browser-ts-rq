@@ -1,6 +1,6 @@
 # [Movies Browser using TypeScript and ReactQuery](https://kaniewskisoftware.github.io/movies-browser-ts-rq/)
 
-This project is an alternative version of my group project, [MoviesBrowser](https://kaniewskisoftware.github.io/movie-browser/). The primary goal is to refactor the entire project using TypeScript to create a more professional codebase. Instead of using Redux to manage the state of the app, I will utilize ReactQuery. Additionally, I will strive to make the code as generic as possible by creating simpler, reusable components. I have also developed custom hooks and utilities to achieve various functionalities, such as handling different image sizes based on screen width and managing screen resizing.
+This project is an alternative version of my group project, [MoviesBrowser](https://github.com/KaniewskiSoftware/movie-browser). The primary goal is to refactor the entire project using TypeScript to create a more professional codebase. Instead of using Redux to manage the state of the app, I will utilize ReactQuery. Additionally, I will strive to make the code as generic as possible by creating simpler, reusable components. I have also developed custom hooks and utilities to achieve various functionalities, such as handling different image sizes based on screen width and managing screen resizing.
 
 The project now boasts a well-structured and organized codebase, thanks to the reusable and generic components that have been constantly improved upon. With a strong foundation in place, future enhancements and features can be easily integrated.
 
