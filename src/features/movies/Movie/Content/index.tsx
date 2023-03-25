@@ -1,10 +1,10 @@
 import { MovieDetailsResponse } from "../../../../common/apiResponseTypes/movies/movieDetails";
-import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
 import { BackdropSize } from "../../../../common/utils/externalImagesProperties";
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import Backdrop from "./Backdrop";
+import { Wrapper } from "../../../../common/components/Wrapper";
 
 interface MoviesPageContentProps {
   movie: MovieDetailsResponse;
@@ -21,9 +21,9 @@ const Content = ({ movie }: MoviesPageContentProps) => {
         voteAmount={movie.vote_count}
       />
 
-      <PageContent>
+      <Wrapper>
         <Tile />
-      </PageContent>
+      </Wrapper>
     </>
   );
 };

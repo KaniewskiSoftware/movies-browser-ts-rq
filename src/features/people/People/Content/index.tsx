@@ -1,11 +1,12 @@
 import { PeopleListResult } from "../../../../common/apiResponseTypes/people/popularPeople";
-import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
 import { ProfileSize } from "../../../../common/utils/externalImagesProperties";
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toPeople } from "../../../../common/utils/routes";
+import { Wrapper } from "../../../../common/components/Wrapper";
+import Title from "../../../../common/components/Title";
 
 interface PopularMoviesPageContentProps {
   people: PeopleListResult[];
@@ -20,13 +21,14 @@ const Content = ({
 }: PopularMoviesPageContentProps) => {
   const size = useResponsiveImageSize("profile") as ProfileSize;
   return (
-    <PageContent
-      title={
-        !query
-          ? "Popular people"
-          : `Search results for "${query}" (${totalResults})`
-      }
-    >
+    <Wrapper>
+      <Title
+        title={
+          !query
+            ? "Popular people"
+            : `Search results for "${query}" (${totalResults})`
+        }
+      />
       <TilesGrid $moreItems>
         {people.map((person) => (
           <Tile
@@ -39,7 +41,7 @@ const Content = ({
           />
         ))}
       </TilesGrid>
-    </PageContent>
+    </Wrapper>
   );
 };
 export default Content;

@@ -1,6 +1,5 @@
 import { GenresObject } from "../../../../common/api/genres/genres";
 import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
-import PageContent from "../../../../common/components/Page/PageContent";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
@@ -8,6 +7,8 @@ import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toMovies } from "../../../../common/utils/routes";
 import defaultMovie from "../../../../common/images/defaultMovie.svg";
 import { PosterSize } from "../../../../common/utils/externalImagesProperties";
+import { Wrapper } from "../../../../common/components/Wrapper";
+import Title from "../../../../common/components/Title";
 
 interface MoviesPageContentProps {
   genres: GenresObject;
@@ -24,13 +25,14 @@ const Content = ({
 }: MoviesPageContentProps) => {
   const size = useResponsiveImageSize("poster") as PosterSize;
   return (
-    <PageContent
-      title={
-        !query
-          ? "Popular movies"
-          : `Search results for "${query}" (${totalResults})`
-      }
-    >
+    <Wrapper>
+      <Title
+        title={
+          !query
+            ? "Popular movies"
+            : `Search results for "${query}" (${totalResults})`
+        }
+      />
       <TilesGrid>
         {movies.map((movie) => (
           <Tile
@@ -49,7 +51,7 @@ const Content = ({
           />
         ))}
       </TilesGrid>
-    </PageContent>
+    </Wrapper>
   );
 };
 
