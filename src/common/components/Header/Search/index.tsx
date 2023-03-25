@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
-import svg from "./Search.svg";
+import svg from "./search.svg";
 import { Input, InputWrapper, Loupe } from "./styled";
 import useSearchLogic from "../../../hooks/useSearchLogic";
 
