@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 interface SecondaryTextProps {
   $smallText?: boolean;
   $backdrop?: boolean;
+  $big?: boolean;
   $bottomSelfAlignment?: boolean;
   $displayOnDesktop?: boolean;
   $displayOnMobile?: boolean;
@@ -59,7 +60,28 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
       }
     `}
 
-    ${({ $bottomSelfAlignment }) =>
+  ${({ $big }) =>
+    $big &&
+    css`
+      font-size: 22px;
+      line-height: 1.2;
+      color: inherit;
+      color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        font-size: 18px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 16px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+        font-size: 13px;
+      }
+    `}
+
+  ${({ $bottomSelfAlignment }) =>
     $bottomSelfAlignment &&
     css`
       align-self: flex-end;
@@ -69,7 +91,7 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
       }
     `}
 
-    ${({ $displayOnDesktop }) =>
+  ${({ $displayOnDesktop }) =>
     $displayOnDesktop &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
@@ -86,7 +108,8 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
         display: block;
       }
     `}
-    ${({ $hidden }) =>
+
+  ${({ $hidden }) =>
     $hidden &&
     css`
       display: none;

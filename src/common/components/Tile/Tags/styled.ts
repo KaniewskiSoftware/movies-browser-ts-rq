@@ -46,13 +46,14 @@ export const List = styled.ul<TagsProps>`
  * <Tag>Comedy</Tag>
  */
 export const Tag = styled.li`
+  list-style: none;
   padding: 8px 16px;
-  font-size: 14px;
   border-radius: 5px;
-  line-height: 1.4;
-  font-weight: 400;
-  background-color: ${({ theme }) => theme.colors.tile.tagBackground};
+  font-size: 14px;
   text-align: center;
+  line-height: 1.4;
+  font-weight: 500;
+  background-color: ${({ theme }) => theme.colors.tile.tagBackground};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 12px;

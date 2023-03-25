@@ -9,11 +9,11 @@ import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import Backdrop from "./Backdrop";
 import { Wrapper } from "../../../../common/components/Wrapper";
 
-interface MoviesPageContentProps {
+interface ContentProps{
   movie: MovieDetailsResponse;
 }
 
-const Content = ({ movie }: MoviesPageContentProps) => {
+const Content = ({ movie }: ContentProps) => {
   /**
    * Determines the appropriate poster size for the current screen resolution using
    * the useResponsiveImageSize custom hook and casts the result to PosterSize.
@@ -34,12 +34,17 @@ const Content = ({ movie }: MoviesPageContentProps) => {
         voteAmount={movie.vote_count}
       />
 
-      <Wrapper>
+      <Wrapper $containerType="details">
         <Tile
+          big
           imageURL={buildImageURL(posterSize, movie.poster_path, "poster")}
           title={movie.original_title}
           releaseDate={movie.release_date}
           genresDetailed={movie.genres}
+          tagsLargeGap
+          vote={movie.vote_average}
+          votesAmount={movie.vote_count}
+          mediumRating
         />
       </Wrapper>
     </>

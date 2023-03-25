@@ -3,6 +3,7 @@ import { ReactComponent as Star } from "../../images/star.svg";
 
 interface RatingProps {
   $large?: boolean;
+  $medium?: boolean;
 }
 
 /**
@@ -36,6 +37,22 @@ export const Container = styled.div<RatingProps>`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         margin-bottom: 0;
+      }
+    `}
+
+  ${({ $medium }) =>
+    $medium &&
+    css`
+      margin: 0;
+      gap: 16px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        margin-top: auto;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        text-align: center;
+        gap: 4px;
       }
     `}
 `;
@@ -88,11 +105,26 @@ export const Rate = styled.p<RatingProps>`
     css`
       font-weight: 500;
       font-size: 30px;
-      line-height: 1.3%;
+      line-height: 1.3;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-weight: 600;
         font-size: 14px;
+      }
+    `}
+
+  ${({ $medium }) =>
+    $medium &&
+    css`
+      margin: 0;
+      font-size: 22px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 16px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 13px;
       }
     `}
 `;

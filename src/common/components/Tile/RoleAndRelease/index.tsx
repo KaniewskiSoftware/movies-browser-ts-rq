@@ -2,6 +2,7 @@ import { SecondaryText } from "../../SecondaryText";
 import { getYearFromReleaseDate } from "../../../utils/getYearFromDate";
 
 interface RoleAndReleaseProps {
+  bigFont?: boolean;
   role?: string;
   releaseDate?: string;
   smallText?: boolean;
@@ -17,13 +18,14 @@ interface RoleAndReleaseProps {
  * @param smallText - (Optional) A boolean that determines whether the text should be displayed smaller. Default value: false.
  */
 const RoleAndRelease = ({
+  bigFont,
   role,
   releaseDate,
   smallText,
 }: RoleAndReleaseProps) => {
   if (releaseDate && role) {
     return (
-      <SecondaryText $smallText={smallText}>
+      <SecondaryText $smallText={smallText} $big={bigFont}>
         {role} ({getYearFromReleaseDate(releaseDate)})
       </SecondaryText>
     );
@@ -31,14 +33,18 @@ const RoleAndRelease = ({
 
   if (releaseDate) {
     return (
-      <SecondaryText $smallText={smallText}>
+      <SecondaryText $smallText={smallText} $big={bigFont}>
         {getYearFromReleaseDate(releaseDate)}
       </SecondaryText>
     );
   }
 
   if (role) {
-    return <SecondaryText $smallText={smallText}>{role}</SecondaryText>;
+    return (
+      <SecondaryText $smallText={smallText} $big={bigFont}>
+        {role}
+      </SecondaryText>
+    );
   }
 
   return null;

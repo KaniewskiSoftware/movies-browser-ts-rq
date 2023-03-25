@@ -5,11 +5,10 @@ import RoleAndRelease from "./RoleAndRelease";
 import { Content, Image, TileContainer, Title } from "./styled";
 import Wrapper from "./Wrapper";
 import { Genre } from "../../apiResponseTypes/genres/genres";
-import {
-  GenresObject,
-} from "../../utils/convertGenresArrayToObject";
+import { GenresObject } from "../../utils/convertGenresArrayToObject";
 
 interface TileProps {
+  big?: boolean;
   linkTo?: string;
   horizontalOnMobile?: boolean;
   imageURL?: string | null;
@@ -23,8 +22,10 @@ interface TileProps {
   genreIds?: number[];
   genres?: GenresObject;
   genresDetailed?: Genre[];
+  tagsLargeGap?: boolean;
   vote?: number;
   votesAmount?: number;
+  mediumRating?: boolean;
 }
 
 /**
@@ -47,6 +48,7 @@ interface TileProps {
  * @param votesAmount - (Optional) A number representing the total number of votes for the movie or TV show.
  */
 const Tile = ({
+  big,
   linkTo,
   horizontalOnMobile,
   imageURL,
@@ -60,8 +62,10 @@ const Tile = ({
   genreIds,
   genres,
   genresDetailed,
+  tagsLargeGap,
   vote,
   votesAmount,
+  mediumRating
 }: TileProps) => {
   /**
    * The 'getTagsFromGenres' function is used to generate an array of genre name strings or an empty array.
@@ -79,21 +83,23 @@ const Tile = ({
 
   return (
     <Wrapper linkTo={linkTo}>
-      <TileContainer $horizontalOnMobile={horizontalOnMobile}>
+      <TileContainer $horizontalOnMobile={horizontalOnMobile} $big={big}>
         <Image
           $imageURL={imageURL ?? imagePlaceholder}
           $noImage={!imageURL}
           $horizontalOnMobile={horizontalOnMobile}
+          $big={big}
         />
-        <Content $textCentered={contentTextCentered}>
-          {title && <Title $smallTitle={smallTitle}>{title}</Title>}
+        <Content $textCentered={contentTextCentered} $big={big}>
+          {title && <Title $smallTitle={smallTitle} $big={big}>{title}</Title>}
           <RoleAndRelease
             role={role}
             releaseDate={releaseDate}
             smallText={smallText}
+            bigFont={big}
           />
-          {tags && <Tags tags={tags} />}
-          <Rating vote={vote} votesAmount={votesAmount} smallText={smallText} />
+          {tags && <Tags tags={tags} largeGap={tagsLargeGap} />}
+          <Rating vote={vote} votesAmount={votesAmount} smallText={smallText} medium={mediumRating} />
         </Content>
       </TileContainer>
     </Wrapper>

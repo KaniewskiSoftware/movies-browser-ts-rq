@@ -21,9 +21,10 @@ interface RatingProps {
   vote?: number;
   votesAmount?: number;
   smallText?: boolean;
-  backdrop?: boolean;
+  large?: boolean;
+  medium?: boolean;
 }
-const Rating = ({ vote, votesAmount, smallText, backdrop }: RatingProps) => {
+const Rating = ({ vote, votesAmount, smallText, large, medium }: RatingProps) => {
   if (!vote || vote <= 0) {
     return null;
   }
@@ -31,17 +32,17 @@ const Rating = ({ vote, votesAmount, smallText, backdrop }: RatingProps) => {
   return (
     <>
       {" "}
-      <Container $large={backdrop}>
-        <StyledStar $large={backdrop} />
-        <Rate $large={!!backdrop}>{vote.toFixed(2)}</Rate>
-        <SecondaryText $hidden={!backdrop} $backdrop $bottomSelfAlignment>
+      <Container $large={large} $medium={medium}>
+        <StyledStar $large={large} />
+        <Rate $large={!!large} $medium={!!medium}>{vote.toFixed(2)}</Rate>
+        <SecondaryText $hidden={!large} $backdrop $bottomSelfAlignment>
           / 10
         </SecondaryText>
         {votesAmount && (
           <SecondaryText
-            $displayOnMobile={backdrop}
+            $displayOnMobile={large}
             $smallText={smallText}
-            $backdrop={backdrop}
+            $backdrop={large}
           >
             {votesAmount} votes
           </SecondaryText>
@@ -49,8 +50,8 @@ const Rating = ({ vote, votesAmount, smallText, backdrop }: RatingProps) => {
       </Container>
       {votesAmount && (
         <SecondaryText
-          $hidden={!backdrop}
-          $displayOnDesktop={backdrop}
+          $hidden={!large}
+          $displayOnDesktop={large}
           $backdrop
         >
           {votesAmount} votes

@@ -25,7 +25,7 @@ const Backdrop = ({ backdrop, title, vote, voteAmount }: BackdropProps) => {
         <Background $backdrop={backdrop}>
           <BackdropContent>
             {title && <Title>{title}</Title>}
-            {<Rating vote={vote} votesAmount={voteAmount} backdrop />}
+            {<Rating vote={vote} votesAmount={voteAmount} large />}
           </BackdropContent>
         </Background>
       </Container>

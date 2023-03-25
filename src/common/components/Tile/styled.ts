@@ -1,21 +1,24 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-interface TileContainerProps {
+interface BigTile {
+  $big?: boolean;
+}
+interface TileContainerProps extends BigTile {
   $horizontalOnMobile?: boolean;
 }
 
-interface TitleProps {
+interface TitleProps extends BigTile{
   $smallTitle?: boolean;
 }
 
-interface ImageProps {
+interface ImageProps extends BigTile {
   $imageURL?: string;
   $noImage?: boolean;
   $horizontalOnMobile?: boolean;
 }
 
-interface ContentProps {
+interface ContentProps extends BigTile {
   $textCentered?: boolean;
 }
 
@@ -60,6 +63,32 @@ export const TileContainer = styled.article<TileContainerProps>`
         flex-direction: row;
       }
     `}
+
+  ${({ $big }) =>
+    $big &&
+    css`
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+      padding: 40px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        grid-template-areas:
+          "image content content"
+          "description description description";
+        grid-template-rows: auto 1fr;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        padding: 26px;
+        gap: 26px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+        padding: 16px;
+        gap: 16px;
+      }
+    `}
 `;
 
 /**
@@ -97,6 +126,29 @@ export const Image = styled.div<ImageProps>`
       }
     `}
 
+  ${({ $big }) =>
+    $big &&
+    css`
+      padding: unset;
+      width: 312px;
+      height: 464px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        width: 248px;
+        height: 372px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        width: 164px;
+        height: 246px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        width: 114px;
+        height: 171px;
+      }
+    `}
+
   ${({ $noImage }) =>
     $noImage &&
     css`
@@ -126,6 +178,26 @@ export const Content = styled.div<ContentProps>`
     css`
       text-align: center;
     `}
+
+  ${({ $big }) =>
+    $big &&
+    css`
+      padding: 8px 0 8px;
+      gap: 24px;
+      color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        gap: 16px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        grid-area: content;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        gap: 8px;
+      }
+    `}
 `;
 
 /**
@@ -153,6 +225,26 @@ export const Title = styled.p<TitleProps>`
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 14px;
+      }
+    `}
+
+  ${({ $big }) =>
+    $big &&
+    css`
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.2;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+        font-size: 32px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 24px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+        font-size: 22px;
       }
     `}
 `;

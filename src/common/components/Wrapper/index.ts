@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export type ContainerType = "default" | "credits" | "error";
+export type ContainerType = "default" | "credits" | "error" | "details";
 
 interface WrapperProps {
   $containerType?: ContainerType;
@@ -13,6 +13,8 @@ interface WrapperProps {
  * @param $containerType - (Optional) A string to define the container type, one of: "default", "credits", "error". Default value: "default".
  */
 export const Wrapper = styled.div<WrapperProps>`
+  display: flex;
+  flex-direction: column;
   max-width: 1400px;
   padding: 0 16px;
   margin: 0 auto;
@@ -20,16 +22,12 @@ export const Wrapper = styled.div<WrapperProps>`
   ${({ $containerType }) =>
     $containerType === "credits" &&
     css`
-      display: flex;
-      flex-direction: column;
       justify-content: flex-start;
     `}
 
   ${({ $containerType }) =>
     $containerType === "error" &&
     css`
-      display: flex;
-      flex-direction: column;
       align-items: center;
       gap: 24px;
       margin-top: 180px;
@@ -40,6 +38,26 @@ export const Wrapper = styled.div<WrapperProps>`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         margin-top: 45px;
+      }
+    `}
+
+    ${({ $containerType }) =>
+    $containerType === "details" &&
+    css`
+      margin-top: 64px;
+      gap: 64px;
+      margin-bottom: 336px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        margin-top: 24px;
+        gap: 32px;
+        margin-bottom: 88px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        margin-top: 16px;
+        gap: 21px;
+        margin-bottom: 66px;
       }
     `}
 `;

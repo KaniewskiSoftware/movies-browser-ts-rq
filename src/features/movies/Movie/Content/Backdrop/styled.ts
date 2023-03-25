@@ -85,7 +85,7 @@ export const BackdropContent = styled.div`
  * A styled h1 component for displaying the title of the backdrop component.
  * It has various font-size breakpoints for responsiveness.
  */
-export const Title = styled.h1`
+export const Title = styled.h2`
   margin: 0 0 24px;
   font-weight: 600;
   font-size: 64px;
