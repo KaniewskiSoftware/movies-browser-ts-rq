@@ -7,6 +7,9 @@ interface StyledArrowProps {
   $hidden?: boolean;
 }
 
+/**
+ * The StyledButton is a styled component that provides the style for the Button component.
+ */
 export const StyledButton = styled.button`
   display: flex;
   flex-direction: row;
@@ -29,16 +32,28 @@ export const StyledButton = styled.button`
   }
 `;
 
+
+/**
+ * The Title is a styled component that provides the style for the title of the Button component.
+ */
 export const Title = styled.span`
   font-weight: 400;
   font-size: 14px;
-  line-height: 140%;
+  line-height: 1.4;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: none;
   }
 `;
 
+/**
+ * The StyledArrow is a styled component that provides the style for the arrow icon in the Button component.
+ *
+ * Props:
+ * @param $rotated: A boolean indicating if the arrow icon should be rotated.
+ * @param $mobile: A boolean indicating if the arrow icon should be styled for mobile devices.
+ * @param $hidden: A boolean indicating if the arrow icon should be hidden.
+ */
 export const StyledArrow = styled(Arrow)<StyledArrowProps>`
   color: ${({ theme }) => theme.colors.footer.arrow};
 
