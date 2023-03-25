@@ -1,3 +1,11 @@
+/**
+ * theme.ts
+ *
+ * This file contains the theme configuration for the application, including colors,
+ * breakpoints, and other common styling properties.
+ */
+
+// Color names and their corresponding values
 const colorNames = {
   white: "#FFFFFF",
   whisper: "#F5F5FA",
@@ -13,6 +21,7 @@ const colorNames = {
   lightBlue: "#D6E4FF",
 };
 
+// Common properties for the theme
 const common = {
   breakpoints: {
     smalest: "324px",
@@ -27,6 +36,13 @@ const common = {
   boxShadow: "0px 4px 12px rgba(186, 199, 213, 0.5)",
 };
 
+/**
+ * The theme object contains the styling configuration for the application.
+ * It includes:
+ * 1. Common properties: breakpoints and boxShadow.
+ * 2. Colors for different parts of the application, including site, header, tile, states,
+ *    backdrop, detailsTile, credits, and footer.
+ */
 export const theme = {
   ...common,
   colors: {
