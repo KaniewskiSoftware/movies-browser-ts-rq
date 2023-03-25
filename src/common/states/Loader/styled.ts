@@ -5,6 +5,10 @@ interface SpinnerBoxProps {
   $hasTitle?: boolean;
 }
 
+/**
+ * A styled container that holds and centers the spinning icon
+ * within the Loader component.
+ */
 export const SpinnerBox = styled.div<SpinnerBoxProps>`
   display: grid;
   justify-content: center;
