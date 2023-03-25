@@ -1,3 +1,5 @@
+import { Genre } from "../genres/genres";
+
 /**
  * Possible response types provided by the external API documentation.
  *
@@ -6,11 +8,6 @@
  * the naming conventions used by the external API documentation.
  */
 interface BelongsToCollection {
-  id?: number;
-  name?: string;
-}
-
-interface Genre {
   id?: number;
   name?: string;
 }
