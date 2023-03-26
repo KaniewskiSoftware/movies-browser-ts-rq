@@ -11,6 +11,9 @@ interface RatingProps {
  * the Rating component elements, providing proper alignment and spacing.
  *
  * @param $large - (Optional) A boolean to apply the large version styles.
+ * @param $medium - (Optional) A boolean to apply the medium version styles.
+ * @property styled - A function that returns a styled component.
+ * @returns A styled div component with dynamic styles based on the optional props.
  */
 export const Container = styled.div<RatingProps>`
   display: flex;
@@ -61,6 +64,9 @@ export const Container = styled.div<RatingProps>`
  * The StyledStar component is a styled SVG component that displays a star icon.
  *
  * @param $large - (Optional) A boolean to apply the large version styles.
+ * @property styled - A function that returns a styled component.
+ * @property Star - An SVG component that displays a star icon.
+ * @returns A styled SVG component with dynamic styles based on the optional props.
  */
 export const StyledStar = styled(Star)<RatingProps>`
   width: 24px;
@@ -86,6 +92,9 @@ export const StyledStar = styled(Star)<RatingProps>`
  * value in a specific font size and weight.
  *
  * @param $large - (Optional) A boolean to apply the large version styles.
+ * @property styled - A function that returns a styled component.
+ * @property p - A paragraph element that is used to display the rating value.
+ * @returns A styled paragraph component with dynamic styles based on the optional props.
  */
 export const Rate = styled.p<RatingProps>`
   margin: 0;

@@ -15,9 +15,9 @@ interface PageProps {
 
 /**
  * The Page component is a wrapper that manages the display of content based on the loading state, error
- * state, and the presence of results. It is a versatile component that can be used in various parts of the
- * application where content needs to be loaded and displayed conditionally.
+ * state, and the presence of results.
  *
+ * @interface PageProps
  * @param isLoading - A boolean representing whether the content is being loaded.
  * @param isError - A boolean representing whether there is an error in loading the content.
  * @param hasResults - A boolean representing whether the loaded content has results to display.
@@ -25,6 +25,8 @@ interface PageProps {
  * @param totalPages - (Optional) The total number of pages available for pagination.
  * @param page - (Optional) The current page number.
  * @param children - The actual content (e.g., movies, people) to be displayed when the conditions are met.
+ *
+ * @returns {JSX.Element} The rendered component.
  */
 const Page = ({
   isLoading,
@@ -52,6 +54,8 @@ const Page = ({
   /**
    * Display the actual content and the Footer component (if totalPages and page are provided) when
    * the conditions are met (i.e., content is loaded, no errors, and has results).
+   *
+   * @returns {JSX.Element} The rendered component.
    */
   return (
     <>

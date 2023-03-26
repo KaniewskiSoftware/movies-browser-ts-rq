@@ -5,7 +5,8 @@ interface RatingProps {
   vote?: number;
   votesAmount?: number;
   smallText?: boolean;
-  backdrop?: boolean;
+  large?: boolean;
+  medium?: boolean;
 }
 
 /**
@@ -15,16 +16,17 @@ interface RatingProps {
  * @param vote - The rating value.
  * @param votesAmount - (Optional) The number of votes used to calculate the rating value.
  * @param smallText - (Optional) A boolean to set the font size of the votes amount to small.
- * @param backdrop - (Optional) A boolean to apply backdrop-related styles.
+ * @param large - (Optional) A boolean to apply large version styles.
+ * @param medium - (Optional) A boolean to apply medium version styles.
+ * @returns {JSX.Element | null} The Rating component JSX code or null if no rating value is provided or it is less or equal to 0.
  */
-interface RatingProps {
-  vote?: number;
-  votesAmount?: number;
-  smallText?: boolean;
-  large?: boolean;
-  medium?: boolean;
-}
-const Rating = ({ vote, votesAmount, smallText, large, medium }: RatingProps) => {
+const Rating = ({
+  vote,
+  votesAmount,
+  smallText,
+  large,
+  medium,
+}: RatingProps) => {
   if (!vote || vote <= 0) {
     return null;
   }
@@ -34,7 +36,9 @@ const Rating = ({ vote, votesAmount, smallText, large, medium }: RatingProps) =>
       {" "}
       <Container $large={large} $medium={medium}>
         <StyledStar $large={large} />
-        <Rate $large={!!large} $medium={!!medium}>{vote.toFixed(2)}</Rate>
+        <Rate $large={!!large} $medium={!!medium}>
+          {vote.toFixed(2)}
+        </Rate>
         <SecondaryText $hidden={!large} $backdrop $bottomSelfAlignment>
           / 10
         </SecondaryText>
@@ -49,11 +53,7 @@ const Rating = ({ vote, votesAmount, smallText, large, medium }: RatingProps) =>
         )}
       </Container>
       {votesAmount && (
-        <SecondaryText
-          $hidden={!large}
-          $displayOnDesktop={large}
-          $backdrop
-        >
+        <SecondaryText $hidden={!large} $displayOnDesktop={large} $backdrop>
           {votesAmount} votes
         </SecondaryText>
       )}

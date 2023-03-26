@@ -12,6 +12,8 @@ import {
  * @param type - The image type (poster, profile, or backdrop).
  * @param width - The current screen width.
  * @returns The image size from the ImageSizeMap that best fits the screen width.
+ * @property ImageType - A union type of the three image types (poster, profile, or backdrop).
+ * @property ImageSizeMap - A map of image sizes for each image type.
  */
 const getImageSize = (
   type: ImageType,
@@ -28,6 +30,12 @@ const getImageSize = (
  *
  * @param type - The image type (poster, profile, or backdrop).
  * @returns The image size from the ImageSizeMap that best fits the current screen width.
+ * @property imageSize - An object containing the size and width of the current image.
+ * @property setImageSize - A function to set the size and width of the current image.
+ * @property handleResize - A function to handle resizing of the screen.
+ * @property window - The global window object.
+ * @property ImageType - A union type of the three image types (poster, profile, or backdrop).
+ * @property ImageSizeMap - A map of image sizes for each image type.
  */
 export const useResponsiveImageSize = (
   type: ImageType
