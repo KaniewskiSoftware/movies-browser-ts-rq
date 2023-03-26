@@ -56,6 +56,7 @@ const Content = ({ movie }: ContentProps) => {
           vote={movie.vote_average}
           votesAmount={movie.vote_count}
           mediumRating
+          description={movie.overview}
         />
       </Wrapper>
     </>

@@ -8,7 +8,7 @@ interface TileContainerProps extends BigTile {
   $horizontalOnMobile?: boolean;
 }
 
-interface TitleProps extends BigTile{
+interface TitleProps extends BigTile {
   $smallTitle?: boolean;
 }
 
@@ -73,10 +73,10 @@ export const TileContainer = styled.article<TileContainerProps>`
       padding: 40px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-        grid-template-areas:
-          "image content content"
-          "description description description";
         grid-template-rows: auto 1fr;
+        grid-template-areas:
+          "image content"
+          "description description";
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -134,6 +134,7 @@ export const Image = styled.div<ImageProps>`
       height: 464px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        grid-area: image;
         width: 248px;
         height: 372px;
       }
@@ -182,7 +183,7 @@ export const Content = styled.div<ContentProps>`
   ${({ $big }) =>
     $big &&
     css`
-      padding: 8px 0 8px;
+      padding: 8px 0;
       gap: 24px;
       color: ${({ theme }) => theme.colors.detailsTile.primaryText};
 

@@ -8,6 +8,7 @@ import Rating from "../Rating";
 import RoleAndRelease from "./RoleAndRelease";
 import Wrapper from "./Wrapper";
 import { Content, Image, TileContainer, Title } from "./styled";
+import { SecondaryText } from "../SecondaryText";
 
 interface TileProps {
   big?: boolean;
@@ -29,6 +30,7 @@ interface TileProps {
   vote?: number;
   votesAmount?: number;
   mediumRating?: boolean;
+  description?: string | null;
 }
 
 /**
@@ -46,15 +48,32 @@ interface TileProps {
  * @param {string} [releaseDate] - Optional. A string representing the release date of the movie or TV show.
  * @param {boolean} [smallText] - Optional. A boolean indicating whether the text should be rendered with a smaller font size.
  * @param {string} [role] - Optional. A string representing the role of the actor in the movie or TV show.
- * @param {PropertyObject} [metaData] - Optional. An array of objects representing additional metadata to display.
- * @param {Array<number>} [genreIds] - Optional. An array of numbers representing the genre IDs of the movie or TV show.
+ * @param {PropertyObject[]} [metaData] - Optional. An array of objects representing additional metadata to display.
+ * @param {number[]} [genreIds] - Optional. An array of numbers representing the genre IDs of the movie or TV show.
  * @param {GenresObject} [genres] - Optional. An object containing information about the genres.
- * @param {Array<Genre>} [genresDetailed] - Optional. An array of objects containing detailed information about the genres.
+ * @param {Genre[]} [genresDetailed] - Optional. An array of objects containing detailed information about the genres.
  * @param {boolean} [tagsLargeGap] - Optional. A boolean indicating whether the gap between the tags should be large.
  * @param {number} [vote] - Optional. A number representing the rating of the movie or TV show.
  * @param {number} [votesAmount] - Optional. A number representing the total number of votes for the movie or TV show.
  * @param {boolean} [mediumRating] - Optional. A boolean indicating whether to render a medium-sized rating component.
+ * @param {string | null} [description] - Optional. A string representing the description of the movie or TV show.
+ *
  * @returns {JSX.Element} A component that displays various pieces of information in a structured format.
+ *
+ * @example
+ *
+ * // Example usage:
+ *
+ * import Tile from "./Tile";
+ *
+ * const movieData = {
+ *   title: "The Shawshank Redemption",
+ *   releaseDate: "1994-09-14",
+ *   genreIds: [18, 80],
+ *   vote: 9.3,
+ *   votesAmount: 2473664,
+ *   description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+ * };
  */
 const Tile = ({
   big,
@@ -76,6 +95,7 @@ const Tile = ({
   vote,
   votesAmount,
   mediumRating,
+  description,
 }: TileProps) => {
   /**
    * The 'getTagsFromGenres' function is used to generate an array of genre name strings or an empty array.
@@ -120,7 +140,17 @@ const Tile = ({
             smallText={smallText}
             medium={mediumRating}
           />
+          {!!description && (
+            <SecondaryText $displayOnDesktop $description>
+              {description}
+            </SecondaryText>
+          )}
         </Content>
+        {!!description && (
+          <SecondaryText $displayOnMobile $description>
+            {description}
+          </SecondaryText>
+        )}
       </TileContainer>
     </Wrapper>
   );

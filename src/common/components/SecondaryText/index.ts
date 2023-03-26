@@ -4,6 +4,7 @@ interface SecondaryTextProps {
   $smallText?: boolean;
   $backdrop?: boolean;
   $detailsTile?: boolean;
+  $description?: boolean;
   $big?: boolean;
   $bottomSelfAlignment?: boolean;
   $displayOnDesktop?: boolean;
@@ -26,6 +27,8 @@ interface SecondaryTextProps {
  * @param $big - (Optional) A boolean that sets the font size to 22px on large screens
  *               and progressively smaller font sizes on smaller screens. It is used
  *               in the Details component.
+ * @param $description - (Optional) A boolean that sets the font size to 20px and line-height to 1.6
+ *                       when true. It is used to display a description text in the Details component.
  * @param $bottomSelfAlignment - (Optional) A boolean that sets the component's alignment to the
  *                               bottom (flex-end) on desktop and resets it on mobile devices.
  * @param $displayOnDesktop - (Optional) A boolean that hides the component on desktop devices
@@ -67,7 +70,7 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
       }
     `}
 
-    ${({ $detailsTile }) =>
+  ${({ $detailsTile }) =>
     $detailsTile &&
     css`
       font-size: 14px;
@@ -113,7 +116,7 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
   ${({ $displayOnDesktop }) =>
     $displayOnDesktop &&
     css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         display: none;
       }
     `}
@@ -123,7 +126,7 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
     css`
       display: none;
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         display: block;
       }
     `}
@@ -132,5 +135,22 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
     $hidden &&
     css`
       display: none;
+    `}
+  
+  ${({ $description }) =>
+    $description &&
+    css`
+      font-size: 20px;
+      line-height: 1.6;
+      color: inherit;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        grid-area: description;
+        font-size: 16px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 14px;
+      }
     `}
 `;
