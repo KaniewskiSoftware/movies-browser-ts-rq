@@ -54,7 +54,6 @@ export const Container = styled.div<RatingProps>`
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-        text-align: center;
         gap: 4px;
       }
     `}
@@ -87,6 +86,11 @@ export const StyledStar = styled(Star)<RatingProps>`
   }
 `;
 
+export const TextBox = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+`;
 /**
  * The Rate component is a styled paragraph component that displays the rating
  * value in a specific font size and weight.
@@ -97,6 +101,7 @@ export const StyledStar = styled(Star)<RatingProps>`
  * @returns A styled paragraph component with dynamic styles based on the optional props.
  */
 export const Rate = styled.p<RatingProps>`
+  position: relative;
   margin: 0;
   font-weight: 600;
   font-size: 16px;
@@ -116,6 +121,10 @@ export const Rate = styled.p<RatingProps>`
       font-size: 30px;
       line-height: 1.3;
 
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        font-size: 30px;
+      }
+
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-weight: 600;
         font-size: 14px;
@@ -128,8 +137,8 @@ export const Rate = styled.p<RatingProps>`
       margin: 0;
       font-size: 22px;
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-        font-size: 16px;
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        font-size: 22px;
       }
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {

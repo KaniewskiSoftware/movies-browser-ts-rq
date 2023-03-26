@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 interface SecondaryTextProps {
   $smallText?: boolean;
   $backdrop?: boolean;
+  $detailsTile?: boolean;
   $big?: boolean;
   $bottomSelfAlignment?: boolean;
   $displayOnDesktop?: boolean;
@@ -57,6 +58,18 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 10px;
+      }
+    `}
+
+    ${({ $detailsTile }) =>
+    $detailsTile &&
+    css`
+      font-size: 14px;
+      line-height: 1.2;
+      color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 13px;
       }
     `}
 
