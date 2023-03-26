@@ -1,12 +1,9 @@
 import { Fragment } from "react";
+import { PropertyObject } from "../../../utils/createPropertyObject";
 import { Properties, Property, PropertyText } from "./styled";
 
-export interface PropertyType {
-    title: string;
-    content: string | Array<{ name: string; short?: string }>;
-}
 interface MetaDataProperties {
-  properties: Array<PropertyType>;
+  properties: Array<PropertyObject>;
 }
 
 /**
@@ -35,7 +32,7 @@ const renderPropertyContent = (
 
   return content.map((item, index, contentArray) => (
     <Fragment key={index}>
-      <PropertyText $displayOnDesktop={!item.short} key={item.name}>
+      <PropertyText $displayOnDesktop={!!item.short} key={item.name}>
         {item.name}
         {index < contentArray.length - 1 ? <span>,&nbsp;</span> : null}
       </PropertyText>
@@ -74,9 +71,15 @@ const renderPropertyContent = (
  * return <MetaData properties={properties} />;
  */
 export const MetaData = ({ properties }: MetaDataProperties) => {
+    const validProperties = properties.filter(
+      (property) =>
+        property.content !== "" &&
+        !(Array.isArray(property.content) && property.content.length === 0)
+    );
+    
   return (
     <Properties>
-      {properties.map((property, index) => (
+      {validProperties.map((property, index) => (
         <Property key={index}>
           <PropertyText $entitled>{property.title}</PropertyText>
           {renderPropertyContent(property.content)}

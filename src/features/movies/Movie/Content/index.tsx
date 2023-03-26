@@ -8,6 +8,7 @@ import {
 import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import Backdrop from "./Backdrop";
 import { Wrapper } from "../../../../common/components/Wrapper";
+import { createPropertyObject } from "../../../../common/utils/createPropertyObject";
 
 interface ContentProps {
   movie: MovieDetailsResponse;
@@ -29,6 +30,11 @@ const Content = ({ movie }: ContentProps) => {
    * @type {PosterSize}
    */
   const posterSize = useResponsiveImageSize("poster") as PosterSize;
+
+  const properties = [
+    createPropertyObject(movie.production_countries, "production_countries"),
+    createPropertyObject(movie.release_date, "release_date"),
+  ];
   return (
     <>
       <Backdrop
@@ -44,6 +50,7 @@ const Content = ({ movie }: ContentProps) => {
           imageURL={buildImageURL(posterSize, movie.poster_path, "poster")}
           title={movie.original_title}
           releaseDate={movie.release_date}
+          metaData={properties}
           genresDetailed={movie.genres}
           tagsLargeGap
           vote={movie.vote_average}

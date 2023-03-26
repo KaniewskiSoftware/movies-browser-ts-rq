@@ -7,6 +7,7 @@ import { Genre } from "../genres/genres";
  * The properties within the interfaces are self-explanatory and follow
  * the naming conventions used by the external API documentation.
  */
+
 interface BelongsToCollection {
   id?: number;
   name?: string;
@@ -19,7 +20,7 @@ interface ProductionCompany {
   origin_country?: string;
 }
 
-interface ProductionCountry {
+export interface ProductionCountry {
   iso_3166_1?: string;
   name?: string;
 }

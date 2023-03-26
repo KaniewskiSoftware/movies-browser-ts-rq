@@ -1,12 +1,13 @@
 import { getTagsFromGenres } from "../../utils/getTagsFromGenres";
+import { Genre } from "../../apiResponseTypes/genres/genres";
+import { GenresObject } from "../../utils/convertGenresArrayToObject";
+import { PropertyObject } from "../../utils/createPropertyObject";
+import { MetaData } from "./MetaData";
 import Tags from "./Tags";
 import Rating from "../Rating";
 import RoleAndRelease from "./RoleAndRelease";
-import { Content, Image, TileContainer, Title } from "./styled";
 import Wrapper from "./Wrapper";
-import { Genre } from "../../apiResponseTypes/genres/genres";
-import { GenresObject } from "../../utils/convertGenresArrayToObject";
-import { MetaData, PropertyType } from "./MetaData";
+import { Content, Image, TileContainer, Title } from "./styled";
 
 interface TileProps {
   big?: boolean;
@@ -20,7 +21,7 @@ interface TileProps {
   releaseDate?: string;
   smallText?: boolean;
   role?: string;
-  metaData?: PropertyType[];
+  metaData?: PropertyObject[];
   genreIds?: number[];
   genres?: GenresObject;
   genresDetailed?: Genre[];
@@ -29,7 +30,6 @@ interface TileProps {
   votesAmount?: number;
   mediumRating?: boolean;
 }
-
 
 /**
  * The Tile component is used for displaying various pieces of information
@@ -74,7 +74,7 @@ const Tile = ({
   tagsLargeGap,
   vote,
   votesAmount,
-  mediumRating
+  mediumRating,
 }: TileProps) => {
   /**
    * The 'getTagsFromGenres' function is used to generate an array of genre name strings or an empty array.
@@ -100,7 +100,11 @@ const Tile = ({
           $big={big}
         />
         <Content $textCentered={contentTextCentered} $big={big}>
-          {title && <Title $smallTitle={smallTitle} $big={big}>{title}</Title>}
+          {title && (
+            <Title $smallTitle={smallTitle} $big={big}>
+              {title}
+            </Title>
+          )}
           <RoleAndRelease
             role={role}
             releaseDate={releaseDate}
@@ -109,7 +113,12 @@ const Tile = ({
           />
           {!!metaData && <MetaData properties={metaData} />}
           {tags && <Tags tags={tags} largeGap={tagsLargeGap} />}
-          <Rating vote={vote} votesAmount={votesAmount} smallText={smallText} medium={mediumRating} />
+          <Rating
+            vote={vote}
+            votesAmount={votesAmount}
+            smallText={smallText}
+            medium={mediumRating}
+          />
         </Content>
       </TileContainer>
     </Wrapper>
