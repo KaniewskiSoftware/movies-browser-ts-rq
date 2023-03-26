@@ -21,7 +21,15 @@ interface ContentProps {
   movie: MovieDetailsResponse;
   credits: MovieCreditsResponse;
 }
-
+/**
+ * The Content component displays the main content of the movie details page, including a backdrop image,
+ * movie information, cast and crew.
+ *
+ * @param {MovieDetailsResponse} movie - The movie details data to be displayed.
+ * @param {MovieCreditsResponse} credits - The movie credits data to be displayed.
+ *
+ * @returns {JSX.Element} A component that displays the main content of the movie details page.
+ */
 const Content = ({ movie, credits }: ContentProps) => {
   /**
    * Determines the appropriate poster and backdrop image sizes for the current screen resolution using
