@@ -55,6 +55,7 @@ const Content = ({ movie, credits }: ContentProps) => {
     createPropertyObject(movie.production_countries, "production_countries"),
     createPropertyObject(movie.release_date, "release_date"),
   ];
+
   return (
     <>
       <Backdrop

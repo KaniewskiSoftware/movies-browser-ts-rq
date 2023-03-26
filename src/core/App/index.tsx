@@ -11,10 +11,11 @@ import { theme } from "../theme";
 import { GlobalStyle } from "./GlobalStyle";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import Header from "../../common/components/Header";
-import { toMovie, toMovies, toPeople } from "../../common/utils/routes";
+import { toMovie, toMovies, toPeople, toPerson } from "../../common/utils/routes";
 import MoviesPage from "../../features/movies/Movies";
 import PeoplePage from "../../features/people/People";
 import MovieDetailsPage from "../../features/movies/Movie";
+import PersonDetailsPage from "../../features/people/Person";
 
 /**
  * App component renders the main application layout, including the theme provider,
@@ -39,6 +40,7 @@ function App() {
           <Route path={toMovies} element={<MoviesPage />} />
           <Route path={toPeople} element={<PeoplePage />} />
           <Route path={toMovie} element={<MovieDetailsPage />} />
+          <Route path={toPerson} element={<PersonDetailsPage />} />
           <Route path={"*"} element={<Navigate replace to={toMovies} />} />
         </Routes>
       </HashRouter>
