@@ -14,7 +14,6 @@ import { createPropertyObject } from "../../../../common/utils/createPropertyObj
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { MovieCreditsResponse } from "../../../../common/apiResponseTypes/movies/movieCredits";
 import { toPeople } from "../../../../common/utils/routes";
-import { CreditsContainer } from "./styled";
 import Title from "../../../../common/components/Title";
 
 interface ContentProps {
@@ -80,7 +79,7 @@ const Content = ({ movie, credits }: ContentProps) => {
           description={movie.overview}
         />
         {!!credits && credits.cast && credits.cast.length > 0 && (
-          <CreditsContainer>
+          <Wrapper $containerType="credits">
             <Title title="Cast" styleType="movieCredits" />
             <TilesGrid $moreItems>
               {credits.cast.map((person) => (
@@ -100,11 +99,11 @@ const Content = ({ movie, credits }: ContentProps) => {
                 />
               ))}
             </TilesGrid>
-          </CreditsContainer>
+          </Wrapper>
         )}
 
         {!!credits && credits.crew && credits.crew.length > 0 && (
-          <CreditsContainer>
+          <Wrapper $containerType="credits">
             <Title title="Crew" styleType="movieCredits" />
             <TilesGrid $moreItems>
               {credits.crew.map((person) => (
@@ -124,7 +123,7 @@ const Content = ({ movie, credits }: ContentProps) => {
                 />
               ))}
             </TilesGrid>
-          </CreditsContainer>
+          </Wrapper>
         )}
       </Wrapper>
     </>

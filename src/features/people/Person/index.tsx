@@ -23,7 +23,7 @@ const PersonDetailsPage = () => {
   } = usePersonDetails(id!);
 
   const {
-    data: genres,
+    data: genresData,
     isLoading: genresIsLoading,
     isError: genresIsError,
   } = useGenres();
@@ -39,7 +39,7 @@ const PersonDetailsPage = () => {
 
   return (
     <Page isLoading={isLoading} isError={isError} hasResults={!!details}>
-      <Content person={details ?? {}} credits={credits ?? {}} genres={genres} />
+      <Content person={details ?? {}} credits={credits ?? {}} genres={genresData.genres} />
     </Page>
   );
 };

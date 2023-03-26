@@ -22,6 +22,9 @@ export const Wrapper = styled.div<WrapperProps>`
   ${({ $containerType }) =>
     $containerType === "credits" &&
     css`
+      width: unset;
+      padding: unset;
+      margin: unset;
       justify-content: flex-start;
     `}
 

@@ -14,7 +14,7 @@ interface TagsProps {
  * @param largeGap - (Optional) A boolean that determines if the list should have a larger gap between the tags. Default value: false.
  */
 const Tags = ({ tags, largeGap }: TagsProps) => {
-  if (!!tags) {
+  if (!!tags[0]) {
     return (
       <List $largeGap={largeGap}>
         {tags.map((tag, index) => (
