@@ -19,17 +19,21 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
   margin-bottom: 24px;
   color: ${({ theme }) => theme.colors.site.primaryText};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 28px;
-    margin-top: 48px;
-    padding-left: 16px;
-  }
+  ${({ $styleType }) =>
+    $styleType === "default" &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        font-size: 28px;
+        margin-top: 48px;
+        padding-left: 16px;
+      }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-    font-size: 18px;
-    margin-top: 24px;
-    margin-bottom: 12px;
-  }
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 18px;
+        margin-top: 24px;
+        margin-bottom: 12px;
+      }
+    `}
 
   ${({ $styleType }) =>
     $styleType === "personCredits" &&
@@ -46,6 +50,7 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
   ${({ $styleType }) =>
     $styleType === "movieCredits" &&
     css`
+      margin: 0;
       margin-bottom: 32px;
 
       @media (max-width: ${({ theme }) => theme.breakpoints.small}) {

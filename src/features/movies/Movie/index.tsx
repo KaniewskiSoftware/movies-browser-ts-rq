@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useMovieCredits } from "../../../common/api/movies/movieCredits";
 import { useMovieDetails } from "../../../common/api/movies/movieDetails";
 import Page from "../../../common/components/Page";
 import Content from "./Content";
@@ -13,10 +14,22 @@ import Content from "./Content";
  */
 const MovieDetailsPage = () => {
   const { id } = useParams();
-  const { data, isLoading, isError } = useMovieDetails(id!);
+  const {
+    data: details,
+    isLoading: detailsLoading,
+    isError: detailsIsError,
+  } = useMovieDetails(id!);
+  const {
+    data: credits,
+    isLoading: creditsIsLoading,
+    isError: creditsIsError,
+  } = useMovieCredits(id!);
+
+  const isLoading = detailsLoading || creditsIsLoading;
+  const isError = detailsIsError || creditsIsError;
   return (
-    <Page isLoading={isLoading} isError={isError} hasResults={!!data}>
-      <Content movie={data ?? {}} />
+    <Page isLoading={isLoading} isError={isError} hasResults={!!details}>
+      <Content movie={details ?? {}} credits={credits ?? {}}/>
     </Page>
   );
 };

@@ -7,6 +7,7 @@ import { buildImageURL } from "../../../../common/utils/buildImageURL";
 import { toPeople } from "../../../../common/utils/routes";
 import { Wrapper } from "../../../../common/components/Wrapper";
 import Title from "../../../../common/components/Title";
+import defaultPerson from "../../../../common/images/defaultPerson.svg";
 
 interface PopularMoviesPageContentProps {
   people: PeopleListResult[];
@@ -47,6 +48,7 @@ const Content = ({
             key={person.id}
             linkTo={`${toPeople}/${person.id}`}
             imageURL={buildImageURL(size, person.profile_path, "profile")}
+            imagePlaceholder={defaultPerson}
             contentTextCentered
             title={person.name}
             smallTitle
