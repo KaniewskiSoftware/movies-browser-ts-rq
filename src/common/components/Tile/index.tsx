@@ -6,6 +6,7 @@ import { Content, Image, TileContainer, Title } from "./styled";
 import Wrapper from "./Wrapper";
 import { Genre } from "../../apiResponseTypes/genres/genres";
 import { GenresObject } from "../../utils/convertGenresArrayToObject";
+import { MetaData, PropertyType } from "./MetaData";
 
 interface TileProps {
   big?: boolean;
@@ -19,6 +20,7 @@ interface TileProps {
   releaseDate?: string;
   smallText?: boolean;
   role?: string;
+  metaData?: PropertyType[];
   genreIds?: number[];
   genres?: GenresObject;
   genresDetailed?: Genre[];
@@ -65,6 +67,7 @@ const Tile = ({
   releaseDate,
   smallText,
   role,
+  metaData,
   genreIds,
   genres,
   genresDetailed,
@@ -104,6 +107,7 @@ const Tile = ({
             smallText={smallText}
             bigFont={big}
           />
+          {!!metaData && <MetaData properties={metaData} />}
           {tags && <Tags tags={tags} largeGap={tagsLargeGap} />}
           <Rating vote={vote} votesAmount={votesAmount} smallText={smallText} medium={mediumRating} />
         </Content>

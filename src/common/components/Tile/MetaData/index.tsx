@@ -1,11 +1,12 @@
 import { Fragment } from "react";
 import { Properties, Property, PropertyText } from "./styled";
 
-interface PropertyDisplayProps {
-  properties: Array<{
+export interface PropertyType {
     title: string;
     content: string | Array<{ name: string; short?: string }>;
-  }>;
+}
+interface MetaDataProperties {
+  properties: Array<PropertyType>;
 }
 
 /**
@@ -55,7 +56,7 @@ const renderPropertyContent = (
 /**
  * MetaData component to display key-value pairs of properties.
  * 
- * @interface PropertyDisplayProps
+ * @interface MetaDataProperties
  * @property {Array} properties - Array of property objects to be displayed
  * @property {string} properties[].title - The title of the property
  * @property {string | Array} properties[].content - The content of the property, either a string or an array of objects with `name` and optional `short` properties
@@ -72,7 +73,7 @@ const renderPropertyContent = (
  * ];
  * return <MetaData properties={properties} />;
  */
-export const MetaData = ({ properties }: PropertyDisplayProps) => {
+export const MetaData = ({ properties }: MetaDataProperties) => {
   return (
     <Properties>
       {properties.map((property, index) => (
