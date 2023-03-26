@@ -29,7 +29,7 @@ const MovieDetailsPage = () => {
   const isError = detailsIsError || creditsIsError;
   return (
     <Page isLoading={isLoading} isError={isError} hasResults={!!details}>
-      <Content movie={details ?? {}} credits={credits ?? {}}/>
+      <Content movie={details ?? {}} credits={credits ?? {}} />
     </Page>
   );
 };
