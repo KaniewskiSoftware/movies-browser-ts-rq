@@ -35,25 +35,26 @@ interface TileProps {
  * The Tile component is used for displaying various pieces of information
  * in a structured format, such as title, release date, role, genre tags, and rating.
  *
- * @param big - (Optional) A boolean indicating whether the tile should display as a horizontal, larger version.
- * @param linkTo - (Optional) A string representing the URL to navigate to when the tile is clicked.
- * @param horizontalOnMobile - (Optional) A boolean indicating whether the tile should display horizontally on mobile devices.
- * @param imageURL - (Optional) A string representing the URL of the image to be displayed in the tile.
- * @param imagePlaceholder - (Optional) A string representing the URL of the image placeholder.
- * @param contentTextCentered - (Optional) A boolean indicating whether the content text should be centered.
- * @param title - (Optional) A string representing the title of the tile.
- * @param smallTitle - (Optional) A boolean indicating whether the title should be rendered with a smaller font size.
- * @param releaseDate - (Optional) A string representing the release date of the movie or TV show.
- * @param smallText - (Optional) A boolean indicating whether the text should be rendered with a smaller font size.
- * @param role - (Optional) A string representing the role of the actor in the movie or TV show.
- * @param genreIds - (Optional) An array of numbers representing the genre IDs of the movie or TV show.
- * @param genres - (Optional) An object containing information about the genres.
- * @param genresDetailed - (Optional) An array of objects containing detailed information about the genres.
- * @param tagsLargeGap - (Optional) A boolean indicating whether the gap between the tags should be large.
- * @param vote - (Optional) A number representing the rating of the movie or TV show.
- * @param votesAmount - (Optional) A number representing the total number of votes for the movie or TV show.
- * @param mediumRating - (Optional) A boolean indicating whether to render a medium-sized rating component.
- * @returns A component that displays various pieces of information in a structured format.
+ * @param {boolean} [big] - Optional. A boolean indicating whether the tile should display as a horizontal, larger version.
+ * @param {string} [linkTo] - Optional. A string representing the URL to navigate to when the tile is clicked.
+ * @param {boolean} [horizontalOnMobile] - Optional. A boolean indicating whether the tile should display horizontally on mobile devices.
+ * @param {string} [imageURL] - Optional. A string representing the URL of the image to be displayed in the tile.
+ * @param {string} [imagePlaceholder] - Optional. A string representing the URL of the image placeholder.
+ * @param {boolean} [contentTextCentered] - Optional. A boolean indicating whether the content text should be centered.
+ * @param {string} [title] - Optional. A string representing the title of the tile.
+ * @param {boolean} [smallTitle] - Optional. A boolean indicating whether the title should be rendered with a smaller font size.
+ * @param {string} [releaseDate] - Optional. A string representing the release date of the movie or TV show.
+ * @param {boolean} [smallText] - Optional. A boolean indicating whether the text should be rendered with a smaller font size.
+ * @param {string} [role] - Optional. A string representing the role of the actor in the movie or TV show.
+ * @param {PropertyObject} [metaData] - Optional. An array of objects representing additional metadata to display.
+ * @param {Array<number>} [genreIds] - Optional. An array of numbers representing the genre IDs of the movie or TV show.
+ * @param {GenresObject} [genres] - Optional. An object containing information about the genres.
+ * @param {Array<Genre>} [genresDetailed] - Optional. An array of objects containing detailed information about the genres.
+ * @param {boolean} [tagsLargeGap] - Optional. A boolean indicating whether the gap between the tags should be large.
+ * @param {number} [vote] - Optional. A number representing the rating of the movie or TV show.
+ * @param {number} [votesAmount] - Optional. A number representing the total number of votes for the movie or TV show.
+ * @param {boolean} [mediumRating] - Optional. A boolean indicating whether to render a medium-sized rating component.
+ * @returns {JSX.Element} A component that displays various pieces of information in a structured format.
  */
 const Tile = ({
   big,
