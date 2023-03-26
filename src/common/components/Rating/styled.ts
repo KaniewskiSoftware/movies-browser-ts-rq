@@ -6,6 +6,10 @@ interface RatingProps {
   $medium?: boolean;
 }
 
+interface StyledStarProps {
+  $large?: boolean;
+}
+
 /**
  * The Container component is a styled div that serves as a container for
  * the Rating component elements, providing proper alignment and spacing.
@@ -67,7 +71,7 @@ export const Container = styled.div<RatingProps>`
  * @property Star - An SVG component that displays a star icon.
  * @returns A styled SVG component with dynamic styles based on the optional props.
  */
-export const StyledStar = styled(Star)<RatingProps>`
+export const StyledStar = styled(Star)<StyledStarProps>`
   width: 24px;
   height: auto;
 
@@ -86,18 +90,25 @@ export const StyledStar = styled(Star)<RatingProps>`
   }
 `;
 
+/**
+ * The TextBox component is a styled `div` element that displays its children in a horizontal
+ * row with a consistent amount of space between them.
+ *
+ * @property {Function} styled - A function that returns a styled component.
+ * @returns The rendered component.
+ */
 export const TextBox = styled.div`
   display: flex;
   align-items: baseline;
   gap: 8px;
 `;
 /**
- * The Rate component is a styled paragraph component that displays the rating
- * value in a specific font size and weight.
+ * The Rate component is a styled paragraph component that displays the rating value in a specific font size and weight.
  *
- * @param $large - (Optional) A boolean to apply the large version styles.
- * @property styled - A function that returns a styled component.
- * @property p - A paragraph element that is used to display the rating value.
+ * @param {boolean} [$large] - (Optional) A boolean to apply the large version styles.
+ * @param {boolean} [$medium] - (Optional) A boolean to apply the medium version styles.
+ * @property {Function} styled - A function that returns a styled component.
+ * @property {HTMLParagraphElement} p - A paragraph element that is used to display the rating value.
  * @returns A styled paragraph component with dynamic styles based on the optional props.
  */
 export const Rate = styled.p<RatingProps>`

@@ -20,6 +20,12 @@ interface SecondaryTextProps {
  * @param $backdrop - (Optional) A boolean that sets the font size to 16px, line-height to 1.2,
  *                    and changes the color according to the theme when true. It is used
  *                    throughout the Backdrop component.
+ * @param $detailsTile - (Optional) A boolean that sets the font size to 14px, line-height to 1.2,
+ *                    and changes the color according to the theme when true. It is used
+ *                    throughout the Tile component.
+ * @param $big - (Optional) A boolean that sets the font size to 22px on large screens
+ *               and progressively smaller font sizes on smaller screens. It is used
+ *               in the Details component.
  * @param $bottomSelfAlignment - (Optional) A boolean that sets the component's alignment to the
  *                               bottom (flex-end) on desktop and resets it on mobile devices.
  * @param $displayOnDesktop - (Optional) A boolean that hides the component on desktop devices

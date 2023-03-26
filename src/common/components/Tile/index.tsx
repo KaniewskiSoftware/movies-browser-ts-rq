@@ -28,10 +28,12 @@ interface TileProps {
   mediumRating?: boolean;
 }
 
+
 /**
  * The Tile component is used for displaying various pieces of information
  * in a structured format, such as title, release date, role, genre tags, and rating.
  *
+ * @param big - (Optional) A boolean indicating whether the tile should display as a horizontal, larger version.
  * @param linkTo - (Optional) A string representing the URL to navigate to when the tile is clicked.
  * @param horizontalOnMobile - (Optional) A boolean indicating whether the tile should display horizontally on mobile devices.
  * @param imageURL - (Optional) A string representing the URL of the image to be displayed in the tile.
@@ -44,8 +46,12 @@ interface TileProps {
  * @param role - (Optional) A string representing the role of the actor in the movie or TV show.
  * @param genreIds - (Optional) An array of numbers representing the genre IDs of the movie or TV show.
  * @param genres - (Optional) An object containing information about the genres.
+ * @param genresDetailed - (Optional) An array of objects containing detailed information about the genres.
+ * @param tagsLargeGap - (Optional) A boolean indicating whether the gap between the tags should be large.
  * @param vote - (Optional) A number representing the rating of the movie or TV show.
  * @param votesAmount - (Optional) A number representing the total number of votes for the movie or TV show.
+ * @param mediumRating - (Optional) A boolean indicating whether to render a medium-sized rating component.
+ * @returns A component that displays various pieces of information in a structured format.
  */
 const Tile = ({
   big,
