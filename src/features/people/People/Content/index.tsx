@@ -25,7 +25,7 @@ const Content = ({
 }: PopularMoviesPageContentProps) => {
   /**
    * Determines the appropriate poster size for the current screen resolution using
-   * the useResponsiveImageSize custom hook and casts the result to PosterSize.
+   * the useResponsiveImageSize custom hook and casts the result to ProfileSize.
    * 
    * The type casting is necessary because TypeScript sometimes has difficulty
    * recognizing that the hook always returns the correct size type for all possible
