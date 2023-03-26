@@ -78,7 +78,7 @@ const Content = ({ movie, credits }: ContentProps) => {
           mediumRating
           description={movie.overview}
         />
-        {!!credits && credits.cast && credits.cast.length > 0 && (
+        {credits.cast && credits.cast.length > 0 && (
           <Wrapper $containerType="credits">
             <Title title="Cast" styleType="movieCredits" />
             <TilesGrid $moreItems>
@@ -102,7 +102,7 @@ const Content = ({ movie, credits }: ContentProps) => {
           </Wrapper>
         )}
 
-        {!!credits && credits.crew && credits.crew.length > 0 && (
+        {credits.crew && credits.crew.length > 0 && (
           <Wrapper $containerType="credits">
             <Title title="Crew" styleType="movieCredits" />
             <TilesGrid $moreItems>

@@ -60,7 +60,7 @@ const Content = ({ person, credits, genres }: ContentProps) => {
         //   metaData={properties}
         description={person.biography}
       />
-      {credits && credits.cast && credits.cast.length > 0 ? (
+      {credits.cast && credits.cast.length > 0 ? (
         <Wrapper $containerType="credits">
           <Title
             title={`Movies - cast (${credits.cast.length})`}
@@ -90,7 +90,7 @@ const Content = ({ person, credits, genres }: ContentProps) => {
           </TilesGrid>
         </Wrapper>
       ) : null}
-      {credits && credits.crew && credits.crew.length > 0 ? (
+      {credits.crew && credits.crew.length > 0 ? (
         <Wrapper $containerType="credits">
           <Title
             title={`Movies - crew (${credits.crew.length})`}
