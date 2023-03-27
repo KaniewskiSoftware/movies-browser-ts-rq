@@ -51,8 +51,8 @@ const Content = ({ movie, credits }: ContentProps) => {
   const profileSize = useResponsiveImageSize("profile") as ProfileSize;
 
   const properties = [
-    createPropertyObject(movie.production_countries, "production_countries"),
-    createPropertyObject(movie.release_date, "release_date"),
+    createPropertyObject("Production", movie.production_countries),
+    createPropertyObject("Relase Date", movie.release_date),
   ];
 
   return (

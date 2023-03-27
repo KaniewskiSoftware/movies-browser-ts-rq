@@ -39,11 +39,7 @@ const renderPropertyContent = (
       {item.short && (
         <PropertyText $displayOnMobile key={item.short}>
           {item.short}
-          {index < contentArray.length - 1 ? (
-            <span>,&nbsp;</span>
-          ) : (
-            null
-          )}
+          {index < contentArray.length - 1 ? <span>,&nbsp;</span> : null}
         </PropertyText>
       )}
     </Fragment>
@@ -52,14 +48,14 @@ const renderPropertyContent = (
 
 /**
  * MetaData component to display key-value pairs of properties.
- * 
+ *
  * @interface MetaDataProperties
  * @property {Array} properties - Array of property objects to be displayed
  * @property {string} properties[].title - The title of the property
  * @property {string | Array} properties[].content - The content of the property, either a string or an array of objects with `name` and optional `short` properties
  * @property {string} properties[].content[].name - The name property of the content object
  * @property {string} [properties[].content[].short] - The optional short property of the content object
- * 
+ *
  * @component
  * @example
  * const properties = [
@@ -71,20 +67,23 @@ const renderPropertyContent = (
  * return <MetaData properties={properties} />;
  */
 export const MetaData = ({ properties }: MetaDataProperties) => {
-    const validProperties = properties.filter(
-      (property) =>
-        property.content !== "" &&
-        !(Array.isArray(property.content) && property.content.length === 0)
-    );
-    
-  return (
-    <Properties>
-      {validProperties.map((property, index) => (
-        <Property key={index}>
-          <PropertyText $entitled>{property.title}</PropertyText>
-          {renderPropertyContent(property.content)}
-        </Property>
-      ))}
-    </Properties>
+  const validProperties = properties.filter(
+    (property) =>
+      property.content !== "" &&
+      !(Array.isArray(property.content) && property.content.length === 0)
   );
+
+  if (validProperties.length > 0) {
+    return (
+      <Properties>
+        {validProperties.map((property, index) => (
+          <Property key={index}>
+            <PropertyText $entitled>{property.title}:</PropertyText>
+            {renderPropertyContent(property.content)}
+          </Property>
+        ))}
+      </Properties>
+    );
+  }
+  return null;
 };

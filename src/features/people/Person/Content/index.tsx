@@ -47,17 +47,19 @@ const Content = ({ person, credits, genres }: ContentProps) => {
    */
   const profileSize = useResponsiveImageSize("profile") as ProfileSize;
 
-  //   const properties = [
-  //     createPropertyObject(person.production_countries, "production_countries"),
-  //     createPropertyObject(movie.release_date, "release_date"),
-  //   ];
+  const properties = [
+    createPropertyObject("Date of Birth", person.birthday),
+    createPropertyObject("Place of Birth", person.place_of_birth),
+    createPropertyObject("Death Date", person.deathday),
+  ];
+
   return (
     <Wrapper $containerType="details">
       <Tile
         big
         imageURL={buildImageURL(profileSize, person.profile_path, "profile")}
         title={person.name}
-        //   metaData={properties}
+        metaData={properties}
         description={person.biography}
       />
       {credits.cast && credits.cast.length > 0 ? (
