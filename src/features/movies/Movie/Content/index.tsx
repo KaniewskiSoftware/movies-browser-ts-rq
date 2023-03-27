@@ -82,9 +82,9 @@ const Content = ({ movie, credits }: ContentProps) => {
           <Wrapper $containerType="credits">
             <Title title="Cast" styleType="movieCredits" />
             <TilesGrid $moreItems>
-              {credits.cast.map((person) => (
+              {credits.cast.map((person, index) => (
                 <Tile
-                  key={person.id}
+                  key={index}
                   linkTo={`${toPeople}/${person.id}`}
                   imageURL={buildImageURL(
                     profileSize,
@@ -106,9 +106,9 @@ const Content = ({ movie, credits }: ContentProps) => {
           <Wrapper $containerType="credits">
             <Title title="Crew" styleType="movieCredits" />
             <TilesGrid $moreItems>
-              {credits.crew.map((person) => (
+              {credits.crew.map((person, index) => (
                 <Tile
-                  key={person.id}
+                  key={index}
                   linkTo={`${toPeople}/${person.id}`}
                   imageURL={buildImageURL(
                     profileSize,
