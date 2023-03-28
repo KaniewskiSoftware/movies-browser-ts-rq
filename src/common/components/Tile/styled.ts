@@ -28,6 +28,7 @@ export const TileContainer = styled.article<TileContainerProps>`
   width: 100%;
   padding: 16px;
   gap: 16px;
+  border: 1px solid transparent;
   border-radius: 5px;
   color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.base};

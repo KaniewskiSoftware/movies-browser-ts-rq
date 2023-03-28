@@ -12,9 +12,9 @@ import styled from "styled-components";
  */
 export const TileLink = styled(Link)`
   text-decoration: none;
-  transition: background-color 0.5s;
+  transition: border 1s;
 
   &:hover > * {
-    background-color: ${({ theme }) => theme.colors.button};
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
