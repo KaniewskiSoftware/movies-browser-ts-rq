@@ -85,11 +85,14 @@ export const TileContainer = styled.article<TileContainerProps>`
  *                              aspect ratio while the Tile is displayed horizontally.
  *                              Default value: false.
  */
-export const Image = styled.div<ImageProps>`
+export const Image = styled.div.attrs<ImageProps>(({ $imageURL }) => ({
+  style: {
+    backgroundImage: `url(${$imageURL})`,
+  },
+}))<ImageProps>`
   padding-top: calc(100% * 632 / 431);
   width: 100%;
   border-radius: 5px;
-  background-image: url(${({ $imageURL }) => $imageURL});
   background-size: cover;
   background-position: center;
 
