@@ -83,6 +83,7 @@ const Content = ({ person, credits, genres }: ContentProps) => {
                 imagePlaceholder={defaultMovie}
                 title={movie.title}
                 releaseDate={movie.release_date}
+                role={movie.character}
                 smallRoleAndRelease
                 genreIds={movie.genre_ids}
                 genres={genres}
@@ -113,6 +114,7 @@ const Content = ({ person, credits, genres }: ContentProps) => {
                 imagePlaceholder={defaultMovie}
                 title={movie.title}
                 releaseDate={movie.release_date}
+                role={movie.job}
                 smallRoleAndRelease
                 genreIds={movie.genre_ids}
                 genres={genres}
