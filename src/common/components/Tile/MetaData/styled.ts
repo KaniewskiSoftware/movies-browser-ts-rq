@@ -89,7 +89,7 @@ export const PropertyText = styled.p<PropertyTextProps>`
       color: ${({ theme }) => theme.colors.secondary};
       margin-right: 8px;
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         display: none;
       }
     `}
