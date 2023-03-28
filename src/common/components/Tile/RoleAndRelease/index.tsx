@@ -25,7 +25,7 @@ const RoleAndRelease = ({
 }: RoleAndReleaseProps) => {
   if (releaseDate && role) {
     return (
-      <Text $smallText={smallText} $big={bigFont}>
+      <Text $small={smallText} $big={bigFont}>
         {role} ({getYearFromReleaseDate(releaseDate)})
       </Text>
     );
@@ -33,7 +33,7 @@ const RoleAndRelease = ({
 
   if (releaseDate) {
     return (
-      <Text $smallText={smallText} $big={bigFont}>
+      <Text $small={smallText} $big={bigFont}>
         {getYearFromReleaseDate(releaseDate)}
       </Text>
     );
@@ -41,7 +41,7 @@ const RoleAndRelease = ({
 
   if (role) {
     return (
-      <Text $smallText={smallText} $big={bigFont}>
+      <Text $small={smallText} $big={bigFont}>
         {role}
       </Text>
     );

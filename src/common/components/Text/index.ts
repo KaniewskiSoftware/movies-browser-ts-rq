@@ -1,10 +1,8 @@
 import styled, { css } from "styled-components";
 
 interface TextProps {
-  $smallText?: boolean;
-  $description?: boolean;
+  $small?: boolean;
   $big?: boolean;
-  $bottomSelfAlignment?: boolean;
   $displayOnDesktop?: boolean;
   $displayOnMobile?: boolean;
   $hidden?: boolean;
@@ -43,7 +41,7 @@ export const textStyles = css<TextProps>`
  * can be customized using various optional properties. It is designed to be
  * used in different parts of the application where secondary text is required.
  *
- * @param $smallText - (Optional) A boolean that sets the font size to 16px if true.
+ * @param $small - (Optional) A boolean that sets the font size to 16px if true.
  * @param $big - (Optional) A boolean that sets the font size to 22px on large screens
  *               and progressively smaller font sizes on smaller screens. It is used
  *               in the Details component.
@@ -66,8 +64,8 @@ export const Text = styled.p<TextProps>`
     font-size: 13px;
   }
 
-  ${({ $smallText }) =>
-    $smallText &&
+  ${({ $small }) =>
+    $small &&
     css`
       font-size: 16px;
     `}
