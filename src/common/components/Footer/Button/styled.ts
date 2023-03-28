@@ -14,13 +14,18 @@ export const StyledButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 0 5px;
   padding: 8px 16px;
   gap: 8px;
   background-color: ${({ theme }) => theme.colors.button};
   border-radius: 5px;
   border: none;
-  margin: 0 5px;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.special};
+    color: ${({ theme }) => theme.colors.base};
+  }
 
   &:disabled {
     color: ${({ theme }) => theme.colors.primary};
@@ -39,6 +44,7 @@ export const Title = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 1.4;
+  transition: color .3s;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     display: none;
@@ -55,10 +61,16 @@ export const Title = styled.span`
  */
 export const StyledArrow = styled(Arrow)<StyledArrowProps>`
   color: ${({ theme }) => theme.colors.special};
+  transition: color .3s;
 
-  ${StyledButton}:disabled & {
+  ${StyledButton}:hover && {
+    color: ${({ theme }) => theme.colors.base};
+  }
+
+  ${StyledButton}:disabled && {
     color: ${({ theme }) => theme.colors.secondary};
   }
+
   ${({ $rotated }) =>
     $rotated &&
     css`
