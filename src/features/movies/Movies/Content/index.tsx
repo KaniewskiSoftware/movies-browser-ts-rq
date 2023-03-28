@@ -55,7 +55,7 @@ const Content = ({
             imagePlaceholder={defaultMovie}
             title={movie.title}
             releaseDate={movie.release_date}
-            smallText
+            smallRoleAndRelease
             genreIds={movie.genre_ids}
             genres={genres}
             vote={movie.vote_average}

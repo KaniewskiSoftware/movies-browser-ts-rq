@@ -173,6 +173,10 @@ export const Count = styled.p<CountProps>`
   line-height: 1.5;
   color: ${({ theme }) => theme.colors.secondary};
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 13px;
+  }
+
   ${({ $large }) =>
     $large &&
     css`

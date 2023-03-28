@@ -8,7 +8,7 @@ import Rating from "../Rating";
 import RoleAndRelease from "./RoleAndRelease";
 import Wrapper from "./Wrapper";
 import { Content, Image, TileContainer, Title } from "./styled";
-import { Text } from "../Text";
+import { Description } from "../Text";
 
 interface TileProps {
   big?: boolean;
@@ -20,7 +20,7 @@ interface TileProps {
   title?: string;
   smallTitleOnTiny?: boolean;
   releaseDate?: string;
-  smallText?: boolean;
+  smallRoleAndRelease?: boolean;
   role?: string;
   metaData?: PropertyObject[];
   genreIds?: number[];
@@ -46,7 +46,7 @@ interface TileProps {
  * @param {string} [title] - Optional. A string representing the title of the tile.
  * @param {boolean} [smallTitleOnTiny] - Optional. A boolean indicating whether the title should be rendered with a smaller font size.
  * @param {string} [releaseDate] - Optional. A string representing the release date of the movie or TV show.
- * @param {boolean} [smallText] - Optional. A boolean indicating whether the text should be rendered with a smaller font size.
+ * @param {boolean} [smallRoleAndRelease] - Optional. A boolean indicating whether the text should be rendered with a smaller font size.
  * @param {string} [role] - Optional. A string representing the role of the actor in the movie or TV show.
  * @param {PropertyObject[]} [metaData] - Optional. An array of objects representing additional metadata to display.
  * @param {number[]} [genreIds] - Optional. An array of numbers representing the genre IDs of the movie or TV show.
@@ -85,7 +85,7 @@ const Tile = ({
   title,
   smallTitleOnTiny,
   releaseDate,
-  smallText,
+  smallRoleAndRelease,
   role,
   metaData,
   genreIds,
@@ -129,26 +129,18 @@ const Tile = ({
           <RoleAndRelease
             role={role}
             releaseDate={releaseDate}
-            smallText={smallText}
+            smallText={smallRoleAndRelease}
             bigFont={big}
           />
           {!!metaData && <MetaData properties={metaData} />}
           {tags && <Tags tags={tags} largeGap={tagsLargeGap} />}
-          <Rating
-            vote={vote}
-            votesAmount={votesAmount}
-            medium={mediumRating}
-          />
+          <Rating vote={vote} votesAmount={votesAmount} medium={mediumRating} />
           {!!description && (
-            <Text $displayOnDesktop $description>
-              {description}
-            </Text>
+            <Description $displayOnDesktop>{description}</Description>
           )}
         </Content>
         {!!description && (
-          <Text $displayOnMobile $description>
-            {description}
-          </Text>
+          <Description $displayOnMobile>{description}</Description>
         )}
       </TileContainer>
     </Wrapper>
