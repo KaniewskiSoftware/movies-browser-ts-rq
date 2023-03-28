@@ -22,13 +22,13 @@ const colorNames = {
   white: "#FFFFFF",
   whisper: "#F5F5FA",
   mystic: "#E4E6F0",
-  waterloo: "#7E839A", //silver
+  waterloo: "#7E839A",
   yellow: "#FCD420",
   lightBlue: "#D6E4FF",
   dodgerBlue: "#3377FF",
   blueRibbon: "#0055FF",
-  blue: "#0044CC", //scienceBlue
-  woodSmoke: "#18181B", //woodSmoke
+  blue: "#0044CC",
+  woodSmoke: "#18181B",
 };
 /**
  * The theme object contains the styling configuration for the application.
