@@ -16,22 +16,21 @@ export const StyledButton = styled.button`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  background-color: ${({ theme }) => theme.colors.footer.background};
+  background-color: ${({ theme }) => theme.colors.button};
   border-radius: 5px;
   border: none;
   margin: 0 5px;
   cursor: pointer;
 
   &:disabled {
-    background: ${({ theme }) => theme.colors.footer.disabled};
-    color: ${({ theme }) => theme.colors.footer.text};
+    color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.disabled};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     padding: 8px 12px;
   }
 `;
-
 
 /**
  * The Title is a styled component that provides the style for the title of the Button component.
@@ -55,10 +54,10 @@ export const Title = styled.span`
  * @param $hidden: A boolean indicating if the arrow icon should be hidden.
  */
 export const StyledArrow = styled(Arrow)<StyledArrowProps>`
-  color: ${({ theme }) => theme.colors.footer.arrow};
+  color: ${({ theme }) => theme.colors.special};
 
   ${StyledButton}:disabled & {
-    color: ${({ theme }) => theme.colors.footer.disabledArrow};
+    color: ${({ theme }) => theme.colors.secondary};
   }
   ${({ $rotated }) =>
     $rotated &&

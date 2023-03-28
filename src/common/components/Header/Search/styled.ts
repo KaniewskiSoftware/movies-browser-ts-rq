@@ -8,9 +8,9 @@ export const InputWrapper = styled.div`
   align-items: center;
   height: 48px;
   width: 432px;
-  border: 1px solid ${({ theme }) => theme.colors.header.inputBorder};
+  border: 1px solid ${({ theme }) => theme.colors.disabled};
   border-radius: 33px;
-  background-color: ${({ theme }) => theme.colors.header.primary};
+  background-color: ${({ theme }) => theme.colors.base};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     width: 288px;
@@ -46,7 +46,7 @@ export const Input = styled.input`
   width: 75%;
 
   ::placeholder {
-    color: ${({ theme }) => theme.colors.header.placeholder};
+    color: ${({ theme }) => theme.colors.secondary};
   }
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 13px;

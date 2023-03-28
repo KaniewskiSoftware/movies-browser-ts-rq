@@ -8,7 +8,6 @@ export const Nav = styled.nav`
   display: flex;
 `;
 
-
 /**
  * The List is a styled component that provides the style for the unordered list of menu items in the Navigation component.
  */
@@ -22,7 +21,6 @@ export const List = styled.ul`
     gap: 6px;
   }
 `;
-
 
 /**
  * The Item is a styled component that provides the style for the individual list items in the Navigation component.
@@ -40,10 +38,10 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 600;
   line-height: 21px;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.header.primary};
+  color: ${({ theme }) => theme.colors.base};
 
   &.active {
-    border: 1px solid ${({ theme }) => theme.colors.header.primary};
+    border: 1px solid ${({ theme }) => theme.colors.base};
     border-radius: 24px;
   }
 

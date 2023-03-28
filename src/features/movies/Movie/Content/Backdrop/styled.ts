@@ -13,8 +13,8 @@ export const Container = styled.section`
   justify-content: center;
   width: 100%;
   height: 770px;
-  background-color: ${({ theme }) => theme.colors.backdrop.background};
-  color: ${({ theme }) => theme.colors.backdrop.text};
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.base};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
     height: 540px;

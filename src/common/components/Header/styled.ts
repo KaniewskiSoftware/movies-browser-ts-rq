@@ -8,7 +8,7 @@ import styled from "styled-components";
 export const StyledHeader = styled.div`
   width: 100%;
   height: 94px;
-  background-color: ${({ theme }) => theme.colors.header.background};
+  background-color: ${({ theme }) => theme.colors.primary};
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -57,7 +57,7 @@ export const LogoLink = styled(NavLink)`
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.header.primary};
+  color: ${({ theme }) => theme.colors.base};
   font-size: 24px;
   line-height: 40px;
   letter-spacing: -1.5px;

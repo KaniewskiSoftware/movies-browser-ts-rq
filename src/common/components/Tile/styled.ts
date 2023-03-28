@@ -48,8 +48,8 @@ export const TileContainer = styled.article<TileContainerProps>`
   padding: 16px;
   gap: 16px;
   border-radius: 5px;
-  color: ${({ theme }) => theme.colors.site.primaryText};
-  background-color: ${({ theme }) => theme.colors.tile.background};
+  color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.base};
   box-shadow: ${({ theme }) => theme.boxShadow};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
@@ -84,7 +84,7 @@ export const TileContainer = styled.article<TileContainerProps>`
         gap: 26px;
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
         padding: 16px;
         gap: 16px;
       }
@@ -153,7 +153,7 @@ export const Image = styled.div<ImageProps>`
   ${({ $noImage }) =>
     $noImage &&
     css`
-      background-color: ${({ theme }) => theme.colors.tile.imageBackground};
+      background-color: ${({ theme }) => theme.colors.disabled};
       background-size: 35%;
       background-repeat: no-repeat;
     `}
@@ -185,7 +185,7 @@ export const Content = styled.div<ContentProps>`
     css`
       padding: 8px 0;
       gap: 24px;
-      color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+      color: ${({ theme }) => theme.colors.primary};
 
       @media (max-width: ${({ theme }) => theme.breakpoints.large}) {
         gap: 16px;
@@ -244,7 +244,7 @@ export const Title = styled.p<TitleProps>`
         font-size: 24px;
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
         font-size: 22px;
       }
     `}

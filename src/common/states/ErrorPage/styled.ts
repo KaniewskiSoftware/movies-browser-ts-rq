@@ -29,7 +29,6 @@ export const Text = styled.span<TextProps>`
   font-size: 22px;
   line-height: 1.3;
   text-align: center;
-  color: ${({ theme }) => theme.colors.site.primaryText};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     font-size: 10px;
@@ -57,7 +56,7 @@ export const Text = styled.span<TextProps>`
       font-weight: 700;
       font-size: 14px;
       line-height: 19px;
-      color: ${({ theme }) => theme.colors.states.buttonText};
+      color: ${({ theme }) => theme.colors.base};
 
       @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
       }
@@ -79,16 +78,16 @@ export const Button = styled(Link)`
   gap: 10px;
   border-radius: 5px;
   border: none;
-  background: ${({ theme }) => theme.colors.states.buttonBackground};
+  background: ${({ theme }) => theme.colors.special};
   text-decoration: none;
   transition: background-color 1s;
   cursor: pointer;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.states.buttonHover};
+    background: ${({ theme }) => theme.colors.specialHover};
   }
 
   &:active {
-    background: ${({ theme }) => theme.colors.states.buttonActive};
+    background: ${({ theme }) => theme.colors.specialActive};
   }
 `;

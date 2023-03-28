@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 /**
  * Properties styled-component, a container for the key-value pairs.
- * 
+ *
  * @component
  * @example
  * return (
@@ -19,7 +19,7 @@ export const Properties = styled.div`
 
 /**
  * Property styled-component, a container for a single key-value pair.
- * 
+ *
  * @component
  * @example
  * return (
@@ -41,7 +41,7 @@ interface PropertyTextProps {
 
 /**
  * PropertyText styled-component to display the property title and content.
- * 
+ *
  * @component
  * @example
  * return (
@@ -61,7 +61,7 @@ export const PropertyText = styled.p<PropertyTextProps>`
     font-size: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
     font-size: 12px;
   }
 
@@ -86,10 +86,10 @@ export const PropertyText = styled.p<PropertyTextProps>`
   ${({ $entitled }) =>
     $entitled &&
     css`
-      color: ${({ theme }) => theme.colors.detailsTile.secondaryText};
+      color: ${({ theme }) => theme.colors.secondary};
       margin-right: 8px;
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
         display: none;
       }
     `}

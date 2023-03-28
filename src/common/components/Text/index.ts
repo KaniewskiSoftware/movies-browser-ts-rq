@@ -42,7 +42,7 @@ export const Text = styled.p<TextProps>`
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  color: ${({ theme }) => theme.colors.tile.secondaryText};
+  color: ${({ theme }) => theme.colors.secondary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 14px;
@@ -63,7 +63,7 @@ export const Text = styled.p<TextProps>`
     css`
       font-size: 16px;
       line-height: 1.2;
-      color: ${({ theme }) => theme.colors.backdrop.text};
+      color: ${({ theme }) => theme.colors.base};
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 10px;
@@ -75,7 +75,7 @@ export const Text = styled.p<TextProps>`
     css`
       font-size: 14px;
       line-height: 1.2;
-      color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+      color: ${({ theme }) => theme.colors.primary};
 
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 13px;
@@ -87,7 +87,7 @@ export const Text = styled.p<TextProps>`
     css`
       font-size: 22px;
       line-height: 1.2;
-      color: ${({ theme }) => theme.colors.detailsTile.primaryText};
+      color: ${({ theme }) => theme.colors.primary};
 
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         font-size: 18px;
@@ -97,7 +97,7 @@ export const Text = styled.p<TextProps>`
         font-size: 16px;
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
         font-size: 13px;
       }
     `}

@@ -17,7 +17,7 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
   line-height: 1.2;
   margin-top: 56px;
   margin-bottom: 24px;
-  color: ${({ theme }) => theme.colors.site.primaryText};
+  color: ${({ theme }) => theme.colors.primary};
 
   ${({ $styleType }) =>
     $styleType === "default" &&
@@ -58,7 +58,7 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
   ${({ $styleType }) =>
     $styleType === "movieCredits" &&
     css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.small}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
         font-size: 26px;
         margin-bottom: 20px;
       }

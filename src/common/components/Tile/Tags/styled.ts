@@ -53,7 +53,7 @@ export const Tag = styled.li`
   text-align: center;
   line-height: 1.4;
   font-weight: 500;
-  background-color: ${({ theme }) => theme.colors.tile.tagBackground};
+  background-color: ${({ theme }) => theme.colors.disabled};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
     font-size: 12px;

@@ -20,15 +20,15 @@ export const Wrapper = styled.div`
 export const Counter = styled.div`
   display: flex;
   align-items: center;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: ${({ theme }) => theme.colors.footer.counter};
   margin: 0px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.secondary};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 10px;
     margin: 0px 6px;
+    font-size: 10px;
   }
 `;
 
@@ -36,7 +36,7 @@ export const Counter = styled.div`
  * The Span is a styled component that provides the style for the text within the Counter component.
  */
 export const Span = styled.span`
-  color: ${({ theme }) => theme.colors.footer.text};
-  font-weight: 600;
+  color: ${({ theme }) => theme.colors.primary};
   margin: 0px 6px;
+  font-weight: 600;
 `;

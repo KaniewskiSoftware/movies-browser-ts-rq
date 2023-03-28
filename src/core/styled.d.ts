@@ -1,28 +1,31 @@
-/**
- * styled.d.ts
- *
- * This file contains type definitions for the styled-components DefaultTheme.
- * It extends the DefaultTheme interface to include custom properties for the
- * application's theme, such as colors and breakpoints.
- */
 import "styled-components";
 
-/** Common properties for the theme for @example: breakpoints */
+// Common properties for the theme
 interface Common {
   breakpoints: {
-    readonly [index: string]: string;
+    readonly smalest: string;
+    readonly tiny: string;
+    readonly mobile: string;
+    readonly medium: string;
+    readonly large: string;
+    readonly desktop: string;
+    readonly mediumDesktop: string;
   };
   readonly boxShadow: string;
 }
 
-// Color properties for each color category
-interface Color {
-  readonly [index: string]: string;
-}
-
 // Colors properties for the theme
 interface Colors {
-  readonly [index: string]: Color;
+  readonly primary: string;
+  readonly base: string;
+  readonly secondary: string;
+  readonly disabled: string;
+  readonly background: string;
+  readonly star: string;
+  readonly button: string;
+  readonly special: string;
+  readonly specialHover: string;
+  readonly specialActive: string;
 }
 
 // Extending the DefaultTheme from styled-components

@@ -8,7 +8,6 @@ import { createGlobalStyle } from "styled-components";
  * reset to all elements.
  */
 
-
 /**
  * GlobalStyle is a styled-components `createGlobalStyle` component that defines
  * the application's global styles.
@@ -31,8 +30,8 @@ export const GlobalStyle = createGlobalStyle`
     body {
         min-height: 100vh;
         margin: 0;
-        color: ${({ theme }) => theme.colors.site.primaryText};
-        background-color: ${({ theme }) => theme.colors.site.background};
+        color: ${({ theme }) => theme.colors.primary};
+        background-color: ${({ theme }) => theme.colors.background};
         font-family: 'Poppins', sans-serif;
     }
 `;
