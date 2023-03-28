@@ -174,6 +174,23 @@ interface CountProps {
   $large?: boolean;
 }
 
+/**
+ * The Count component is a styled paragraph that can be customized
+ * using various optional properties. It is designed to be used in
+ * different parts of the application where count-related text is required.
+ *
+ * @param $large - (Optional) A boolean that sets the font size to 16px and
+ *                 line-height to 1.2. It also sets the color to the theme's base color.
+ *                 The font size will be 10px on tiny screens when true.
+ * @param $medium - (Optional) A boolean that sets the font size to 14px and
+ *                  the color to the theme's primary color. The color will be set
+ *                  to the theme's secondary color on medium screens. The font size
+ *                  will be 13px on tiny screens when true.
+ * @param $bottomSelfAlignment - (Optional) A boolean that sets the align-self property
+ *                               to 'flex-end' if true. On mobile screens, the align-self
+ *                               property will be unset.
+ * Inherits TextProps from the Text component, allowing further customization.
+ */
 export const Count = styled.p<CountProps>`
   font-size: 16px;
   line-height: 1.5;
