@@ -6,7 +6,7 @@ import { MetaData } from "./MetaData";
 import Tags from "./Tags";
 import Rating from "../Rating";
 import RoleAndRelease from "./RoleAndRelease";
-import Wrapper from "./Wrapper";
+import Link from "./Link";
 import { Content, Image, TileContainer, Title } from "./styled";
 import { Description } from "../Text";
 
@@ -112,7 +112,7 @@ const Tile = ({
   const tags = getTagsFromGenres(genreIds, genres, genresDetailed);
 
   return (
-    <Wrapper linkTo={linkTo}>
+    <Link linkTo={linkTo}>
       <TileContainer $horizontalOnMobile={horizontalOnMobile} $big={big}>
         <Image
           $imageURL={imageURL ?? imagePlaceholder}
@@ -143,7 +143,7 @@ const Tile = ({
           <Description $displayOnMobile>{description}</Description>
         )}
       </TileContainer>
-    </Wrapper>
+    </Link>
   );
 };
 export default Tile;

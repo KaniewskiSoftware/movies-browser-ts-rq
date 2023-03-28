@@ -13,8 +13,8 @@ interface WrapperProps {
  * @param linkTo - (Optional) A string representing the URL to navigate to when the TileLink is clicked.
  * @param children - The React child elements to be rendered within the Wrapper component.
  */
-const Wrapper = ({ linkTo, children }: WrapperProps) => {
+const Link = ({ linkTo, children }: WrapperProps) => {
   return linkTo ? <TileLink to={linkTo}>{children}</TileLink> : <>{children}</>;
 };
 
-export default Wrapper;
+export default Link;
