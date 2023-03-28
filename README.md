@@ -48,6 +48,7 @@ By accomplishing these goals, the project will continue to evolve and provide a 
 - CSS Grid
 - CSS Flexbox
 - Responsive Web Design
+- Styled Components
 - React Router
 - API (fetch, Axios, AxiosInstance)
 - ReactQuery
