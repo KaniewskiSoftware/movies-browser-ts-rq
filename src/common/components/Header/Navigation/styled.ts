@@ -38,11 +38,16 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: 600;
   line-height: 21px;
   text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 24px;
   color: ${({ theme }) => theme.colors.base};
 
+  &:hover {
+    border-color: ${({ theme }) => theme.colors.base};
+  }
+
   &.active {
-    border: 1px solid ${({ theme }) => theme.colors.base};
-    border-radius: 24px;
+    border-color: ${({ theme }) => theme.colors.base};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
