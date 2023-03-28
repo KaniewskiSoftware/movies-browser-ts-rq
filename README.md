@@ -12,20 +12,12 @@ The project now boasts a well-structured and organized codebase, thanks to the r
 - Create custom hooks and utilities for various purposes
 - Enhance search functionality with debouncing for improved performance and user experience
 
-
 ## Next Steps
 
 Upcoming tasks and goals include:
 
-1. Break down the Tile component
-   - Create a subcomponent to handle role and release date logic
-2. Improve the Tags component to be more generic
-3. Write comprehensive Jest tests for the codebase to ensure its reliability and maintainability
-4. Add detailed documentation for components, hooks, and utilities to make it easier for others to understand and contribute to the project
-5. Develop a generic DetailsPage that leverages the existing Tile component used for both People and Movies pages, with appropriate conditional variables for seamless integration
-6. Better organize and improve the styling of the project for a more polished look and feel
-7. Continuously identify and fix bugs to ensure a smooth and reliable user experience
-
+1. Write comprehensive Jest tests for the codebase to ensure its reliability and maintainability
+2. Continuously identify and fix bugs to ensure a smooth and reliable user experience
 
 By accomplishing these goals, the project will continue to evolve and provide a robust, maintainable, and user-friendly experience.
 
@@ -38,7 +30,7 @@ By accomplishing these goals, the project will continue to evolve and provide a 
 - Utilize the search engine to find movies or people within the entire TMDB database, based on the current subpage
 - Navigate efficiently between subpages for a seamless browsing experience
 - Return to the main page featuring popular movies by clicking the logo in the upper left corner
-- Experience a well-designed and user-friendly layout, created by professionals using Figma
+- Experience a well-designed and user-friendly layout
 
 <!-- ## Preview
 
