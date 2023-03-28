@@ -15,7 +15,7 @@ interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
   display: flex;
   flex-direction: column;
-  max-width: 1400px;
+  max-width: 1410px;
   padding: 0 16px;
   margin: 0 auto;
 
