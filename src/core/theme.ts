@@ -29,6 +29,7 @@ const colorNames = {
   blueRibbon: "#0055FF",
   blue: "#0044CC",
   woodSmoke: "#18181B",
+  black: "#000000",
 };
 /**
  * The theme object contains the styling configuration for the application.
@@ -49,6 +50,7 @@ export const theme = {
     special: colorNames.blue,
     specialHover: colorNames.dodgerBlue,
     specialActive: colorNames.blueRibbon,
+    backdrop: colorNames.black,
   },
 };
 

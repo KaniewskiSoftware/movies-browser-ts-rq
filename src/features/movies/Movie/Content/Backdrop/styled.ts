@@ -13,7 +13,7 @@ export const Container = styled.section`
   justify-content: center;
   width: 100%;
   height: 770px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.backdrop};
   color: ${({ theme }) => theme.colors.base};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
@@ -55,22 +55,28 @@ export const Background = styled.div<BackgroundProps>`
   background-image: ${({ $backdrop }) => `url(${$backdrop})`};
   background-position: center;
   background-size: cover;
-  box-shadow: inset 0px 60px 120px -15px #000, inset -100px 0px 120px -10px #000,
-    inset 100px 0px 120px -10px #000, inset 0 -180px 180px -10px #000;
+  box-shadow: inset 0px 60px 120px -15px ${({ theme }) => theme.colors.backdrop},
+    inset -100px 0px 120px -10px ${({ theme }) => theme.colors.backdrop},
+    inset 100px 0px 120px -10px ${({ theme }) => theme.colors.backdrop},
+    inset 0 -180px 180px -10px ${({ theme }) => theme.colors.backdrop};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mediumDesktop}) {
     padding-bottom: 32px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    box-shadow: inset 0px 30px 60px -8px #000, inset -50px 0px 60px -5px #000,
-      inset 50px 0px 60px -5px #000, inset 0 -90px 90px -5px #000;
+    box-shadow: inset 0px 30px 60px -8px ${({ theme }) => theme.colors.backdrop},
+      inset -50px 0px 60px -5px ${({ theme }) => theme.colors.backdrop},
+      inset 50px 0px 60px -5px ${({ theme }) => theme.colors.backdrop},
+      inset 0 -90px 90px -5px ${({ theme }) => theme.colors.backdrop};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     padding-bottom: 10px;
-    box-shadow: inset 0px 20px 50px -6px #000, inset -35px 0px 40px 10px #000,
-      inset 35px 0px 40px 10px #000, inset 0 -45px 90px -5px #000;
+    box-shadow: inset 0px 20px 50px -6px ${({ theme }) => theme.colors.backdrop},
+      inset -35px 0px 40px 10px ${({ theme }) => theme.colors.backdrop},
+      inset 35px 0px 40px 10px ${({ theme }) => theme.colors.backdrop},
+      inset 0 -45px 90px -5px ${({ theme }) => theme.colors.backdrop};
   }
 `;
 
