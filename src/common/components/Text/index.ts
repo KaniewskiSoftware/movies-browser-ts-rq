@@ -7,6 +7,24 @@ interface TextProps {
   $displayOnMobile?: boolean;
   $hidden?: boolean;
 }
+
+/**
+ * textStyles is a set of reusable CSS properties for styled components that
+ * require text-related styles. It includes common text styling properties
+ * and responsive display properties based on the provided TextProps.
+ *
+ * @param $displayOnDesktop - (Optional) A boolean that hides the component on desktop devices
+ *                            (below the 'medium' breakpoint) when true.
+ * @param $displayOnMobile - (Optional) A boolean that hides the component on mobile devices
+ *                           (above the 'medium' breakpoint) when true.
+ * @param $hidden - (Optional) A boolean that hides the component when true.
+ *
+ * @example
+ * // Usage in a styled component
+ * const CustomText = styled.p`
+ *   ${textStyles};
+ * `;
+ */
 export const textStyles = css<TextProps>`
   margin: 0;
   font-weight: 400;
@@ -50,6 +68,8 @@ export const textStyles = css<TextProps>`
  * @param $displayOnMobile - (Optional) A boolean that hides the component on mobile devices
  *                           (above the 'large' breakpoint) when true.
  * @param $hidden - (Optional) A boolean that hides the component when true.
+ * @param textStyles - A set of reusable styles that handle
+ *                     display properties.
  */
 export const Text = styled.p<TextProps>`
   font-size: 18px;
@@ -93,6 +113,14 @@ export const Text = styled.p<TextProps>`
     ${textStyles}
 `;
 
+/**
+ * The Description component is a styled paragraph component that is designed
+ * to display a text description with a larger font size than the Text component.
+ * It inherits the textStyles from to maintain consistent behavior.
+ *
+ * @param textStyles - A set of reusable styles inherited from the Text component that
+ *                     handle display properties based on breakpoints and visibility.
+ */
 export const Description = styled.p`
   font-size: 20px;
   line-height: 1.6;
