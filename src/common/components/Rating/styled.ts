@@ -75,10 +75,16 @@ export const Container = styled.div<RatingProps>`
 export const StyledStar = styled(Star)<StyledStarProps>`
   width: 24px;
   height: auto;
+  color: ${({ theme }) => theme.colors.star};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    width: 20px;
-  }
+  ${({ $large }) =>
+    !$large &&
+    css`
+      width: 40px;
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        width: 20px;
+      }
+    `}
 
   ${({ $large }) =>
     $large &&
