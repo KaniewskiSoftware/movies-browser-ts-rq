@@ -1,4 +1,4 @@
-import { TileLink } from "../styled";
+import { TileLink } from "./styled";
 
 interface WrapperProps {
   linkTo?: string;

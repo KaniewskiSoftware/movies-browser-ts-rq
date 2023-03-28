@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 interface BigTile {
@@ -21,24 +20,6 @@ interface ImageProps extends BigTile {
 interface ContentProps extends BigTile {
   $textCentered?: boolean;
 }
-
-/**
- * TileLink is a styled component based on the Link component from react-router-dom.
- * It is used as a container for the Tile components, providing navigation between pages.
- *
- * @example
- * <TileLink to="/movie/12345">
- *   <Tile />
- * </TileLink>
- */
-export const TileLink = styled(Link)`
-  text-decoration: none;
-  transition: transform 1s;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
 
 export const TileContainer = styled.article<TileContainerProps>`
   display: flex;
@@ -153,7 +134,7 @@ export const Image = styled.div<ImageProps>`
   ${({ $noImage }) =>
     $noImage &&
     css`
-      background-color: ${({ theme }) => theme.colors.disabled};
+      background-color: ${({ theme }) => theme.colors.secondary};
       background-size: 35%;
       background-repeat: no-repeat;
     `}
