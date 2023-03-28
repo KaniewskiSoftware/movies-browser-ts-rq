@@ -52,7 +52,7 @@ export const Tag = styled.li`
   font-size: 14px;
   text-align: center;
   line-height: 1.4;
-  font-weight: 500;
+  font-weight: 400;
   background-color: ${({ theme }) => theme.colors.disabled};
 
   @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {

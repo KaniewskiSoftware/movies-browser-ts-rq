@@ -95,7 +95,7 @@ const Content = ({ movie, credits }: ContentProps) => {
                   contentTextCentered
                   title={person.name}
                   role={person.character}
-                  smallTitle
+                  smallTitleOnTiny
                 />
               ))}
             </TilesGrid>
@@ -119,7 +119,7 @@ const Content = ({ movie, credits }: ContentProps) => {
                   contentTextCentered
                   title={person.name}
                   role={person.department}
-                  smallTitle
+                  smallTitleOnTiny
                 />
               ))}
             </TilesGrid>

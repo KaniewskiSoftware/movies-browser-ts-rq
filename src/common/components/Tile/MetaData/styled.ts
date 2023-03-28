@@ -61,7 +61,7 @@ export const PropertyText = styled.p<PropertyTextProps>`
     font-size: 16px;
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
     font-size: 12px;
   }
 
@@ -89,7 +89,7 @@ export const PropertyText = styled.p<PropertyTextProps>`
       color: ${({ theme }) => theme.colors.secondary};
       margin-right: 8px;
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         display: none;
       }
     `}

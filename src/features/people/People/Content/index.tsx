@@ -51,7 +51,7 @@ const Content = ({
             imagePlaceholder={defaultPerson}
             contentTextCentered
             title={person.name}
-            smallTitle
+            smallTitleOnTiny
           />
         ))}
       </TilesGrid>

@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as Star } from "../../images/star.svg";
+import { textStyles } from "../Text";
 
 interface RatingProps {
   $large?: boolean;
@@ -156,4 +157,57 @@ export const Rate = styled.p<RatingProps>`
         font-size: 13px;
       }
     `}
+`;
+
+interface CountProps {
+  $bottomSelfAlignment?: boolean;
+  $displayOnDesktop?: boolean;
+  $displayOnMobile?: boolean;
+  $hidden?: boolean;
+  $medium?: boolean;
+  $large?: boolean;
+}
+
+export const Count = styled.p<CountProps>`
+  font-size: 16px;
+  line-height: 1.5;
+  color: ${({ theme }) => theme.colors.secondary};
+
+  ${({ $large }) =>
+    $large &&
+    css`
+      font-size: 16px;
+      line-height: 1.2;
+      color: ${({ theme }) => theme.colors.base};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 10px;
+      }
+    `}
+
+  ${({ $medium }) =>
+    $medium &&
+    css`
+      font-size: 14px;
+      color: ${({ theme }) => theme.colors.primary};
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        color: ${({ theme }) => theme.colors.secondary};
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 13px;
+      }
+    `}
+
+  ${({ $bottomSelfAlignment }) =>
+    $bottomSelfAlignment &&
+    css`
+      align-self: flex-end;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+        align-self: unset;
+      }
+    `}
+  ${textStyles}
 `;

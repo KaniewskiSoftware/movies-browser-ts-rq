@@ -8,7 +8,7 @@ interface TileContainerProps extends BigTile {
 }
 
 interface TitleProps extends BigTile {
-  $smallTitle?: boolean;
+  $smallOnTiny?: boolean;
 }
 
 interface ImageProps extends BigTile {
@@ -65,7 +65,7 @@ export const TileContainer = styled.article<TileContainerProps>`
         gap: 26px;
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         padding: 16px;
         gap: 16px;
       }
@@ -202,14 +202,6 @@ export const Title = styled.p<TitleProps>`
     font-size: 16px;
   }
 
-  ${({ $smallTitle }) =>
-    $smallTitle &&
-    css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-        font-size: 14px;
-      }
-    `}
-
   ${({ $big }) =>
     $big &&
     css`
@@ -221,12 +213,20 @@ export const Title = styled.p<TitleProps>`
         font-size: 32px;
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         font-size: 24px;
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
-        font-size: 22px;
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 16px;
+      }
+    `}
+
+  ${({ $smallOnTiny }) =>
+    $smallOnTiny &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 14px;
       }
     `}
 `;

@@ -18,7 +18,7 @@ interface TileProps {
   imagePlaceholder?: string;
   contentTextCentered?: boolean;
   title?: string;
-  smallTitle?: boolean;
+  smallTitleOnTiny?: boolean;
   releaseDate?: string;
   smallText?: boolean;
   role?: string;
@@ -44,7 +44,7 @@ interface TileProps {
  * @param {string} [imagePlaceholder] - Optional. A string representing the URL of the image placeholder.
  * @param {boolean} [contentTextCentered] - Optional. A boolean indicating whether the content text should be centered.
  * @param {string} [title] - Optional. A string representing the title of the tile.
- * @param {boolean} [smallTitle] - Optional. A boolean indicating whether the title should be rendered with a smaller font size.
+ * @param {boolean} [smallTitleOnTiny] - Optional. A boolean indicating whether the title should be rendered with a smaller font size.
  * @param {string} [releaseDate] - Optional. A string representing the release date of the movie or TV show.
  * @param {boolean} [smallText] - Optional. A boolean indicating whether the text should be rendered with a smaller font size.
  * @param {string} [role] - Optional. A string representing the role of the actor in the movie or TV show.
@@ -83,7 +83,7 @@ const Tile = ({
   imagePlaceholder,
   contentTextCentered,
   title,
-  smallTitle,
+  smallTitleOnTiny,
   releaseDate,
   smallText,
   role,
@@ -122,7 +122,7 @@ const Tile = ({
         />
         <Content $textCentered={contentTextCentered} $big={big}>
           {title && (
-            <Title $smallTitle={smallTitle} $big={big}>
+            <Title $smallOnTiny={smallTitleOnTiny} $big={big}>
               {title}
             </Title>
           )}
@@ -137,7 +137,6 @@ const Tile = ({
           <Rating
             vote={vote}
             votesAmount={votesAmount}
-            smallText={smallText}
             medium={mediumRating}
           />
           {!!description && (

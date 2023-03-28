@@ -11,6 +11,34 @@ interface TextProps {
   $displayOnMobile?: boolean;
   $hidden?: boolean;
 }
+export const textStyles = css<TextProps>`
+  margin: 0;
+  font-weight: 400;
+
+  ${({ $displayOnDesktop }) =>
+    $displayOnDesktop &&
+    css`
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        display: none;
+      }
+    `}
+
+  ${({ $displayOnMobile }) =>
+    $displayOnMobile &&
+    css`
+      display: none;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        display: block;
+      }
+    `}
+
+  ${({ $hidden }) =>
+    $hidden &&
+    css`
+      display: none;
+    `}
+`;
 
 /**
  * The Text component is a versatile styled paragraph component that
@@ -76,10 +104,6 @@ export const Text = styled.p<TextProps>`
       font-size: 14px;
       line-height: 1.2;
       color: ${({ theme }) => theme.colors.primary};
-
-      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-        font-size: 13px;
-      }
     `}
 
   ${({ $big }) =>
@@ -97,7 +121,7 @@ export const Text = styled.p<TextProps>`
         font-size: 16px;
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 13px;
       }
     `}
@@ -129,12 +153,6 @@ export const Text = styled.p<TextProps>`
         display: block;
       }
     `}
-
-  ${({ $hidden }) =>
-    $hidden &&
-    css`
-      display: none;
-    `}
   
   ${({ $description }) =>
     $description &&
@@ -151,5 +169,11 @@ export const Text = styled.p<TextProps>`
       @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         font-size: 14px;
       }
+    `}
+
+    ${({ $hidden }) =>
+    $hidden &&
+    css`
+      display: none;
     `}
 `;

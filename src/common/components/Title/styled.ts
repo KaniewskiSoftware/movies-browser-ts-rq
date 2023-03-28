@@ -58,7 +58,7 @@ export const StyledTitle = styled.h1<StyledTitleProps>`
   ${({ $styleType }) =>
     $styleType === "movieCredits" &&
     css`
-      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         font-size: 26px;
         margin-bottom: 20px;
       }

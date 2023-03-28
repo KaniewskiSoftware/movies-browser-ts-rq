@@ -1,10 +1,8 @@
-import { Text } from "../Text";
-import { Rate, Container, StyledStar, TextBox } from "./styled";
+import { Rate, Container, StyledStar, TextBox, Count } from "./styled";
 
 interface RatingProps {
   vote?: number;
   votesAmount?: number;
-  smallText?: boolean;
   large?: boolean;
   medium?: boolean;
 }
@@ -15,7 +13,6 @@ interface RatingProps {
  *
  * @param vote - The rating value.
  * @param votesAmount - (Optional) The number of votes used to calculate the rating value.
- * @param smallText - (Optional) A boolean to set the font size of the votes amount to small.
  * @param large - (Optional) A boolean to apply large version styles.
  * @param medium - (Optional) A boolean to apply medium version styles.
  * @returns {JSX.Element | null} The Rating component JSX code or null if no rating value is provided or it is less or equal to 0.
@@ -23,7 +20,6 @@ interface RatingProps {
 const Rating = ({
   vote,
   votesAmount,
-  smallText,
   large,
   medium,
 }: RatingProps) => {
@@ -40,31 +36,30 @@ const Rating = ({
           <Rate $large={!!large} $medium={!!medium}>
             {!!large || !!medium ? vote.toFixed(1) : vote.toFixed(2)}
           </Rate>
-          <Text
+          <Count
             $hidden={!(large || medium)}
-            $backdrop={large}
-            $detailsTile={medium}
+            $large={large}
+            $medium={medium}
             $bottomSelfAlignment={large}
             $displayOnDesktop={medium}
           >
             / 10
-          </Text>
+          </Count>
           {votesAmount && (
-            <Text
+            <Count
               $displayOnMobile={large}
-              $smallText={smallText || medium}
-              $backdrop={large}
-              $detailsTile={medium}
+              $large={large}
+              $medium={medium}
             >
               {votesAmount} votes
-            </Text>
+            </Count>
           )}
         </TextBox>
       </Container>
       {votesAmount && (
-        <Text $hidden={!large} $displayOnDesktop={large} $backdrop>
+        <Count $hidden={!large} $displayOnDesktop={large} $large>
           {votesAmount} votes
-        </Text>
+        </Count>
       )}
     </>
   );

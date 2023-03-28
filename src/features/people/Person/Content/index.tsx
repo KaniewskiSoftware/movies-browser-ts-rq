@@ -59,6 +59,7 @@ const Content = ({ person, credits, genres }: ContentProps) => {
         big
         imageURL={buildImageURL(profileSize, person.profile_path, "profile")}
         title={person.name}
+        smallTitleOnTiny
         metaData={properties}
         description={person.biography}
       />

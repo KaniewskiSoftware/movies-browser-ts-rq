@@ -52,7 +52,7 @@ export const TilesGrid = styled.div<TilesGridProps>`
         grid-template-columns: repeat(2, 1fr);
       }
 
-      @media (max-width: ${({ theme }) => theme.breakpoints.smalest}) {
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
         grid-template-columns: repeat(2, minmax(136px, 1fr));
       }
     `}
