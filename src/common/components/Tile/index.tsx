@@ -8,7 +8,7 @@ import Rating from "../Rating";
 import RoleAndRelease from "./RoleAndRelease";
 import Wrapper from "./Wrapper";
 import { Content, Image, TileContainer, Title } from "./styled";
-import { SecondaryText } from "../SecondaryText";
+import { Text } from "../Text";
 
 interface TileProps {
   big?: boolean;
@@ -141,15 +141,15 @@ const Tile = ({
             medium={mediumRating}
           />
           {!!description && (
-            <SecondaryText $displayOnDesktop $description>
+            <Text $displayOnDesktop $description>
               {description}
-            </SecondaryText>
+            </Text>
           )}
         </Content>
         {!!description && (
-          <SecondaryText $displayOnMobile $description>
+          <Text $displayOnMobile $description>
             {description}
-          </SecondaryText>
+          </Text>
         )}
       </TileContainer>
     </Wrapper>

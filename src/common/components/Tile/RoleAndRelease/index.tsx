@@ -1,4 +1,4 @@
-import { SecondaryText } from "../../SecondaryText";
+import { Text } from "../../Text";
 import { getYearFromReleaseDate } from "../../../utils/getYearFromDate";
 
 interface RoleAndReleaseProps {
@@ -25,25 +25,25 @@ const RoleAndRelease = ({
 }: RoleAndReleaseProps) => {
   if (releaseDate && role) {
     return (
-      <SecondaryText $smallText={smallText} $big={bigFont}>
+      <Text $smallText={smallText} $big={bigFont}>
         {role} ({getYearFromReleaseDate(releaseDate)})
-      </SecondaryText>
+      </Text>
     );
   }
 
   if (releaseDate) {
     return (
-      <SecondaryText $smallText={smallText} $big={bigFont}>
+      <Text $smallText={smallText} $big={bigFont}>
         {getYearFromReleaseDate(releaseDate)}
-      </SecondaryText>
+      </Text>
     );
   }
 
   if (role) {
     return (
-      <SecondaryText $smallText={smallText} $big={bigFont}>
+      <Text $smallText={smallText} $big={bigFont}>
         {role}
-      </SecondaryText>
+      </Text>
     );
   }
 

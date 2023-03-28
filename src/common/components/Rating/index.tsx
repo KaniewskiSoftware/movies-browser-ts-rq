@@ -1,4 +1,4 @@
-import { SecondaryText } from "../SecondaryText";
+import { Text } from "../Text";
 import { Rate, Container, StyledStar, TextBox } from "./styled";
 
 interface RatingProps {
@@ -40,7 +40,7 @@ const Rating = ({
           <Rate $large={!!large} $medium={!!medium}>
             {!!large || !!medium ? vote.toFixed(1) : vote.toFixed(2)}
           </Rate>
-          <SecondaryText
+          <Text
             $hidden={!(large || medium)}
             $backdrop={large}
             $detailsTile={medium}
@@ -48,23 +48,23 @@ const Rating = ({
             $displayOnDesktop={medium}
           >
             / 10
-          </SecondaryText>
+          </Text>
           {votesAmount && (
-            <SecondaryText
+            <Text
               $displayOnMobile={large}
               $smallText={smallText || medium}
               $backdrop={large}
               $detailsTile={medium}
             >
               {votesAmount} votes
-            </SecondaryText>
+            </Text>
           )}
         </TextBox>
       </Container>
       {votesAmount && (
-        <SecondaryText $hidden={!large} $displayOnDesktop={large} $backdrop>
+        <Text $hidden={!large} $displayOnDesktop={large} $backdrop>
           {votesAmount} votes
-        </SecondaryText>
+        </Text>
       )}
     </>
   );
