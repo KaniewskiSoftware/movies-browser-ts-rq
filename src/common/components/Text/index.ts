@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-interface SecondaryTextProps {
+interface TextProps {
   $smallText?: boolean;
   $backdrop?: boolean;
   $detailsTile?: boolean;
@@ -13,7 +13,7 @@ interface SecondaryTextProps {
 }
 
 /**
- * The SecondaryText component is a versatile styled paragraph component that
+ * The Text component is a versatile styled paragraph component that
  * can be customized using various optional properties. It is designed to be
  * used in different parts of the application where secondary text is required.
  *
@@ -37,7 +37,7 @@ interface SecondaryTextProps {
  *                           (above the 'large' breakpoint) when true.
  * @param $hidden - (Optional) A boolean that hides the component when true.
  */
-export const SecondaryText = styled.p<SecondaryTextProps>`
+export const Text = styled.p<TextProps>`
   margin: 0;
   font-weight: 400;
   font-size: 18px;
@@ -87,7 +87,6 @@ export const SecondaryText = styled.p<SecondaryTextProps>`
     css`
       font-size: 22px;
       line-height: 1.2;
-      color: inherit;
       color: ${({ theme }) => theme.colors.detailsTile.primaryText};
 
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
