@@ -70,9 +70,9 @@ const Content = ({ person, credits, genres }: ContentProps) => {
             styleType="personCredits"
           />
           <TilesGrid>
-            {credits.cast.map((movie) => (
+            {credits.cast.map((movie, index) => (
               <Tile
-                key={movie.id}
+                key={index}
                 linkTo={`${toMovies}/${movie.id}`}
                 horizontalOnMobile
                 imageURL={buildImageURL(
@@ -101,9 +101,9 @@ const Content = ({ person, credits, genres }: ContentProps) => {
             styleType="personCredits"
           />
           <TilesGrid>
-            {credits.crew.map((movie) => (
+            {credits.crew.map((movie, index) => (
               <Tile
-                key={movie.id}
+                key={index}
                 linkTo={`${toMovies}/${movie.id}`}
                 horizontalOnMobile
                 imageURL={buildImageURL(
