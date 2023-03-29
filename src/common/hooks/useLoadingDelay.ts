@@ -14,7 +14,11 @@ export const useDelayLoading = (isLoading: boolean, delay: number): boolean => {
   const [delayedLoading, setDelayedLoading] = useState(true);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (isLoading) {
+      // When the isLoading prop changes to true, update the delayedLoading state to true as well
+      setDelayedLoading(true);
+    } else {
+      // When the isLoading prop changes to false, add a delay before updating the delayedLoading state to false
       const timer = setTimeout(() => {
         setDelayedLoading(false);
       }, delay);
