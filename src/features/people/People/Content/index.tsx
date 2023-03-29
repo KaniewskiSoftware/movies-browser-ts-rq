@@ -1,4 +1,4 @@
-import { PeopleListResult } from "../../../../common/apiResponseTypes/people/popularPeople";
+import { PeopleListResult } from "../../../../common/api/types/people/popularPeople";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";

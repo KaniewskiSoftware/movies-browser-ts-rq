@@ -1,4 +1,4 @@
-import { MovieListResult } from "../../../../common/apiResponseTypes/movies/movies";
+import { MovieListResult } from "../../../../common/api/types/movies/movies";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";

@@ -1,6 +1,6 @@
-import { MovieCreditsResponse } from "../../apiResponseTypes/movies/movieCredits";
-import { apiConfig } from "../parameters/config";
-import useFetchData from "../useFetchData";
+import { MovieCreditsResponse } from "../../types/movies/movieCredits";
+import { apiConfig } from "../../config";
+import useFetchData from "../../useFetchData";
 
 /**
  * `useMovieCredits` is a custom React hook that fetches movie credits data

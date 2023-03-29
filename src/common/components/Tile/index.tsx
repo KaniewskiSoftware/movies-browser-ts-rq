@@ -1,5 +1,5 @@
 import { getTagsFromGenres } from "../../utils/getTagsFromGenres";
-import { Genre } from "../../apiResponseTypes/genres/genres";
+import { Genre } from "../../api/types/genres/genres";
 import { GenresObject } from "../../utils/convertGenresArrayToObject";
 import { PropertyObject } from "../../utils/createPropertyObject";
 import { MetaData } from "./MetaData";

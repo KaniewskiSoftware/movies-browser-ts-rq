@@ -1,7 +1,7 @@
-import { GenresResponse } from "../../apiResponseTypes/genres/genres";
-import { convertGenresArrayToObject } from "../../utils/convertGenresArrayToObject";
-import { apiConfig } from "../parameters/config";
-import useFetchData from "../useFetchData";
+import { GenresResponse } from "../../types/genres/genres";
+import { convertGenresArrayToObject } from "../../../utils/convertGenresArrayToObject";
+import { apiConfig } from "../../config";
+import useFetchData from "../../useFetchData";
 
 /**
  * `useGenres` is a custom React hook that fetches the list of movie genres

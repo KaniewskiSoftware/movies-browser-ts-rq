@@ -1,6 +1,6 @@
-import { MovieDetailsResponse } from "../../apiResponseTypes/movies/movieDetails";
-import { apiConfig } from "../parameters/config";
-import useFetchData from "../useFetchData";
+import { MovieDetailsResponse } from "../../types/movies/movieDetails";
+import { apiConfig } from "../../config";
+import useFetchData from "../../useFetchData";
 
 /**
  * `useMovieDetails` is a custom React hook that fetches movie details data

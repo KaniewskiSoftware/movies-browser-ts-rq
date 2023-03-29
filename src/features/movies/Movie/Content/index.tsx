@@ -1,4 +1,4 @@
-import { MovieDetailsResponse } from "../../../../common/apiResponseTypes/movies/movieDetails";
+import { MovieDetailsResponse } from "../../../../common/api/types/movies/movieDetails";
 import Tile from "../../../../common/components/Tile";
 import { useResponsiveImageSize } from "../../../../common/hooks/useResponsiveImageSize";
 import {
@@ -12,7 +12,7 @@ import { Wrapper } from "../../../../common/components/Wrapper";
 import defaultPerson from "../../../../common/images/defaultPerson.svg";
 import { createPropertyObject } from "../../../../common/utils/createPropertyObject";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
-import { MovieCreditsResponse } from "../../../../common/apiResponseTypes/movies/movieCredits";
+import { MovieCreditsResponse } from "../../../../common/api/types/movies/movieCredits";
 import { toPeople } from "../../../../common/utils/routes";
 import Title from "../../../../common/components/Title";
 

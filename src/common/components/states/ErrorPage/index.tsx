@@ -1,4 +1,4 @@
-import { Wrapper } from "../../components/Wrapper";
+import { Wrapper } from "../../Wrapper";
 import { Button, Sign, Text } from "./styled";
 
 /**

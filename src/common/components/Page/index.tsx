@@ -1,7 +1,7 @@
 import { loadingDelay, useDelayLoading } from "../../hooks/useLoadingDelay";
-import ErrorPage from "../../states/ErrorPage";
-import Loader from "../../states/Loader";
-import NoResults from "../../states/NoResults";
+import ErrorPage from "../states/ErrorPage";
+import Loader from "../states/Loader";
+import NoResults from "../states/NoResults";
 import Footer from "../Footer";
 
 interface PageProps {

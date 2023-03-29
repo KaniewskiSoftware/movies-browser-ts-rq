@@ -1,6 +1,6 @@
-import { PersonDetailsResponse } from "../../apiResponseTypes/people/personDetails";
-import { apiConfig } from "../parameters/config";
-import useFetchData from "../useFetchData";
+import { PersonDetailsResponse } from "../../types/people/personDetails";
+import { apiConfig } from "../../config";
+import useFetchData from "../../useFetchData";
 
 /**
  * `usePersonDetails` is a custom React hook that fetches personal details data

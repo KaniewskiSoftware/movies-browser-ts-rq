@@ -1,4 +1,4 @@
-import { ProductionCountry } from "../apiResponseTypes/movies/movieDetails";
+import { ProductionCountry } from "../api/types/movies/movieDetails";
 
 export interface PropertyObject {
   title: string;

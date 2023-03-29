@@ -1,4 +1,4 @@
-import { Genre } from "../apiResponseTypes/genres/genres";
+import { Genre } from "../api/types/genres/genres";
 
 export interface GenresObject {
   [id: number]: string;

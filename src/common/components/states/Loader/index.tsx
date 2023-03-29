@@ -1,7 +1,7 @@
-import { searchQueryParamName, useQueryParameter } from "../../hooks/queryParameters";
-import Title from "../../components/Title";
+import { searchQueryParamName, useQueryParameter } from "../../../hooks/queryParameters";
+import Title from "../../Title";
 import { StyledSpinner, SpinnerBox } from "./styled";
-import { Wrapper } from "../../components/Wrapper";
+import { Wrapper } from "../../Wrapper";
 
 /**
  * The Loader component displays a spinning icon to indicate that content is being loaded.

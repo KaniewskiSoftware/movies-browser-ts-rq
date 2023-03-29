@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiKey, apiLanguage, apiLink } from "./parameters/config";
+import { apiKey, apiLanguage, apiLink } from "./config";
 
 /**
  * Creates an Axios instance for making API requests to the external data source.

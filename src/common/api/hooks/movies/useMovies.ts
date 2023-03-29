@@ -1,6 +1,6 @@
-import { MoviesResponse } from "../../apiResponseTypes/movies/movies";
-import useFetchData, { ParamValueType } from "../useFetchData";
-import { apiConfig } from "../parameters/config";
+import { MoviesResponse } from "../../types/movies/movies";
+import useFetchData, { ParamValueType } from "../../useFetchData";
+import { apiConfig } from "../../config";
 
 /**
  * `useMovies` is a custom React hook that fetches either popular movies or

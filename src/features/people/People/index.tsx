@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { usePeople } from "../../../common/api/people/usePeople";
+import { usePeople } from "../../../common/api/hooks/people/usePeople";
 import Page from "../../../common/components/Page";
 import {
   pageQueryParamName,

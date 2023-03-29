@@ -1,5 +1,5 @@
-import { PersonCreditsResponse } from "../../../../common/apiResponseTypes/people/personCredits";
-import { PersonDetailsResponse } from "../../../../common/apiResponseTypes/people/personDetails";
+import { PersonCreditsResponse } from "../../../../common/api/types/people/personCredits";
+import { PersonDetailsResponse } from "../../../../common/api/types/people/personDetails";
 import Tile from "../../../../common/components/Tile";
 import { TilesGrid } from "../../../../common/components/TilesGrid";
 import Title from "../../../../common/components/Title";
