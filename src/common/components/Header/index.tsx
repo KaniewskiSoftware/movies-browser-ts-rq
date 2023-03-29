@@ -13,7 +13,7 @@ const Header = () => (
   <StyledHeader>
     <Wrapper>
       <LogoLink to={"/movies"}>
-        <LogoImg src={logo} />
+        <LogoImg src={logo} alt="White vector camera Icon"/>
         <LogoText>movies browser</LogoText>
       </LogoLink>
       <Navigation />
