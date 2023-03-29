@@ -22,27 +22,32 @@ interface ContentProps extends BigTile {
 }
 
 export const TileContainer = styled.article<TileContainerProps>`
-  display: flex;
-  flex-direction: column;
   height: 100%;
   width: 100%;
-  padding: 16px;
-  gap: 16px;
   border: 1px solid transparent;
   border-radius: 5px;
   color: ${({ theme }) => theme.colors.primary};
   background-color: ${({ theme }) => theme.colors.base};
   box-shadow: ${({ theme }) => theme.boxShadow};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-    padding: 8px;
-  }
-
   ${({ $horizontalOnMobile }) =>
     $horizontalOnMobile &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
         flex-direction: row;
+      }
+    `}
+
+  ${({ $big }) =>
+    !$big &&
+    css`
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      gap: 16px;
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        padding: 8px;
       }
     `}
 
@@ -90,13 +95,19 @@ export const Image = styled.div.attrs<ImageProps>(({ $imageURL }) => ({
     backgroundImage: `url(${$imageURL})`,
   },
 }))<ImageProps>`
-  padding-top: calc(100% * 632 / 431);
-  width: 100%;
   border-radius: 5px;
   background-size: cover;
   background-position: center;
 
-  ${({ $horizontalOnMobile }) =>
+  ${({ $big }) =>
+    !$big &&
+    css`
+      padding-top: calc(100% * 632 / 431);
+      width: 100%;
+    `}
+
+  ${({ $horizontalOnMobile, $big }) =>
+    !$big &&
     $horizontalOnMobile &&
     css`
       @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
@@ -114,7 +125,6 @@ export const Image = styled.div.attrs<ImageProps>(({ $imageURL }) => ({
   ${({ $big }) =>
     $big &&
     css`
-      padding: unset;
       width: 312px;
       height: 464px;
 
@@ -157,12 +167,11 @@ export const Content = styled.div<ContentProps>`
   flex-direction: column;
   height: 100%;
   width: 100%;
-  gap: 8px;
 
-  ${({ $textCentered }) =>
-    $textCentered &&
+  ${({ $big }) =>
+    !$big &&
     css`
-      text-align: center;
+      gap: 8px;
     `}
 
   ${({ $big }) =>
@@ -184,6 +193,12 @@ export const Content = styled.div<ContentProps>`
         gap: 8px;
       }
     `}
+
+    ${({ $textCentered }) =>
+    $textCentered &&
+    css`
+      text-align: center;
+    `}
 `;
 
 /**
@@ -194,17 +209,22 @@ export const Content = styled.div<ContentProps>`
  */
 export const Title = styled.h2<TitleProps>`
   margin: 0;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 1.3;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
-    font-size: 20px;
-  }
+  ${({ $big }) =>
+    !$big &&
+    css`
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 1.3;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
-    font-size: 16px;
-  }
+      @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
+        font-size: 20px;
+      }
+
+      @media (max-width: ${({ theme }) => theme.breakpoints.tiny}) {
+        font-size: 16px;
+      }
+    `}
 
   ${({ $big }) =>
     $big &&
