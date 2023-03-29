@@ -1,7 +1,7 @@
 import { useQuery, UseQueryResult } from "@tanstack/react-query";
 import { axiosInstance } from "./axiosInstance";
 
-type ParamValueType = string | number | null | undefined;
+export type ParamValueType = string | number;
 
 const useFetchData = <T>(
   endpoint: string,

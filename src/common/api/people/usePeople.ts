@@ -1,5 +1,5 @@
 import { PeopleResponse } from "../../apiResponseTypes/people/popularPeople";
-import useFetchData from "../useFetchData";
+import useFetchData, { ParamValueType } from "../useFetchData";
 
 /**
  * A custom React Hook that fetches either popular people or people matching a search query,
@@ -12,7 +12,10 @@ import useFetchData from "../useFetchData";
  */
 export const usePeople = (query: string | null, page: number) => {
   const endpoint = query ? "/search/person" : "/person/popular";
-  const params = query ? { query, page } : { page };
+  const params: Record<string, ParamValueType> = { page };
+  if (query) {
+    params.query = query;
+  }
   const cacheKey = query ? ["people", query, page] : ["people", page];
 
   return useFetchData<PeopleResponse>(endpoint, params, cacheKey);
