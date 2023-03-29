@@ -21,6 +21,7 @@ const common = {
 const colorNames = {
   white: "#FFFFFF",
   whisper: "#F5F5FA",
+  silver: "#C4C4C4",
   mystic: "#E4E6F0",
   waterloo: "#7E839A",
   yellow: "#FCD420",
@@ -46,6 +47,7 @@ export const theme = {
     disabled: colorNames.mystic,
     background: colorNames.whisper,
     star: colorNames.yellow,
+    unknown: colorNames.silver,
     button: colorNames.lightBlue,
     special: colorNames.blue,
     specialHover: colorNames.dodgerBlue,

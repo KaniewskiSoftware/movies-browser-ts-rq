@@ -138,7 +138,7 @@ export const Image = styled.div.attrs<ImageProps>(({ $imageURL }) => ({
   ${({ $noImage }) =>
     $noImage &&
     css`
-      background-color: ${({ theme }) => theme.colors.secondary};
+      background-color: ${({ theme }) => theme.colors.unknown};
       background-size: 35%;
       background-repeat: no-repeat;
     `}
@@ -192,7 +192,7 @@ export const Content = styled.div<ContentProps>`
  * @param $smallTitle - (Optional) A boolean that determines if the Title should have a smaller font
  *                      size. Default value: false.
  */
-export const Title = styled.p<TitleProps>`
+export const Title = styled.h2<TitleProps>`
   margin: 0;
   font-weight: 500;
   font-size: 22px;

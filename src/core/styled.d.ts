@@ -27,6 +27,7 @@ interface Colors {
   readonly specialHover: string;
   readonly specialActive: string;
   readonly backdrop: string;
+  readonly unknown: string;
 }
 
 // Extending the DefaultTheme from styled-components
