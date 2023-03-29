@@ -1,18 +1,24 @@
 import { GenresResponse } from "../../apiResponseTypes/genres/genres";
 import { convertGenresArrayToObject } from "../../utils/convertGenresArrayToObject";
+import { apiConfig } from "../parameters/config";
 import useFetchData from "../useFetchData";
 
 /**
- * A custom React Hook that fetches and returns movie genres from the external API.
+ * `useGenres` is a custom React hook that fetches the list of movie genres
+ * from the external API and returns an object containing the query data
+ * and a transformed genres object.
  *
- * The hook also converts the received genres array into an object for easier access.
- * It utilizes the useFetchData hook to handle fetching and caching.
+ * The `useGenres` hook internally uses the `useFetchData` custom hook to
+ * fetch the genre data from the API, and the `convertGenresArrayToObject`
+ * utility function to transform the array of genres into an object with
+ * genre IDs as keys and genre names as values.
  *
- * @returns An object containing query information and data, including the transformed genres object.
+ * @returns {UseQueryResult<MovieCreditsResponse, unknown>} - The React Query result object.
  */
 export const useGenres = () => {
-  const query = useFetchData<GenresResponse>("/genre/movie/list", {}, [
-    "genres",
+  const config = apiConfig.genres;
+  const query = useFetchData<GenresResponse>(config.endpoint as string, {}, [
+    config.cacheKey,
   ]);
 
   const genresObject = query.data?.genres
