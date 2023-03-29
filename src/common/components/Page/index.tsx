@@ -1,3 +1,4 @@
+import { loadingDelay, useDelayLoading } from "../../hooks/useLoadingDelay";
 import ErrorPage from "../../states/ErrorPage";
 import Loader from "../../states/Loader";
 import NoResults from "../../states/NoResults";
@@ -36,8 +37,10 @@ const Page = ({
   page = undefined,
   children,
 }: PageProps) => {
+  const delayedLoading = useDelayLoading(isLoading, loadingDelay);
+
   // Display the Loader component while content is being loaded.
-  if (isLoading) {
+  if (delayedLoading) {
     return <Loader />;
   }
 
