@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { PropertyObject } from "../../../utils/createPropertyObject";
 import { Properties, Property, PropertyText } from "./styled";
 
@@ -26,12 +27,12 @@ const renderPropertyContent = (
   content: string | Array<{ name: string; short?: string }>
 ) => {
   if (typeof content === "string") {
-    return <PropertyText>{content}</PropertyText>;
+    return <PropertyText as="dd">{content}</PropertyText>;
   }
 
   return content.map((item, index, contentArray) => (
-    <dl key={index}>
-      <PropertyText as="dt" $displayOnDesktop={!!item.short} key={item.name}>
+    <Fragment key={index}>
+      <PropertyText as="dd" $displayOnDesktop={!!item.short} key={item.name}>
         {item.name}
         {index < contentArray.length - 1 ? <span>,&nbsp;</span> : null}
       </PropertyText>
@@ -41,7 +42,7 @@ const renderPropertyContent = (
           {index < contentArray.length - 1 ? <span>,&nbsp;</span> : null}
         </PropertyText>
       )}
-    </dl>
+    </Fragment>
   ));
 };
 
@@ -77,7 +78,9 @@ export const MetaData = ({ properties }: MetaDataProperties) => {
       <Properties>
         {validProperties.map((property, index) => (
           <Property key={index}>
-            <PropertyText $entitled>{property.title}:</PropertyText>
+            <PropertyText as="dt" $entitled>
+              {property.title}:
+            </PropertyText>
             {renderPropertyContent(property.content)}
           </Property>
         ))}

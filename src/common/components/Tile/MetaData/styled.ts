@@ -28,9 +28,11 @@ export const Properties = styled.div`
  *   </Property>
  * );
  */
-export const Property = styled.div`
+export const Property = styled.dl`
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
+  margin: 0;
 `;
 
 interface PropertyTextProps {
