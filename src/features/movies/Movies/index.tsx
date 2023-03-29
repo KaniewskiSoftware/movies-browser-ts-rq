@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useGenres } from "../../../common/api/genres/genres";
-import { useMovies } from "../../../common/api/movies/movies";
+import { useGenres } from "../../../common/api/genres/useGenres";
+import { useMovies } from "../../../common/api/movies/useMovies";
+
 import Page from "../../../common/components/Page";
 import {
   pageQueryParamName,

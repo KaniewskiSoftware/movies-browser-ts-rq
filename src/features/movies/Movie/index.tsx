@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useMovieCredits } from "../../../common/api/movies/movieCredits";
-import { useMovieDetails } from "../../../common/api/movies/movieDetails";
+import { useMovieCredits } from "../../../common/api/movies/useMovieCredits";
+import { useMovieDetails } from "../../../common/api/movies/useMovieDetails";
 import Page from "../../../common/components/Page";
 import Content from "./Content";
 

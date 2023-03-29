@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useGenres } from "../../../common/api/genres/genres";
-import { usePersonCredits } from "../../../common/api/people/personCredits";
-import { usePersonDetails } from "../../../common/api/people/personDetails";
+import { useGenres } from "../../../common/api/genres/useGenres";
+import { usePersonCredits } from "../../../common/api/people/usePersonCredits";
+import { usePersonDetails } from "../../../common/api/people/usePersonDetails";
 import Page from "../../../common/components/Page";
 import Content from "./Content";
 
