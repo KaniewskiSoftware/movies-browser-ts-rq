@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { PropertyObject } from "../../../utils/createPropertyObject";
 import { Properties, Property, PropertyText } from "./styled";
 
@@ -31,18 +30,18 @@ const renderPropertyContent = (
   }
 
   return content.map((item, index, contentArray) => (
-    <Fragment key={index}>
-      <PropertyText $displayOnDesktop={!!item.short} key={item.name}>
+    <dl key={index}>
+      <PropertyText as="dt" $displayOnDesktop={!!item.short} key={item.name}>
         {item.name}
         {index < contentArray.length - 1 ? <span>,&nbsp;</span> : null}
       </PropertyText>
       {item.short && (
-        <PropertyText $displayOnMobile key={item.short}>
+        <PropertyText as="dd" $displayOnMobile key={item.short}>
           {item.short}
           {index < contentArray.length - 1 ? <span>,&nbsp;</span> : null}
         </PropertyText>
       )}
-    </Fragment>
+    </dl>
   ));
 };
 
