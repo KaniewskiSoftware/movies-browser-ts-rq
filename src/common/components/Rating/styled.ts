@@ -80,7 +80,6 @@ export const StyledStar = styled(Star)<StyledStarProps>`
   ${({ $large }) =>
     !$large &&
     css`
-      width: 40px;
       @media (max-width: ${({ theme }) => theme.breakpoints.medium}) {
         width: 20px;
       }
