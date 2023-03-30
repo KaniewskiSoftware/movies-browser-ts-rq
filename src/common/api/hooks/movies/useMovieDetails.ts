@@ -12,7 +12,7 @@ import useFetchData from "../../useFetchData";
 export const useMovieDetails = (id: string) => {
   const config = apiConfig.movieDetails;
   const endpoint = (config.endpoint as (id: string) => string)(id);
-  const cacheKey = [config.cacheKey, id];
+  const queryKey = [config.queryKey, id];
 
-  return useFetchData<MovieDetailsResponse>(endpoint, {}, cacheKey);
+  return useFetchData<MovieDetailsResponse>(endpoint, {}, queryKey);
 };

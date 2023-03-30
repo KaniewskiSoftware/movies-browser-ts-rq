@@ -18,7 +18,7 @@ import useFetchData from "../../useFetchData";
 export const useGenres = () => {
   const config = apiConfig.genres;
   const query = useFetchData<GenresResponse>(config.endpoint as string, {}, [
-    config.cacheKey,
+    config.queryKey,
   ]);
 
   const genresObject = query.data?.genres

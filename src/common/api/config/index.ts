@@ -23,31 +23,30 @@ const commonEndpoints = {
 };
 
 /**
- * `commonCacheKeys` is an object containing the common cache keys
+ * `commonqueryKeys` is an object containing the common cache keys
  * used in the `apiConfig` object. These keys are used to store
  * and access cached data for frequently used queries.
  *
  * `movies`: The cache key used for movie-related queries.
  * `people`: The cache key used for person-related queries.
  */
-const commonCacheKeys = {
+const commonqueryKeys = {
   movies: "movies",
   people: "people",
 };
-
 
 type EndpointFunction = (id: string) => string;
 
 type EndpointConfiguration = {
   endpoint: string | EndpointFunction;
-  cacheKey: string;
+  queryKey: string;
 };
 
 /**
  * `apiConfig` is an object containing a collection of endpoint configurations.
- * Each configuration consists of an `endpoint` and a `cacheKey`. The `endpoint`
+ * Each configuration consists of an `endpoint` and a `queryKey`. The `endpoint`
  * can either be a string or a function that takes an `id` parameter and returns
- * a string. The `cacheKey` is a string that represents the cache key used in
+ * a string. The `queryKey` is a string that represents the cache key used in
  * React Query for caching the data.
  *
  * The following endpoint configurations are available:
@@ -65,39 +64,38 @@ type EndpointConfiguration = {
 export const apiConfig: Record<string, EndpointConfiguration> = {
   movies: {
     endpoint: `${commonEndpoints.movie}/popular`,
-    cacheKey: commonCacheKeys.movies,
+    queryKey: commonqueryKeys.movies,
   },
   searchMovies: {
     endpoint: `/search${commonEndpoints.movie}`,
-    cacheKey: commonCacheKeys.movies,
+    queryKey: commonqueryKeys.movies,
   },
   movieDetails: {
     endpoint: (id: string) => `${commonEndpoints.movie}/${id}`,
-    cacheKey: "movieDetails",
+    queryKey: "movieDetails",
   },
   movieCredits: {
     endpoint: (id: string) => `${commonEndpoints.movie}/${id}/credits`,
-    cacheKey: "movieCredits",
+    queryKey: "movieCredits",
   },
   genres: {
     endpoint: "/genre/movie/list",
-    cacheKey: "genres",
+    queryKey: "genres",
   },
   people: {
     endpoint: `${commonEndpoints.person}/popular`,
-    cacheKey: commonCacheKeys.people,
+    queryKey: commonqueryKeys.people,
   },
   searchPeople: {
     endpoint: `/search${commonEndpoints.person}`,
-    cacheKey: commonCacheKeys.people,
+    queryKey: commonqueryKeys.people,
   },
   personCredits: {
     endpoint: (id: string) => `${commonEndpoints.person}/${id}/movie_credits`,
-    cacheKey: "personCredits",
+    queryKey: "personCredits",
   },
   personDetails: {
     endpoint: (id: string) => `${commonEndpoints.person}/${id}`,
-    cacheKey: "personDetails",
+    queryKey: "personDetails",
   },
 };
-

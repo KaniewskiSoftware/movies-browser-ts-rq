@@ -12,7 +12,7 @@ import useFetchData from "../../useFetchData";
 export const usePersonCredits = (id: string) => {
   const config = apiConfig.personCredits;
   const endpoint = (config.endpoint as (id: string) => string)(id);
-  const cacheKey = [config.cacheKey, id];
+  const queryKey = [config.queryKey, id];
 
-  return useFetchData<PersonCreditsResponse>(endpoint, {}, cacheKey);
+  return useFetchData<PersonCreditsResponse>(endpoint, {}, queryKey);
 };

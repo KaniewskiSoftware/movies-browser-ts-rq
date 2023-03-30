@@ -16,13 +16,13 @@ export const usePeople = (query: string | null, page: number) => {
   if (query) {
     params.query = query;
   }
-  const cacheKey = query
-    ? [config.cacheKey, query, page]
-    : [config.cacheKey, page];
+  const queryKey = query
+    ? [config.queryKey, query, page]
+    : [config.queryKey, page];
 
   return useFetchData<PeopleResponse>(
     config.endpoint as string,
     params,
-    cacheKey
+    queryKey
   );
 };
