@@ -30,5 +30,14 @@ export const useApiQuery = <T>(
       options?.onError?.(error);
       defaultErrorHandler(error);
     },
+    retry: (failureCount, error) => {
+      if (
+        error instanceof ApiError &&
+        (error.statusCode === 7 || error.statusCode === 34)
+      ) {
+        return false;
+      }
+      return failureCount < 3;
+    },
   });
 };

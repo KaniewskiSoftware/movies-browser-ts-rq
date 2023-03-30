@@ -17,18 +17,17 @@ const axiosInstance = axios.create({
   },
 });
 
+const handleApiError = (error: any, statusCode: number) => {
+  const errorMessage = getErrorMessage(statusCode);
+  throw new ApiError(error.message, errorMessage, statusCode);
+};
+
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.request) {
-      console.error("Low-level error:", error.message);
-      const errorMessage =
-        "A network error occurred. Please check your internet connection and try again.";
-      throw new ApiError(error.message, errorMessage);
-    } else {
-      const errorMessage = getErrorMessage(error.response?.status);
-      throw new ApiError(error.message, errorMessage);
-    }
+    const statusCode =
+      error.response?.data.status_code || error.response?.status || "network";
+    handleApiError(error, statusCode);
   }
 );
 
