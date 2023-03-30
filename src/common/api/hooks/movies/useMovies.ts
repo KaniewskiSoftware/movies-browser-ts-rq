@@ -1,5 +1,5 @@
 import { MoviesResponse } from "../../types/movies/movies";
-import useFetchData, { ParamValueType } from "../../useFetchData";
+import useFetchData, { ParamValueType } from "../useFetchData";
 import { apiConfig } from "../../config";
 
 /**

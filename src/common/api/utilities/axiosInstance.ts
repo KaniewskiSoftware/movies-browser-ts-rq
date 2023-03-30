@@ -1,7 +1,7 @@
 import axios from "axios";
-import { getErrorMessage } from "./errors/errorMessages";
-import { apiKey, apiLanguage, apiLink } from "./config";
-import ApiError from "./errors/apiError";
+import { getErrorMessage } from "../errors/errorMessages";
+import { apiKey, apiLanguage, apiLink } from "../config";
+import ApiError from "../errors/apiError";
 
 /**
  * Creates an Axios instance for making API requests to the external data source.

@@ -1,6 +1,6 @@
 import { PersonCreditsResponse } from "../../types/people/personCredits";
 import { apiConfig } from "../../config";
-import useFetchData from "../../useFetchData";
+import useFetchData from "../useFetchData";
 
 /**
  * `usePersonCredits` is a custom React hook that fetches movie credits data

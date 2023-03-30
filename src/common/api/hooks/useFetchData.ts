@@ -1,7 +1,7 @@
 import { UseQueryResult } from "@tanstack/react-query";
-import { axiosInstance } from "./axiosInstance";
-import ApiError from "./errors/apiError";
-import { useApiQuery } from "./hooks/useApiQuery";
+import { axiosInstance } from "../utilities/axiosInstance";
+import ApiError from "../errors/apiError";
+import { useApiQuery } from "./useApiQuery";
 
 export type ParamValueType = string | number;
 

@@ -1,6 +1,6 @@
 import { PeopleResponse } from "../../types/people/popularPeople";
 import { apiConfig } from "../../config";
-import useFetchData, { ParamValueType } from "../../useFetchData";
+import useFetchData, { ParamValueType } from "../useFetchData";
 
 /**
  * `usePeople` is a custom React hook that fetches either popular people or
