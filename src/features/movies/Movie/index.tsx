@@ -18,17 +18,25 @@ const MovieDetailsPage = () => {
     data: details,
     isLoading: detailsLoading,
     isError: detailsIsError,
+    error: detailsError,
   } = useMovieDetails(id!);
   const {
     data: credits,
     isLoading: creditsIsLoading,
     isError: creditsIsError,
+    error: creditsError,
   } = useMovieCredits(id!);
 
   const isLoading = detailsLoading || creditsIsLoading;
   const isError = detailsIsError || creditsIsError;
+  const errorMessage = detailsError?.errorMessage || creditsError?.errorMessage;
   return (
-    <Page isLoading={isLoading} isError={isError} hasResults={!!details}>
+    <Page
+      isLoading={isLoading}
+      isError={isError}
+      hasResults={!!details}
+      errorMessage={errorMessage}
+    >
       <Content movie={details ?? {}} credits={credits ?? {}} />
     </Page>
   );

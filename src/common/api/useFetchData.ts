@@ -1,5 +1,7 @@
-import { useQuery, UseQueryResult } from "@tanstack/react-query";
+import { UseQueryResult } from "@tanstack/react-query";
 import { axiosInstance } from "./axiosInstance";
+import ApiError from "./errors/apiError";
+import { useApiQuery } from "./hooks/useApiQuery";
 
 export type ParamValueType = string | number;
 
@@ -7,7 +9,7 @@ const useFetchData = <T>(
   endpoint: string,
   params: Record<string, ParamValueType>,
   cacheKey: (string | number)[]
-): UseQueryResult<T, unknown> => {
+): UseQueryResult<T, ApiError> => {
   const fetchData = async (): Promise<T> => {
     const response = await axiosInstance.get(endpoint, {
       params,
@@ -15,7 +17,7 @@ const useFetchData = <T>(
     return response.data;
   };
 
-  return useQuery(cacheKey, fetchData, {
+  return useApiQuery(cacheKey, fetchData, {
     enabled: !!endpoint,
   });
 };

@@ -7,6 +7,7 @@ import Footer from "../Footer";
 interface PageProps {
   isLoading: boolean;
   isError: boolean;
+  errorMessage?: string;
   hasResults: boolean;
   detailsPage?: boolean;
   totalPages?: number;
@@ -32,6 +33,7 @@ interface PageProps {
 const Page = ({
   isLoading,
   isError,
+  errorMessage,
   hasResults,
   totalPages = undefined,
   page = undefined,
@@ -46,7 +48,7 @@ const Page = ({
 
   // Display the ErrorPage component if there is an error in loading the content.
   if (isError) {
-    return <ErrorPage />;
+    return <ErrorPage errorMessage={errorMessage} />;
   }
 
   // Display the NoResults component if there are no results to display.
