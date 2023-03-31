@@ -4,6 +4,10 @@ This project is an alternative version of my group project, [MoviesBrowser](http
 
 The project now boasts a well-structured and organized codebase, thanks to the reusable and generic components that have been constantly improved upon. With a strong foundation in place, future enhancements and features can be easily integrated.
 
+## Preview
+
+!["Preview of the page"](animation.gif)
+
 ## Main Goals
 
 - Refactor the whole project using TypeScript to make the code more professional
@@ -32,10 +36,6 @@ By accomplishing these goals, the project will continue to evolve and provide a 
 - Navigate efficiently between subpages for a seamless browsing experience
 - Return to the main page featuring popular movies by clicking the logo in the upper left corner
 - Experience a well-designed and user-friendly layout
-
-<!-- ## Preview
-
-!["Preview of the page"](animation.gif) -->
 
 ## API Source
 
