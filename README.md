@@ -16,8 +16,9 @@ The project now boasts a well-structured and organized codebase, thanks to the r
 
 Upcoming tasks and goals include:
 
-1. Write comprehensive Jest tests for the codebase to ensure its reliability and maintainability
-2. Continuously identify and fix bugs to ensure a smooth and reliable user experience
+1. Enhance the data fetching process by implementing the built-in prefetch utility from React Query to prefetch the next page. However, there are some challenges in preserving the current error handling approach while integrating this feature. The goal is to find a suitable solution that maintains the current error handling scheme.
+2. Write comprehensive Jest tests for the codebase to ensure its reliability and maintainability
+3. Continuously identify and fix bugs to ensure a smooth and reliable user experience
 
 By accomplishing these goals, the project will continue to evolve and provide a robust, maintainable, and user-friendly experience.
 
