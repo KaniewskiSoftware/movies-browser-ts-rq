@@ -55,10 +55,3 @@ export const theme = {
     backdrop: colorNames.black,
   },
 };
-
-/**states: {
-      buttonBackground: colorNames.scienceBlue,
-      buttonText: colorNames.white,
-      buttonHover: colorNames.blueRibbon,
-      buttonActive: colorNames.dodgerBlue,
-    }, */
