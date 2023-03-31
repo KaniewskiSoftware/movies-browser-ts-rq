@@ -33,7 +33,7 @@ export const useApiQuery = <T>(
     retry: (failureCount, error) => {
       if (
         error instanceof ApiError &&
-        (error.statusCode === 7 || error.statusCode === 34)
+        (error.statusCode === 7 || error.statusCode === 34 || error.statusCode === 422)
       ) {
         return false;
       }
