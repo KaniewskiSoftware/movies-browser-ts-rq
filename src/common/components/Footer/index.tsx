@@ -7,13 +7,6 @@ interface FooterProps {
   page: number;
 }
 
-/**
- * Footer component for pagination.
- *
- * @param totalPages - The total number of pages.
- * @param page - The current page number.
- * @returns {JSX.Element} The rendered component.
- */
 const Footer = ({ totalPages, page }: FooterProps) => {
   const lastPageNumber = totalPages > 500 ? 500 : totalPages; // api doesn't return data from pages over 500
   const { goToFirstPage, goToNextPage, goToPreviousPage, goToLastPage } =

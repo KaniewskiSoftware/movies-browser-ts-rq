@@ -5,14 +5,6 @@ import { usePersonDetails } from "../../../common/api/hooks/people/usePersonDeta
 import Page from "../../../common/components/Page";
 import Content from "./Content";
 
-/**
- * The PersonDetailsPage component fetches and displays detailed information
- * about a single person. It uses the usePersonDetails custom hook to fetch
- * data about a person with a given ID from the API, and renders the Page and
- * Content components with the fetched data.
- *
- * @returns A React component that renders detailed information about a movie.
- */
 const PersonDetailsPage = () => {
   const { id } = useParams();
 

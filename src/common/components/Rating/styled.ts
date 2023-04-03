@@ -11,15 +11,6 @@ interface StyledStarProps {
   $large?: boolean;
 }
 
-/**
- * The Container component is a styled div that serves as a container for
- * the Rating component elements, providing proper alignment and spacing.
- *
- * @param $large - (Optional) A boolean to apply the large version styles.
- * @param $medium - (Optional) A boolean to apply the medium version styles.
- * @property styled - A function that returns a styled component.
- * @returns A styled div component with dynamic styles based on the optional props.
- */
 export const Container = styled.div<RatingProps>`
   display: flex;
   align-items: center;
@@ -64,14 +55,6 @@ export const Container = styled.div<RatingProps>`
     `}
 `;
 
-/**
- * The StyledStar component is a styled SVG component that displays a star icon.
- *
- * @param $large - (Optional) A boolean to apply the large version styles.
- * @property styled - A function that returns a styled component.
- * @property Star - An SVG component that displays a star icon.
- * @returns A styled SVG component with dynamic styles based on the optional props.
- */
 export const StyledStar = styled(Star)<StyledStarProps>`
   width: 24px;
   height: auto;
@@ -96,27 +79,12 @@ export const StyledStar = styled(Star)<StyledStarProps>`
   }
 `;
 
-/**
- * The TextBox component is a styled `div` element that displays its children in a horizontal
- * row with a consistent amount of space between them.
- *
- * @property {Function} styled - A function that returns a styled component.
- * @returns The rendered component.
- */
 export const TextBox = styled.div`
   display: flex;
   align-items: baseline;
   gap: 8px;
 `;
-/**
- * The Rate component is a styled paragraph component that displays the rating value in a specific font size and weight.
- *
- * @param {boolean} [$large] - (Optional) A boolean to apply the large version styles.
- * @param {boolean} [$medium] - (Optional) A boolean to apply the medium version styles.
- * @property {Function} styled - A function that returns a styled component.
- * @property {HTMLParagraphElement} p - A paragraph element that is used to display the rating value.
- * @returns A styled paragraph component with dynamic styles based on the optional props.
- */
+
 export const Rate = styled.p<RatingProps>`
   position: relative;
   margin: 0;
@@ -173,23 +141,6 @@ interface CountProps {
   $large?: boolean;
 }
 
-/**
- * The Count component is a styled paragraph that can be customized
- * using various optional properties. It is designed to be used in
- * different parts of the application where count-related text is required.
- *
- * @param $large - (Optional) A boolean that sets the font size to 16px and
- *                 line-height to 1.2. It also sets the color to the theme's base color.
- *                 The font size will be 10px on tiny screens when true.
- * @param $medium - (Optional) A boolean that sets the font size to 14px and
- *                  the color to the theme's primary color. The color will be set
- *                  to the theme's secondary color on medium screens. The font size
- *                  will be 13px on tiny screens when true.
- * @param $bottomSelfAlignment - (Optional) A boolean that sets the align-self property
- *                               to 'flex-end' if true. On mobile screens, the align-self
- *                               property will be unset.
- * Inherits TextProps from the Text component, allowing further customization.
- */
 export const Count = styled.p<CountProps>`
   font-size: 16px;
   line-height: 1.5;

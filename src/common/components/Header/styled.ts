@@ -1,10 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-/**
- * StyledHeader is a styled div that serves as a container for the Header component's content. It has a
- * fixed height, background color, and flex-based layout that adjusts based on the screen size.
- */
 export const StyledHeader = styled.div`
   width: 100%;
   height: 94px;
@@ -28,10 +24,6 @@ export const StyledHeader = styled.div`
   }
 `;
 
-/**
- * Wrapper is a styled div that serves as a container for the logo and navigation components. It uses a
- * flex-based layout with a gap between items that adjusts based on the screen size.
- */
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -48,10 +40,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-/**
- * LogoLink is a styled NavLink component that wraps the logo image and text. It provides the logo with
- * a link to the movies page and sets the appropriate styles for the text and the link.
- */
 export const LogoLink = styled(NavLink)`
   display: flex;
   align-items: center;
@@ -70,19 +58,12 @@ export const LogoLink = styled(NavLink)`
   }
 `;
 
-/**
- * LogoImg is a styled img component that sets the size and display properties for the logo image.
- */
 export const LogoImg = styled.img`
   display: block;
   width: 40px;
   height: 40px;
 `;
 
-/**
- * LogoText is a styled p component that sets the text styles for the logo, such as color, font size,
- * line-height, letter-spacing, and font-weight. It also removes default margins and paddings.
- */
 export const LogoText = styled.p`
   text-decoration: none;
   margin: 0;

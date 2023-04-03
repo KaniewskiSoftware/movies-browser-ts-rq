@@ -3,10 +3,6 @@ import Title from "../../Title";
 import { StyledSpinner, SpinnerBox } from "./styled";
 import { Wrapper } from "../../Wrapper";
 
-/**
- * The Loader component displays a spinning icon to indicate that content is being loaded.
- * It also shows a title if a search query is present.
- */
 const Loader = () => {
   const query = useQueryParameter(searchQueryParamName);
 

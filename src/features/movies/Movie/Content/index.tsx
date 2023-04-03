@@ -20,34 +20,10 @@ interface ContentProps {
   movie: MovieDetailsResponse;
   credits: MovieCreditsResponse;
 }
-/**
- * The Content component displays the main content of the movie details page, including a backdrop image,
- * movie information, cast and crew.
- *
- * @param {MovieDetailsResponse} movie - The movie details data to be displayed.
- * @param {MovieCreditsResponse} credits - The movie credits data to be displayed.
- *
- * @returns {JSX.Element} A component that displays the main content of the movie details page.
- */
+
 const Content = ({ movie, credits }: ContentProps) => {
-  /**
-   * Determines the appropriate poster and backdrop image sizes for the current screen resolution using
-   * the useResponsiveImageSize custom hook and casts the result to their corresponding size types.
-   *
-   * The type casting is necessary because TypeScript sometimes has difficulty
-   * recognizing that the hook always returns the correct size type for all possible
-   * image type keys, even though the hook ensures the proper type is returned.
-   *
-   * @type {BackdropSize}
-   */
   const backdropSize = useResponsiveImageSize("backdrop") as BackdropSize;
-  /**
-   * @type {PosterSize}
-   */
   const posterSize = useResponsiveImageSize("poster") as PosterSize;
-  /**
-   * @type {ProfileSize}
-   */
   const profileSize = useResponsiveImageSize("profile") as ProfileSize;
 
   const properties = [

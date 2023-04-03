@@ -8,15 +8,6 @@ interface RoleAndReleaseProps {
   smallText?: boolean;
 }
 
-/**
- * The RoleAndRelease component is used for displaying a role and release year
- * of a movie, TV show, or person's career. It can display role, release year,
- * or both, based on the given props.
- *
- * @param role - (Optional) A string representing the role of a person in a movie or TV show.
- * @param releaseDate - (Optional) A string representing the release date of a movie or TV show.
- * @param smallText - (Optional) A boolean that determines whether the text should be displayed smaller. Default value: false.
- */
 const RoleAndRelease = ({
   bigFont,
   role,

@@ -7,9 +7,6 @@ interface TextProps {
   $callToAction?: boolean;
 }
 
-/**
- * A styled SVG icon (Danger) that represents the error state.
- */
 export const Sign = styled(Danger)`
   width: 120px;
   height: auto;
@@ -19,11 +16,6 @@ export const Sign = styled(Danger)`
   }
 `;
 
-/**
- * Props:
- * @param $big: A boolean that indicates if the text should be styled as the main error message.
- * @param $callToAction: A boolean that indicates if the text should be styled as button text.
- */
 export const Text = styled.span<TextProps>`
   font-weight: 500;
   font-size: 22px;
@@ -63,10 +55,6 @@ export const Text = styled.span<TextProps>`
     `}
 `;
 
-/**
- * A styled Link component that serves as a call-to-action button to navigate back
- * to the home page.
- */
 export const Button = styled(Link)`
   display: flex;
   flex-direction: row;

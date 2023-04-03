@@ -1,6 +1,5 @@
 import "styled-components";
 
-// Common properties for the theme
 interface Common {
   breakpoints: {
     readonly smalest: string;
@@ -14,7 +13,6 @@ interface Common {
   readonly boxShadow: string;
 }
 
-// Colors properties for the theme
 interface Colors {
   readonly primary: string;
   readonly base: string;
@@ -30,7 +28,6 @@ interface Colors {
   readonly unknown: string;
 }
 
-// Extending the DefaultTheme from styled-components
 declare module "styled-components" {
   export interface DefaultTheme extends Common {
     readonly colors: Colors;

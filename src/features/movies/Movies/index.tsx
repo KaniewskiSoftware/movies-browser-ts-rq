@@ -10,12 +10,6 @@ import {
 } from "../../../common/hooks/queryParameters";
 import Content from "./Content";
 
-/**
- * MoviesPage component displays a list of movies based on the search query and
- * page number from the query parameters. It fetches movie and genre data using
- * the custom hooks useMovies and useGenres, and then renders the Content and Page
- * components with the fetched data.
- */
 const MoviesPage = () => {
   const pageParam = useQueryParameter(pageQueryParamName);
   const query = useQueryParameter(searchQueryParamName);

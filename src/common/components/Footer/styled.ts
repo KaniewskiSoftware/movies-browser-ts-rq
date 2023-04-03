@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-/**
- * The Wrapper is a styled component that provides the style for the Footer component.
- */
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -14,9 +11,6 @@ export const Wrapper = styled.div`
   }
 `;
 
-/**
- * The Counter is a styled component that provides the style for the page counter in the Footer component.
- */
 export const Counter = styled.div`
   display: flex;
   align-items: center;
@@ -32,9 +26,6 @@ export const Counter = styled.div`
   }
 `;
 
-/**
- * The Span is a styled component that provides the style for the text within the Counter component.
- */
 export const Span = styled.span`
   color: ${({ theme }) => theme.colors.primary};
   margin: 0px 6px;

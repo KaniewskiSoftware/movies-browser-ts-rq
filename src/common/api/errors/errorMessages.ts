@@ -1,8 +1,3 @@
-/**
- * errorMessages is an object containing user-friendly error messages associated with specific
- * HTTP status codes, status code from the external API, and custom errors like network errors.
- * These messages are used to inform users about the issues they may encounter while using the app.
- */
 export const errorMessages: Record<number | "default" | "network", string> = {
   7: "Invalid API key. You must be granted a valid key. Please check your API key and try again.",
   34: "The resource you requested could not be found. Please check the URL.",
@@ -19,14 +14,6 @@ export const errorMessages: Record<number | "default" | "network", string> = {
   default: "An unexpected error occurred. Please try again later.",
 };
 
-/**
- * getErrorMessage is a function that takes an HTTP status code or a custom status code as an input
- * and returns the associated user-friendly error message. If the code is not found in the
- * errorMessages object, it returns the default error message.
- *
- * @param {number} code - The HTTP status code or a custom status code to get the error message for.
- * @returns {string} - The associated user-friendly error message.
- */
 export const getErrorMessage = (code: number): string => {
   return errorMessages[code] || errorMessages.default;
 };

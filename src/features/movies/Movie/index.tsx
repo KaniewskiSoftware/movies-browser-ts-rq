@@ -4,14 +4,6 @@ import { useMovieDetails } from "../../../common/api/hooks/movies/useMovieDetail
 import Page from "../../../common/components/Page";
 import Content from "./Content";
 
-/**
- * The MovieDetailsPage component fetches and displays detailed information
- * about a single movie. It uses the useMovieDetails custom hook to fetch
- * data about a movie with a given ID from the API, and renders the Page and
- * Content components with the fetched data.
- *
- * @returns A React component that renders detailed information about a movie.
- */
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const {

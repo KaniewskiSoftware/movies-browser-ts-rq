@@ -4,26 +4,6 @@ import { searchQueryParamName } from "./queryParameters";
 import { debounce } from "../utils/debounce";
 import { toMovie, toMovies, toPeople, toPerson } from "../utils/routes";
 
-/**
- * The useSearchLogic custom hook provides logic for handling user input, navigation, and state management
- * for the search field. It manages the input value state, updates the input value based on the current
- * location's search query parameters, and uses a debounced navigate function to perform the search with
- * a delay to reduce the number of unnecessary API calls.
- *
- * @returns An object containing the input value, a function to set the input value, and a function to handle input changes.
- * @property inputValue - The current value of the search input field.
- * @property setInputValue - A function to set the value of the search input field.
- * @property onInputChange - A function to handle changes to the search input field.
- * @param location - The current location object from the react-router-dom library.
- * @param navigate - The navigate function from the react-router-dom library.
- * @param debounce - A utility function to debounce the navigate function.
- * @param searchQueryParamName - The name of the search query parameter in the URL.
- * @param toMovie - The path to the movie page.
- * @param toMovies - The path to the movies list page.
- * @param toPeople - The path to the people list page.
- * @param toPerson - The path to the person page.
- */
-
 const useSearchLogic = () => {
   const location = useLocation();
   const navigate = useNavigate();

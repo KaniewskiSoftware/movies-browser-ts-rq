@@ -1,33 +1,11 @@
 import styled, { css } from "styled-components";
 
-/**
- * Properties styled-component, a container for the key-value pairs.
- *
- * @component
- * @example
- * return (
- *   <Properties>
- *     // Render Property and PropertyText components here
- *   </Properties>
- * );
- */
 export const Properties = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
 `;
 
-/**
- * Property styled-component, a container for a single key-value pair.
- *
- * @component
- * @example
- * return (
- *   <Property>
- *     // Render PropertyText components here
- *   </Property>
- * );
- */
 export const Property = styled.dl`
   display: flex;
   align-items: center;
@@ -41,18 +19,6 @@ interface PropertyTextProps {
   $entitled?: boolean;
 }
 
-/**
- * PropertyText styled-component to display the property title and content.
- *
- * @component
- * @example
- * return (
- *   <>
- *     <PropertyText $entitled>Title</PropertyText>
- *     <PropertyText>Content</PropertyText>
- *   </>
- * );
- */
 export const PropertyText = styled.p<PropertyTextProps>`
   margin: 0;
   font-weight: 400;

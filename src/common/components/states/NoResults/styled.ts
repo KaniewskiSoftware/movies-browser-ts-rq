@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Plane } from "./picture.svg";
 
-/**
- * A styled container that holds and centers the plane SVG image
- * within the NoResults component.
- */
 export const PlaneBox = styled.div`
   display: grid;
   justify-content: center;
@@ -16,10 +12,6 @@ export const PlaneBox = styled.div`
   } ;
 `;
 
-/**
- * A styled SVG icon (Plane) that represents an image of a plane
- * to be displayed when there are no search results.
- */
 export const StyledPlane = styled(Plane)`
   width: 668px;
   height: auto;

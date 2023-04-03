@@ -1,9 +1,3 @@
-/**
- * This file contains the theme configuration for the application, including colors,
- * breakpoints, and other common styling properties.
- */
-
-// Common properties for the theme
 const common = {
   breakpoints: {
     smalest: "324px",
@@ -17,7 +11,6 @@ const common = {
   boxShadow: "0px 4px 12px rgba(186, 199, 213, 0.5)",
 };
 
-// Color names and their corresponding values
 const colorNames = {
   white: "#FFFFFF",
   whisper: "#F5F5FA",
@@ -32,12 +25,7 @@ const colorNames = {
   woodSmoke: "#18181B",
   black: "#000000",
 };
-/**
- * The theme object contains the styling configuration for the application.
- * It includes:
- * 1. Common properties: breakpoints and boxShadow.
- * 2. Colors for the application.
- */
+
 export const theme = {
   ...common,
   colors: {

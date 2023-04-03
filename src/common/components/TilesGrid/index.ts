@@ -4,13 +4,6 @@ interface TilesGridProps {
   $moreItems?: boolean;
 }
 
-/**
- * The TilesGrid component is a styled div that creates a responsive grid
- * layout to display tile-like components. The number of columns adjusts
- * depending on the viewport width and the presence of the `$moreItems` prop.
- *
- * @param $moreItems - (Optional) A boolean to increase the number of columns.
- */
 export const TilesGrid = styled.div<TilesGridProps>`
   display: grid;
   grid-template-columns: repeat(4, 1fr);

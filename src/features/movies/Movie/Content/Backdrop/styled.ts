@@ -4,10 +4,6 @@ interface BackgroundProps {
   $backdrop?: string;
 }
 
-/**
- * A styled section component that serves as a container for the backdrop component.
- * It has various height breakpoints and applies background and text color from the theme.
- */
 export const Container = styled.section`
   display: flex;
   justify-content: center;
@@ -37,11 +33,6 @@ export const Container = styled.section`
   }
 `;
 
-/**
- * A styled div component that displays the backdrop image with a custom box-shadow effect.
- *
- * @prop $backdrop - The URL of the backdrop image.
- */
 export const Background = styled.div<BackgroundProps>`
   position: relative;
   display: flex;
@@ -80,17 +71,10 @@ export const Background = styled.div<BackgroundProps>`
   }
 `;
 
-/**
- * A styled div component for the backdrop content that is positioned absolutely within the Background component.
- */
 export const BackdropContent = styled.div`
   position: absolute;
 `;
 
-/**
- * A styled h1 component for displaying the title of the backdrop component.
- * It has various font-size breakpoints for responsiveness.
- */
 export const Title = styled.h2`
   margin: 0 0 24px;
   font-weight: 600;

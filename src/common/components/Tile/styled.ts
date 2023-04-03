@@ -78,18 +78,6 @@ export const TileContainer = styled.article<TileContainerProps>`
     `}
 `;
 
-/**
- * Image is a styled div component that displays the image for the Tile component.
- * It supports optional properties for image URL, absence of an image, and horizontal
- * Tile display on mobile devices.
- *
- * @param $imageURL - (Optional) A string representing the image URL. Default value: undefined.
- * @param $noImage - (Optional) A boolean that determines correct placeholder look if the image
- *                   is not available. Default value: false.
- * @param $horizontalOnMobile - (Optional) A boolean that helps to keep correct image size and
- *                              aspect ratio while the Tile is displayed horizontally.
- *                              Default value: false.
- */
 export const Image = styled.div.attrs<ImageProps>(({ $imageURL }) => ({
   style: {
     backgroundImage: `url(${$imageURL})`,
@@ -154,14 +142,6 @@ export const Image = styled.div.attrs<ImageProps>(({ $imageURL }) => ({
     `}
 `;
 
-/**
- *
- *
- * Content is a styled div component that serves as the container for the text elements
- * inside the Tile component. It supports optional centered text alignment.
- * @param $textCentered - (Optional) A boolean that determines if the text should be centered
- *                        within the Content component. Default value: false.
- */
 export const Content = styled.div<ContentProps>`
   display: flex;
   flex-direction: column;
@@ -201,12 +181,6 @@ export const Content = styled.div<ContentProps>`
     `}
 `;
 
-/**
- * Title is a styled paragraph (p) component that displays the title text inside the Tile component.
- * It supports optional small font size for smaller screens or design preferences.
- * @param $smallTitle - (Optional) A boolean that determines if the Title should have a smaller font
- *                      size. Default value: false.
- */
 export const Title = styled.h2<TitleProps>`
   margin: 0;
 
