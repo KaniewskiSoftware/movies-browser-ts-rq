@@ -1,8 +1,6 @@
 # [Movies Browser using TypeScript and ReactQuery](https://kaniewskisoftware.github.io/movies-browser-ts-rq/)
 
-This project is an alternative version of my group project, [MoviesBrowser](https://github.com/KaniewskiSoftware/movie-browser). The primary goal is to refactor the entire project using TypeScript to create more professional codebase. Instead of using Redux to manage the state of the app, I will utilize ReactQuery. Additionally, I will strive to make the code as generic as possible by creating simpler, reusable components. I have also developed custom hooks and utilities to achieve various functionalities, such as handling different image sizes based on screen width and managing screen resizing.
-
-The project now boasts a well-structured and organized codebase, thanks to the reusable and generic components that have been constantly improved upon. With a strong foundation in place, future enhancements and features can be easily integrated.
+This project is an alternative version of my group project, [MoviesBrowser](https://github.com/KaniewskiSoftware/movie-browser).
 
 ## Preview
 
@@ -15,16 +13,6 @@ The project now boasts a well-structured and organized codebase, thanks to the r
 - Make the code as generic as possible by creating simpler, reusable components
 - Create custom hooks and utilities for various purposes
 - Enhance search functionality with debouncing for improved performance and user experience
-
-## Next Steps
-
-Upcoming tasks and goals include:
-
-1. Enhance the data fetching process by implementing the built-in prefetch utility from React Query to prefetch the next page. However, there are some challenges in preserving the current error handling approach while integrating this feature. The goal is to find a suitable solution that maintains the current error handling scheme.
-2. Write comprehensive Jest tests for the codebase to ensure its reliability and maintainability
-3. Continuously identify and fix bugs to ensure a smooth and reliable user experience
-
-By accomplishing these goals, the project will continue to evolve and provide a robust, maintainable, and user-friendly experience.
 
 ## Key Features
 
