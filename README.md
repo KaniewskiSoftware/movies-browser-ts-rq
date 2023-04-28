@@ -1,18 +1,11 @@
 # [Movies Browser using TypeScript and ReactQuery](https://kaniewskisoftware.github.io/movies-browser-ts-rq/)
 
-This project is an alternative version of my group project, [MoviesBrowser](https://github.com/KaniewskiSoftware/movie-browser).
+Application to browse through popular movies or people and their detailed pages.
+This project is an alternative version of my group project, [MoviesBrowser](https://github.com/KaniewskiSoftware/movie-browser). 
 
 ## Preview
 
 !["Preview of the page"](animation.gif)
-
-## Main Goals
-
-- Refactor the whole project using TypeScript to make the code more professional
-- Manage the state of the app using ReactQuery instead of Redux
-- Make the code as generic as possible by creating simpler, reusable components
-- Create custom hooks and utilities for various purposes
-- Enhance search functionality with debouncing for improved performance and user experience
 
 ## Key Features
 
