@@ -1,7 +1,6 @@
 # [Movies Browser using TypeScript and ReactQuery](https://kaniewskisoftware.github.io/movies-browser-ts-rq/)
 
-Application to browse through popular movies or people and their detailed pages.  
-Technologies: React, React Query, React Router v6, Styled Components.   
+Application to browse through popular movies or people and their detailed pages.     
 This project is an alternative version of my group project, [MoviesBrowser](https://github.com/KaniewskiSoftware/movie-browser). 
 
 ## Preview
